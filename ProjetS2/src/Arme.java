@@ -1,6 +1,6 @@
 
 public class Arme {
-	//blablabla
+	//blablablaCAAAAAR
 	private int puissance;
 	private int munition;
 	private int poid;
@@ -16,7 +16,7 @@ public class Arme {
 		this.portee = portee;
 		this.dispertion = dispertion;
 		this.cadence = cadence;
-		// � coder
+		// �ｿｽ coder
 	}
 	
 	public Arme(Arme ar){
@@ -29,9 +29,9 @@ public class Arme {
 		
 	}
 	
-	// m�thode servant � afficher l'arme
+	// m�ｿｽthode servant �ｿｽ afficher l'arme
 	public void afficher(){
-		// � coder
+		// �ｿｽ coder
 	}
 	
 	public int getPoid(){
