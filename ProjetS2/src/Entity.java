@@ -6,7 +6,7 @@ import org.newdawn.slick.opengl.Texture;
 
 public abstract class Entity {
 	
-	protected int test = 0 ;
+	
     protected int posX;
     protected int posY;
     protected int vitesse;
@@ -28,17 +28,35 @@ public abstract class Entity {
         this.posY = y;
     }
     
+    //getter de sante
+    public int getSante(){
+		return this.sante;
+	}
+    
+    //setter de sante
+    public void setSante(int sante){
+		this.sante=sante;
+	}
+    
+  //getter de x
     public int getX(){
     	return this.posX;
     }
     
+    //getter de y
     public int getY(){
     	return this.posY;
     }
     
+    //getter de vitesse
     public int getVitesse(){
     	return this.vitesse;
     }
+    
+    //setter de vitesse
+    public void setVitesse(int vit){
+		this.sante=vit;
+	}
     
     //méthode servant à afficher une entite
     public void afficher(){
