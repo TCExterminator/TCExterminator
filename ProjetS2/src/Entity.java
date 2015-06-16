@@ -5,7 +5,8 @@ import org.newdawn.slick.opengl.Texture;
 
 
 public abstract class Entity {
-
+	
+	protected int test = 0 ;
     protected int posX;
     protected int posY;
     protected int vitesse;
