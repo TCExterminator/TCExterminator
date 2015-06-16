@@ -4,7 +4,7 @@ public class Graph {
 
 	public void setPoids(int numeroTerrain){
 		// On récupère le tableau des cases du terrain.
-		char[][] mapChar = Maping.getTerrain(numeroTerrain);
+		char[][] mapChar = Terrain.lireTerrain(numeroTerrain);
 		
 		// Parcours du tableau des cases.
 		for(int i =0;i < mapChar.length;i++){

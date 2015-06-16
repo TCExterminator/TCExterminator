@@ -7,8 +7,8 @@ public class Node {
 	
 	
 	public Node(Entity e){
-		this.setPosX(e.getPosX());
-		this.setPosY(e.getPosY());
+		this.setPosX(e.getX());
+		this.setPosY(e.getY());
 		this.typeCase = 1;
 	}
 	
