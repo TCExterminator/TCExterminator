@@ -1,5 +1,6 @@
 
 public class Arme {
+	//blablabla
 	private int puissance;
 	private int munition;
 	private int poid;
@@ -15,7 +16,7 @@ public class Arme {
 		this.portee = portee;
 		this.dispertion = dispertion;
 		this.cadence = cadence;
-		// à coder
+		// ï¿½ coder
 	}
 	
 	public Arme(Arme ar){
@@ -28,9 +29,9 @@ public class Arme {
 		
 	}
 	
-	// méthode servant à afficher l'arme
+	// mï¿½thode servant ï¿½ afficher l'arme
 	public void afficher(){
-		// à coder
+		// ï¿½ coder
 	}
 	
 	public int getPoid(){
