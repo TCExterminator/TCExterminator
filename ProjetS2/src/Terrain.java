@@ -18,14 +18,13 @@ import org.newdawn.slick.opengl.Texture;
 
 public class Terrain {
 
+	private int idTerrain;
+	private boolean isActif=false;
 	private static final String[] listMap={"map0.txt","map1.txt","map2.txt","map3.txt","map4.txt","map5.txt","map6.txt"};
 	private ArrayList<Zombie> lesZomb = new ArrayList<Zombie>();
-	private int idTerrain;
-	private Player lePerso;
 	private ArrayList<Projectile> lesProj;
 	private Case[][] lesCases;
 	private ArrayList<Bonus> lesBonus;
-	private boolean isActif=false;
 	
 	public Terrain(){
 		Random r = new Random();
@@ -93,19 +92,19 @@ public class Terrain {
 		return resultat;
 	}
 	
-	//méthode servant à tester la collision entre une Entite est une case
+	//mé¨hode servant ï¿½ tester la collision entre une Entite est une case
 		public void collision(){
-			//à coder
+			//ï¿½ coder
 		}
 		
-		//méthode servant à récupérer un type de case à une position donnée passé en paramêtre
+		//mé¨hode servant ï¿½ ré¦—upé§»er un type de case ï¿½ une position donné¦¥ passï¿½ en paramé»re
 		public char getTypeCase(int posX, int posY){
 			char res;
 			res =lesCases[(int) posX/32][(int) posY/32 ].getTypeCase();
 			return res;
 		}
 		
-		//méthode servant à supprimer une entite et retourne un boolean 
+		//mé¨hode servant ï¿½ supprimer une entite et retourne un boolean 
 		public boolean supprimer(){
 			boolean res = false;		
 			for ( Entity e : lesZomb){			
