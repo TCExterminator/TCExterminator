@@ -17,9 +17,9 @@ public class Jeu {
 	private static String version = "alpha 1.0";
 	private static boolean started = false;
 	
-
 	private static final ArrayList<Terrain> lesTerrains = new ArrayList<Terrain>() ;
 	public static Player joueur;
+	
 	//liste des armes du jeu
 	public static Arme[] listArme = new Arme[]{new Arme(15,50,1,2,1,4),
 											   new Arme(20,120,2,2,2,4),
