@@ -6,6 +6,7 @@ public class Bonus {
 	private int posX;
 	private int posY;
 	private int effet;
+	private ArrayList<Arme> lesArmes;
 	private Arme a = null;
 	
 	//constructeur de la classe Bonus
@@ -25,9 +26,9 @@ public class Bonus {
 	
 	
 	
-	//mé¨hode servant ï¿½ afficher le bonus
+	//méthode servant à afficher le bonus
 	public void afficher(){
-		//ï¿½ coder
+		//à coder
 	}
 	
 	public int getEffet(){
