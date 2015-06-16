@@ -20,7 +20,12 @@ public class Terrain {
 
 	private static final String[] listMap={"map0.txt","map1.txt","map2.txt","map3.txt","map4.txt","map5.txt","map6.txt"};
 	private ArrayList<Zombie> lesZomb = new ArrayList<Zombie>();
-	
+	private int idTerrain;
+	private Player lePerso;
+	private ArrayList<Projectile> lesProj;
+	private Case[][] lesCases;
+	private ArrayList<Bonus> lesBonus;
+	private boolean isActif=false;
 	
 	public Terrain(){
 		Random r = new Random();
@@ -87,4 +92,41 @@ public class Terrain {
 		}
 		return resultat;
 	}
+	
+	//méthode servant à tester la collision entre une Entite est une case
+		public void collision(){
+			//à coder
+		}
+		
+		//méthode servant à récupérer un type de case à une position donnée passé en paramêtre
+		public char getTypeCase(int posX, int posY){
+			char res;
+			res =lesCases[(int) posX/32][(int) posY/32 ].getTypeCase();
+			return res;
+		}
+		
+		//méthode servant à supprimer une entite et retourne un boolean 
+		public boolean supprimer(){
+			boolean res = false;		
+			for ( Entity e : lesZomb){			
+				if( e.getSante()<=0){
+					//supprimer e
+				}	
+			}	
+			
+			
+				/*if( lePerso.getSante()<=0){
+					//supprimer e
+				}	
+				*/
+			
+			
+						
+			for ( Entity e : lesProj){			
+				if( e.getSante()<=0){
+					//supprimer e
+				}	
+			}		
+			return res;		
+		}
 }
