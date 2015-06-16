@@ -16,8 +16,9 @@ public class Jeu {
 	private static String title = "Shinkuest";
 	private static String version = "alpha 1.0";
 	private static boolean started = false;
-	private ArrayList<Entity> lesEntites;
-	
+	private ArrayList<Zombie> lesZomb;
+	private Player lePerso;
+	private ArrayList<Projectile> lesProj;
 
 	private static final ArrayList<Terrain> lesTerrains = new ArrayList<Terrain>() ;
 	public static Player joueur;
