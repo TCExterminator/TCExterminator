@@ -24,23 +24,23 @@ public class Jeu {
 	//initialisation de la liste des armes du jeu
 	public static Arme[] listeArme;
 
-	//méthode de classe servant à stopper le jeu
+	//methode de classe servant a stopper le jeu
 	public static void stop(){
 		started=false;
 	}
 
-	//méthode servant à initialiser le personnage
+	//methode servant a initialiser le personnage
 	public static void initialiser(){
 		joueur =new Player(500, 375,4,"perso");
 	}
 	
-	//méthode servant à afficher un terrain
+	//methode servant a afficher un terrain
 	public static void afficher(){
 		lesTerrains.get(0).afficher();
 		joueur.afficher();
 	}
 	
-	//méthode servant de boucle principal au jeu
+	//methode servant de boucle principal au jeu
 	public static void loop(){
 		while(started){
 			if(Display.isCloseRequested()){
@@ -58,10 +58,10 @@ public class Jeu {
 	}
 
 
-	//méthode servant à lancer le jeu
+	//methode servant a lancer le jeu
 	public static void main(String[] args) {
 		
-		//création de la liste d'arme
+		//creation de la liste d'arme
 		listeArme = new Arme[]{new Arme(15,50,1,2,1,4),
 				   new Arme(20,120,2,2,2,4),
 				   new Arme(10,240,2,2,4,32),
@@ -92,7 +92,7 @@ public class Jeu {
 		loop();
 	}
 	
-	//méthode servant à récupérer les inputs du joueur
+	//methode servant a recuperer les inputs du joueur
 	public static void getInputs(){
 		if(Keyboard.isKeyDown(Keyboard.KEY_E)){
 			Display.destroy();
@@ -135,7 +135,7 @@ public class Jeu {
 		}
 	}
 	
-	//méthode récupérant les textures 
+	//methode recuperant les textures 
 	public static Texture getTexture(String file){
 		Texture texture = null;
 		try {
