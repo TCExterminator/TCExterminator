@@ -7,7 +7,7 @@ public class Player extends Entity{
 	private int mana;
 	private int caseActiveInventaire;
 	private ArrayList<Arme> inventaire;
-	//personnage jouable représenté par un int
+	//personnage jouable reprï¿½sentï¿½ par un int
 	private int[] perso;
 	private static int poidMax=10;
 	
@@ -15,65 +15,63 @@ public class Player extends Entity{
 		super(x, y, speed, texture);
 	}
 	
-	//méthode servant à faire tirer le personnage
-		public void tirer(){
-			//à coder
-		}
+	//mï¿½thode servant ï¿½ faire tirer le personnage
+	public void tirer(){
+		//ï¿½ coder
+	}
 		
-		//méthode servant à faire lacher l'arme au personnage
-		public void lacherArme(){
-			//à coder
-		}
+	//mï¿½thode servant ï¿½ faire lacher l'arme au personnage
+	public void lacherArme(){
+		//ï¿½ coder
+	}
 		
-		public void setArmure(int ar){
-			this.armure=ar;
-		}
+	public void setArmure(int ar){
+		this.armure=ar;
+	}
 		
-		public void setMana(int ma){
-			this.mana=ma;
+	public void setMana(int ma){
+		this.mana=ma;
 	}
 		
 		
-		public boolean ajouterArme(Arme arme){
-			boolean res = false;
-			int placeRestante=poidMax;
+	public boolean ajouterArme(Arme arme){
+		boolean res = false;
+		int placeRestante=poidMax;
 			
-			for(Arme a : inventaire){
-				placeRestante-=a.getPoid();
+		for(Arme a : inventaire){
+			placeRestante-=a.getPoid();
 				
-			}
-			if(arme.getPoid()<=placeRestante){
-				res=true;
-				inventaire.add(arme);
-			}
-			return res;
 		}
+		if(arme.getPoid()<=placeRestante){
+			res=true;
+			inventaire.add(arme);
+		}
+		return res;
+	}
 		
-		//méthode servant à affecter un bonus à un personnage
-			public void affecterBonus(Bonus b){
-				int nbBonus=b.getEffet();
-				/*effet 1 : sante
-				 *effet 2 : armure
-				 *effet 3 : mana
-				 *effet 4 : vitesse
-				 *effet 5 : Arme 
-				 */
-				
-				switch (nbBonus) {
-				case 1 : this.setSante(this.getSante() + 50);
-				break;
-				case 2 : this.setArmure(this.armure + 50);
-				break;
-				case 3 : this.setMana(this.mana + 20);
-				break;
-				case 4 : this.setVitesse(this.vitesse + 1);
-				break;
-				case 5 : this.ajouterArme(b.getArme());
-				}
-						 
-				
-						 
-				
-				}
-
+	//mï¿½thode servant ï¿½ affecter un bonus ï¿½ un personnage
+	public void affecterBonus(Bonus b){
+		int nbBonus=b.getEffet();
+		/*effet 1 : sante
+		*effet 2 : armure
+		*effet 3 : mana
+		*effet 4 : vitesse
+		*effet 5 : Arme 
+		*/
+			
+		switch (nbBonus) {
+		case 1 : this.setSante(this.getSante() + 50);
+		break;
+		case 2 : this.setArmure(this.armure + 50);
+		break;
+		case 3 : this.setMana(this.mana + 20);
+		break;
+		case 4 : this.setVitesse(this.vitesse + 1);
+		break;
+		case 5 : this.ajouterArme(b.getArme());
+		}
+	}
+	public void move(int dx,int dy){
+		
+	}		 
 }

@@ -96,21 +96,25 @@ public class Jeu {
 			System.exit(0);
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
+			joueur.move(1,1);
 			joueur.setPosition(joueur.getX(),joueur.getY()+joueur.getVitesse());
 			glTranslated(0, -joueur.getVitesse()/2, 0);
 			myr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
+			joueur.move(1,1);
 			joueur.setPosition(joueur.getX()-joueur.getVitesse(),joueur.getY());
 			glTranslated(joueur.getVitesse()/2, 0, 0);
 			mxr+=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_D)){
+			joueur.move(1,1);
 			joueur.setPosition(joueur.getX()+joueur.getVitesse(),joueur.getY());
 			glTranslated(-joueur.getVitesse()/2,0, 0);
 			mxr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_S)){
+			joueur.move(1,1);
 			joueur.setPosition(joueur.getX(),joueur.getY()-joueur.getVitesse());
 			glTranslated(0, joueur.getVitesse()/2, 0);
 			myr+=joueur.getVitesse()/2;
@@ -142,6 +146,4 @@ public class Jeu {
 		}
 		return texture;
 	}
-	
-
 }
