@@ -5,7 +5,7 @@ public class IA {
 	private ArrayList<Node> lesNodes = new ArrayList<>();
 	
 	public ArrayList<Node> IAZombie(Entity e,int terrainActuelle){
-		//On initialise lesNodes grâce à la map actuelle de l'entité
+		//On initialise lesNodes grï¿½ce ï¿½ la map actuelle de l'entitï¿½
 		Graph g = new Graph();
 		g.setPoids(terrainActuelle);
 		int[][] mapPoids = g.getPoids();		
