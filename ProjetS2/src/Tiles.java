@@ -4,7 +4,8 @@ public class Tiles {
 	private Texture textur;
 	
 	public Tiles(Texture tex,char typeTiles){
-		
+		this.textur=tex;
+		this.typeTiles=typeTiles;
 	}
 	public char getTypeTiles(){
 		return this.typeTiles;
@@ -16,5 +17,7 @@ public class Tiles {
 	public void setTexture(Texture textur){
 		this.textur = textur;
 	}
-	
+	public Texture getTexture(){
+		return this.textur;
+	}
 }
