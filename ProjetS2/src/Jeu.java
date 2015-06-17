@@ -29,7 +29,9 @@ public class Jeu {
 	//methode servant a initialiser le personnage
 	public static void initialiser(){
 		joueur =new Player(500, 375,4,"perso");
-		listeArme = new Arme[]{new Arme(15,50,1,2,1,4),
+		listeArme = new Arme[]{
+				   new Arme(25,-42,0,1,0,4),
+				   new Arme(15,50,1,2,1,8),
 				   new Arme(20,120,2,2,2,4),
 				   new Arme(10,240,2,2,4,32),
 				   new Arme(40,42,3,1,5,2),
@@ -123,6 +125,9 @@ public class Jeu {
 				glVertex2i((Mouse.getX()-mxr)+(((Mouse.getX()-mxr)-joueur.getX())*1000),(Mouse.getY()-myr)+(((Mouse.getY()-myr)-joueur.getY())*1000));
 			glEnd();
 			glEnable(GL_BLEND);
+		}
+		if(Mouse.isButtonDown(0)){
+			joueur.tirer((joueur.getX()-(Mouse.getX()-mxr)),(joueur.getY()-(Mouse.getY()-myr)));
 		}
 	}
 	
