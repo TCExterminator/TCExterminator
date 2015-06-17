@@ -87,7 +87,6 @@ public class Jeu {
 	//methode servant a lancer le jeu
 	public static void main(String[] args) {
 		
-		//creation de la liste d'arme
 		initialiser();
 		loop();
 		
