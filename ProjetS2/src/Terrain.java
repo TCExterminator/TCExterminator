@@ -22,7 +22,7 @@ public class Terrain {
 	private ArrayList<Zombie> lesZomb = new ArrayList<Zombie>();
 	private int idTerrain;
 	private Player lePerso;
-	private ArrayList<Projectile> lesProj;
+	private ArrayList<Projectile> lesProj = new ArrayList<Projectile>();
 	private Tiles[][] lesTiles;
 	private ArrayList<Bonus> lesBonus;
 	private boolean isActif=false;
@@ -81,8 +81,13 @@ public class Terrain {
 		for (Zombie e : lesZomb){
 			IA ia= new IA();
 			//e.followNodes(ia.IAZombie(e, this.idTerrain).get(0));
-			ia.IAZombie(e, this.idTerrain);
+			/*for(Node n : ia.IAZombie(e, this.idTerrain)){
+				//e.followNodes(n);
+			}*/
 			e.afficher();
+		}
+		for(Projectile p : lesProj){
+			p.afficher();
 		}
     }
 
