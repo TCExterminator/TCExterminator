@@ -6,7 +6,7 @@ public class IA {
 	private static ArrayList<Node> listeOuverte = new ArrayList<>();
 	
 	
-	public void setLesNodes(int terrainActuelle){
+	public static void setLesNodes(int terrainActuelle){
 		//On initialise lesNodes grace a la map actuelle de l'entite
 				Graph g = new Graph();
 				g.setPoids(terrainActuelle);
@@ -18,7 +18,7 @@ public class IA {
 				}
 	}
 				
-	public void setlisteOuverte(){
+	public static void setlisteOuverte(){
 		for(int i =0;i<IA.lesNodes.size();i++){
 			if(IA.lesNodes.get(i).isPraticable()){
 				IA.listeOuverte.add(lesNodes.get(i));
