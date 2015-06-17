@@ -106,40 +106,30 @@ public class Terrain {
 		return resultat;
 	}
 	
-	//m�thode servant � tester la collision entre une Entite est une case
+	//m�ｿｽthode servant �ｿｽ tester la collision entre une Entite est une case
 		public void collision(){
-			//� coder
+			//�ｿｽ coder
 		}
 		
-		//m�thode servant � r�cup�rer un type de case � une position donn�e pass� en param�tre
+		//m�ｿｽthode servant �ｿｽ r�ｿｽcup�ｿｽrer un type de case �ｿｽ une position donn�ｿｽe pass�ｿｽ en param�ｿｽtre
 		public char getTypeCase(int posX, int posY){
 			char res;
 			res =lesTiles[(int) posX/32][(int) posY/32 ].getTypeTiles();
 			return res;
 		}
-		
-		//m�thode servant � supprimer une entite et retourne un boolean 
-		public boolean supprimer(){
+
+		//m�ｿｽthode servant �ｿｽ supprimer une entite et retourne un boolean 
+		public void supprimerMorts(){
 			boolean res = false;		
-			for ( Entity e : lesZomb){			
-				if( e.getSante()<=0){
-					//supprimer e
+			for (int i=0 ; i<lesZomb.size();i++){			
+				if(lesZomb.get(i).supprimer()){
+					lesZomb.remove(i);
+				}	
+			}
+			for (int i=0 ; i<lesProj.size();i++){			
+				if(lesProj.get(i).supprimer()){
+					lesProj.remove(i);
 				}	
 			}	
-			
-			
-				/*if( lePerso.getSante()<=0){
-					//supprimer e
-				}	
-				*/
-			
-			
-						
-			for ( Entity e : lesProj){			
-				if( e.getSante()<=0){
-					//supprimer e
-				}	
-			}		
-			return res;		
 		}
 }
