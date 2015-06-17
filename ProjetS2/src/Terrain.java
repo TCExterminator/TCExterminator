@@ -27,6 +27,9 @@ public class Terrain {
 	private ArrayList<Bonus> lesBonus;
 	private boolean isActif=false;
 	
+	public boolean getIsActif(){
+		return isActif;
+	}
 	public Terrain(){
 		Random r = new Random();
 		for(int i=0 ;i<20; i++){
@@ -93,19 +96,19 @@ public class Terrain {
 		return resultat;
 	}
 	
-	//méthode servant à tester la collision entre une Entite est une case
+	//mï¿½thode servant ï¿½ tester la collision entre une Entite est une case
 		public void collision(){
-			//à coder
+			//ï¿½ coder
 		}
 		
-		//méthode servant à récupérer un type de case à une position donnée passé en paramêtre
+		//mï¿½thode servant ï¿½ rï¿½cupï¿½rer un type de case ï¿½ une position donnï¿½e passï¿½ en paramï¿½tre
 		public char getTypeCase(int posX, int posY){
 			char res;
 			res =lesCases[(int) posX/32][(int) posY/32 ].getTypeCase();
 			return res;
 		}
 		
-		//méthode servant à supprimer une entite et retourne un boolean 
+		//mï¿½thode servant ï¿½ supprimer une entite et retourne un boolean 
 		public boolean supprimer(){
 			boolean res = false;		
 			for ( Entity e : lesZomb){			
