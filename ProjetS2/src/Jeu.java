@@ -166,6 +166,7 @@ public class Jeu {
 				if((point1=='1')||(point2=='1')||(point3=='1')||(point12=='1')||(point23=='1')||(point34=='1')||(point41=='1')) {
 					dx=0;dx=0;
 				}
+				
 				entite.move(dx,dy);
 			}
 		}
