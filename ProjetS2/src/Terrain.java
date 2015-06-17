@@ -23,7 +23,7 @@ public class Terrain {
 	private int idTerrain;
 	private Player lePerso;
 	private ArrayList<Projectile> lesProj;
-	private Tiles[][] lesCases;
+	private Tiles[][] lesTiles;
 	private ArrayList<Bonus> lesBonus;
 	private boolean isActif=false;
 	
@@ -35,32 +35,36 @@ public class Terrain {
 		for(int i=0 ;i<20; i++){
 			lesZomb.add(new Zombie(r.nextInt(Jeu.winWidth),r.nextInt(Jeu.winHeight),4,"pumpkin"));
 		}
+		Texture sol = Jeu.getTexture("sol");
+		Texture wall = Jeu.getTexture("wall");
+		
+		char map[][]= lireTerrain(0);
+		lesTiles=new Tiles[map.length][map[0].length];
+		for(int i=0;i<map.length;i++){
+			for(int j =0;j<map[i].length;j++){
+				switch(map[i][j]){
+					case '1':
+						lesTiles[i][j]=new Tiles(wall,'1');
+						break;
+					case '0':
+						lesTiles[i][j]=new Tiles(sol,'0');
+						break;
+					default :
+						lesTiles[i][j]=new Tiles(wall,'1');
+						break;
+				}
+				System.out.println(i+" : "+j);
+			}
+		}
 	}
 	
 	public void afficher(){
 		isActif=true;
 		
-		Texture sol = Jeu.getTexture("sol");
-		Texture wall = Jeu.getTexture("wall");
-		
-		char map[][]= lireTerrain(0);
-		lesCases=new Tiles[map.length][map[0].length];
-		
-		for(int i=0;i<map.length;i++){
-			for(int j =0;j<map[i].length;j++){
-				switch(map[i][j]){
-					case '1':
-						/*lesCases[i][j]=new case()*/;
-						wall.bind();
-						break;
-					case '0':
-						sol.bind();
-						break;
-					default :
-						
-						break;
-					
-				}
+		for(int i=0;i<lesTiles.length;i++){
+			for(int j =0;j<lesTiles[i].length;j++){
+				lesTiles[i][j].getTexture().bind();
+				System.out.println(i+" : "+j);
 				glBegin(GL_QUADS);
 						glTexCoord2f(0, 0);
 						glVertex2i(((i+1)*32),(j*32));
@@ -110,7 +114,7 @@ public class Terrain {
 		//m�thode servant � r�cup�rer un type de case � une position donn�e pass� en param�tre
 		public char getTypeCase(int posX, int posY){
 			char res;
-			res =lesCases[(int) posX/32][(int) posY/32 ].getTypeTiles();
+			res =lesTiles[(int) posX/32][(int) posY/32 ].getTypeTiles();
 			return res;
 		}
 		
