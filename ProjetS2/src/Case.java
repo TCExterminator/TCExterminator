@@ -6,5 +6,8 @@ public class Case {
 		return this.typeCase;
 	}
 	
+	public void setTypeCase(char tyC){
+		this.typeCase = tyC;
+	}
 	
 }
