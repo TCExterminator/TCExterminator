@@ -130,4 +130,8 @@ public class Terrain {
 				}	
 			}	
 		}
+		
+		public ArrayList<Zombie> getlesZomb(){
+			return this.lesZomb;
+		}
 }

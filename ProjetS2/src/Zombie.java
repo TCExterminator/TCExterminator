@@ -9,7 +9,7 @@ public class Zombie extends Entity{
 		this.degat = this.degat * 1;
 	}
 
-	//m騁hode servant � t  ester la collision entre un zombie et une entite
+	//m騁hode servant � tester la collision entre un zombie et une entite
 	public boolean collision(Entity entite){
 		boolean res = false;
 		//� co der
@@ -18,16 +18,16 @@ public class Zombie extends Entity{
 		
 	public void followNodes(Node n){
 		if(this.getX()<n.getPosX()){
-			this.setPosition(this.getX()+this.vitesse,this.getY());
+			this.move(this.vitesse, 0);;
 		}
 		if(this.getX()>n.getPosX()){
-			this.setPosition(this.getX()-this.vitesse,this.getY());
+			this.setPosition(-this.vitesse,0);
 		}
 		if(this.getY()<n.getPosY()){
-			this.setPosition(this.getX(),this.getY()+this.vitesse);
+			this.setPosition(0,this.vitesse);
 		}
 		if(this.getY()>n.getPosY()){
-			this.setPosition(this.getX(),this.getY()-this.vitesse);
+			this.setPosition(0,-this.vitesse);
 		}
 	}
 }

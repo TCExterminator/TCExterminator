@@ -1,5 +1,11 @@
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glEnd;
+
 import java.util.ArrayList;
 import java.util.Random;
+
+import org.newdawn.slick.opengl.Texture;
 
 
 public class Bonus {
@@ -8,17 +14,19 @@ public class Bonus {
 	private int effet;
 	private ArrayList<Arme> lesArmes;
 	private Arme a = null;
+	private Texture textureBonus;
 	
 	//constructeur de la classe Bonus
 	public Bonus(int x, int y, int effet){
+		this.textureBonus = Jeu.getTexture("pika");
 		this.posX = x;
 		this.posY = y;
-		this.effet = 0;
+		this.effet = effet;
 	}
 	
 
 	public Bonus(int x, int y){
-		Random r = new Random();
+		this.textureBonus = Jeu.getTexture("pika");
 		this.posX = x;
 		this.posY = y;
 		this.effet = 5;
@@ -28,7 +36,9 @@ public class Bonus {
 	
 	//méthode servant à afficher le bonus
 	public void afficher(){
-		//à coder
+		this.textureBonus.bind();
+		glBegin(GL_QUADS);
+		glEnd();		 
 	}
 	
 	public int getPosX(){
