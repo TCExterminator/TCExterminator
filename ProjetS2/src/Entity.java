@@ -91,10 +91,10 @@ public abstract class Entity {
         return this.sante<=0;
         
     }
-    public void move(){
-    	float coefDir = (this.posY-(Mouse.getY()-myr))/(this.posX-(Mouse.getX()-mxr));
-		this.posX=(int) (this.posX+coefDir);
-		this.posY=(int) (this.posY+coefDir);
+    public void move(int dx,int dy){
+    	//float coefDir = (this.posY-(Mouse.getY()-myr))/(this.posX-(Mouse.getX()-mxr));
+		this.posX+= dx;
+		this.posY+= dy;
 	}
     
 }
