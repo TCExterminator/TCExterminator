@@ -142,6 +142,8 @@ public class Jeu {
 		}
 		return texture;
 	}
+	
+	
 	public static void needMove(Entity entite,int dx,int dy){
 		int newX=entite.getX();
 		int newY=entite.getY();
