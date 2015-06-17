@@ -57,7 +57,8 @@ public class Jeu {
 			if(t.isActif()){
 				for (Zombie e : t.getlesZomb()){
 					IA ia= new IA();
-					e.followNodes(new Node(Jeu.joueur.getX(),Jeu.joueur.getY()));
+					//e.followNodes(ia.IAZombie(e.getX(), e.getY(), 0).get(0));
+					e.followNodes(new Node (joueur.posX,joueur.posY));
 				}
 				for(Projectile p : t.getlesProj()){
 					p.move();
