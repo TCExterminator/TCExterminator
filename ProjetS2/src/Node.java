@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 
-
-
-
 public class Node {
 	private int posX;
 	private int posY;	

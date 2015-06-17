@@ -4,7 +4,7 @@ public class IA {
 	
 	private static ArrayList<Node> lesNodes = new ArrayList<>();
 	
-	public ArrayList<Node> IAZombie(Entity e,int terrainActuelle){
+	public Node IAZombie(Entity e,int terrainActuelle){
 		//On initialise lesNodes grace a la map actuelle de l'entite
 		Graph g = new Graph();
 		g.setPoids(terrainActuelle);
@@ -24,21 +24,43 @@ public class IA {
 		}
 		for(Node n:listeOuverte){
 			n.setVoisin(listeOuverte);
-			System.out.println("Voisins du node " + n);
-			for(Node nV:n.getVoisin()){
-				System.out.println(nV);
 			}
-			System.out.println();
-		}
 		
-		ArrayList<Node> listeFerme = new ArrayList<>();
+		//ArrayList<Node> listeFerme = new ArrayList<>();
 		Node nCourant = new Node(e);
 		Node nFinal = new Node(Jeu.joueur);
-		while(!nCourant.equals(nFinal)){
+		//Permet de definir les nodes de débuts et de fin précisement, avec leurs voisins.
+		for(Node n:listeOuverte){
+			if(n.equals(nCourant)){
+				nCourant = n;
+			}
+			if(n.equals(nFinal)){
+				nFinal = n;
+			}
 		}
-		return null;
+
+		//Boucle principale
+		//while(!nCourant.equals(nFinal)){
+			int dist = 1000000000;
+			Node nIdeal = new Node(-1,-1,-1);
+			for(Node n:nCourant.getVoisin()){
+				int a =(n.getPosX() - nFinal.getPosX()) - (n.getPosY() - nFinal.getPosY()) * 
+						(n.getPosX() - nFinal.getPosX()) - (n.getPosY() - nFinal.getPosY());
+				if(a < dist){
+					dist = a;
+					nIdeal = n;
+				}			
+			}
+		//}
+		return nIdeal;
 	}
 
+	
+	
+	
+	
+	
+	
 	
 	
 	//TEST SYSTEME NODE VOISIN
