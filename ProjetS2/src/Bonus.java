@@ -31,6 +31,14 @@ public class Bonus {
 		//à coder
 	}
 	
+	public int getPosX(){
+		return this.posX;
+	}
+	
+	public int getPosY(){
+		return this.posY;
+	}
+	
 	public int getEffet(){
 		return this.effet;
 	}
@@ -39,4 +47,20 @@ public class Bonus {
 		return this.a;
 	}
 
+	public void setPosX(int x){
+		this.posX = x;
+	}
+	
+	public void setPosY(int y){
+		this.posY = y;
+	}
+	
+	public void setEffet(int effet){
+		this.effet = effet;
+	}
+	
+	public void setArme(Arme arm){
+		this.a = new Arme(arm);
+	}
+	
 }
