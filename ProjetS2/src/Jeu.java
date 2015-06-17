@@ -39,22 +39,7 @@ public class Jeu {
 				   new Arme(10,1024,5,3,5,60)};
 		started=true;
 		lesTerrains.add(new Terrain());
-		try{
-			Display.setDisplayMode(new DisplayMode(winWidth,winHeight));
-			Display.setTitle(title + " - " + version);
-			Display.create();
-			glMatrixMode(GL_PROJECTION);
-			glOrtho(0,winWidth,0,winHeight,1,-1);
-			glMatrixMode(GL_MODELVIEW);
-			glEnable(GL_TEXTURE_2D);  
-		    glEnable (GL_COLOR_MATERIAL);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			glLoadIdentity();
-		}catch(LWJGLException e){
-			e.printStackTrace();
-			Display.destroy();
-			System.exit(1);
-		}
+		
 	}
 	
 	//methode servant a afficher un terrain
@@ -83,7 +68,22 @@ public class Jeu {
 
 	//methode servant a lancer le jeu
 	public static void main(String[] args) {
-		
+		try{
+			Display.setDisplayMode(new DisplayMode(winWidth,winHeight));
+			Display.setTitle(title + " - " + version);
+			Display.create();
+			glMatrixMode(GL_PROJECTION);
+			glOrtho(0,winWidth,0,winHeight,1,-1);
+			glMatrixMode(GL_MODELVIEW);
+			glEnable(GL_TEXTURE_2D);  
+		    glEnable (GL_COLOR_MATERIAL);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glLoadIdentity();
+		}catch(LWJGLException e){
+			e.printStackTrace();
+			Display.destroy();
+			System.exit(1);
+		}
 		initialiser();
 		loop();
 		
@@ -96,7 +96,7 @@ public class Jeu {
 			System.exit(0);
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
-			joueur.move(1,1);
+			
 			joueur.setPosition(joueur.getX(),joueur.getY()+joueur.getVitesse());
 			glTranslated(0, -joueur.getVitesse()/2, 0);
 			myr-=joueur.getVitesse()/2;
@@ -145,5 +145,8 @@ public class Jeu {
 			e.printStackTrace();
 		}
 		return texture;
+	}
+	public static needMove(Player joueur,int dx,int dy){
+		joueur.move(1,1);
 	}
 }
