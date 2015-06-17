@@ -47,4 +47,18 @@ public class Node {
 	public void setTypeCase(int typeCase) {
 		this.typeCase = typeCase;
 	}
-}	
+	
+	@Override
+	public boolean equals(Object o){
+		boolean b = false;
+		if(this==o)b=true;
+		else{
+			if(o instanceof Node){
+				Node n = (Node) o;
+				if(this.posX==n.getPosX() && this.posY==n.getPosY() && 
+						this.typeCase==n.getTypeCase())b = true;
+				}
+			}
+		return b;
+		}	
+	}	
