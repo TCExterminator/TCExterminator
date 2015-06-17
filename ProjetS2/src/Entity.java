@@ -86,9 +86,7 @@ public abstract class Entity {
     
     //méthode servant à supprimer une entite et retourne un boolean 
     public boolean supprimer(){
-        boolean res = false;
-
-        return res;
+        return this.sante<=0;
         
     }
     public void move(int dx,int dy){
