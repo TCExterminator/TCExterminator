@@ -118,7 +118,7 @@ public class Terrain {
 			return res;
 		}
 
-		//m�ｿｽthode servant �ｿｽ supprimer une entite et retourne un boolean 
+		//m�ｿｽthode servant �ｿｽ supprim er une entite et retourne un boolean 
 		public void supprimerMorts(){
 			boolean res = false;		
 			for (int i=0 ; i<lesZomb.size();i++){			
