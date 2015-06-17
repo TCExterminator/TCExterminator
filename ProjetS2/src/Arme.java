@@ -34,8 +34,28 @@ public class Arme {
 		// a coder
 	}
 	
+	public int getPuissance(){
+		return this.puissance;
+	}
+	
+	public int getMunition(){
+		return this.munition;
+	}
+	
 	public int getPoid(){
 		return this.poid;
 	}
 	
+	
+	public int getPortee(){
+		return this.portee;
+	}
+	
+	public int getDispertion(){
+		return this.dispertion;
+	}
+	
+	public int getCadence(){
+		return this.cadence;
+	}
 }
