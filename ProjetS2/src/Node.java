@@ -81,10 +81,20 @@ public class Node {
 	}
 	public void setVoisin(ArrayList<Node> listeVoisin){
 		for(Node n:listeVoisin){
-			if(this.estVoisin(n)){
-				this.voisins.add(n);
-			}
-		}
+			if(this.estVoisin(n))this.voisins.add(n);			
+		}	
+	}
+	
+	//TEST NODE
+	public static void mainNode(String[] args){
+		Node nCentre = new Node(5,5,1);
+		Node nDroite = new Node(6,5,1);
+		Node inutile = new Node (0,0,2);
+		System.out.println(nCentre.estVoisin(nDroite));
+		System.out.println(nCentre.estVoisin(inutile));
+		System.out.println(nCentre.isPraticable());
+		System.out.println(inutile.isPraticable());
 		
 	}
+	
 }	
