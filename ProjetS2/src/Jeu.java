@@ -96,25 +96,24 @@ public class Jeu {
 			System.exit(0);
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
-			
-			joueur.setPosition(joueur.getX(),joueur.getY()+joueur.getVitesse());
+			needMove(joueur,0,joueur.getVitesse());
 			glTranslated(0, -joueur.getVitesse()/2, 0);
 			myr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
-			joueur.move(1,1);
+			
 			joueur.setPosition(joueur.getX()-joueur.getVitesse(),joueur.getY());
 			glTranslated(joueur.getVitesse()/2, 0, 0);
 			mxr+=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_D)){
-			joueur.move(1,1);
+			
 			joueur.setPosition(joueur.getX()+joueur.getVitesse(),joueur.getY());
 			glTranslated(-joueur.getVitesse()/2,0, 0);
 			mxr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_S)){
-			joueur.move(1,1);
+			
 			joueur.setPosition(joueur.getX(),joueur.getY()-joueur.getVitesse());
 			glTranslated(0, joueur.getVitesse()/2, 0);
 			myr+=joueur.getVitesse()/2;
@@ -146,7 +145,31 @@ public class Jeu {
 		}
 		return texture;
 	}
-	public static void needMove(Player joueur,int dx,int dy){
-		joueur.move(1,1);
+	public static void needMove(Entity entite,int dx,int dy){
+		int newX=entite.getX();
+		int newY=entite.getY();
+		Terrain played = null;
+		for (Terrain t : lesTerrains){
+			if (t.getIsActif()){played=t;
+				char caseH = played.getTypeCase(newX,joueur.getY());
+				char caseV = played.getTypeCase(joueur.getX(),newY);
+				char caseN = played.getTypeCase(newX,newY);
+				
+				switch (caseH) {
+				case '1' : dy=0;
+				break;
+				}
+				switch (caseV) {
+				case '1' : dx=0;
+				break;
+				}
+				switch (caseN) {
+				case '1' : dx=0;dy=0;
+				break;
+				}
+				
+			}
+		}
+	
 	}
 }
