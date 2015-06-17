@@ -129,8 +129,10 @@ public class Jeu {
 			glEnd();
 			glEnable(GL_BLEND);
 		}
-		if(Mouse.isButtonDown(0)){
+		if(Mouse.isButtonDown(0) & joueur.getCooldown()>=20){
 			joueur.tirer((joueur.getX()-(Mouse.getX()-mxr)),(joueur.getY()-(Mouse.getY()-myr)));
+		}else{
+			joueur.healCooldown();
 		}
 	}
 	
