@@ -31,9 +31,10 @@ public class Terrain {
 		return isActif;
 	}
 	public Terrain(){
+		this.idTerrain=0;
 		Random r = new Random();
 		for(int i=0 ;i<20; i++){
-			lesZomb.add(new Zombie(r.nextInt(Jeu.winWidth),r.nextInt(Jeu.winHeight),4,"pumpkin"));
+			lesZomb.add(new Zombie(r.nextInt(Jeu.winWidth),r.nextInt(Jeu.winHeight),1,"pumpkin"));
 		}
 		Texture sol = Jeu.getTexture("sol");
 		Texture wall = Jeu.getTexture("wall");
@@ -55,6 +56,8 @@ public class Terrain {
 				}
 			}
 		}
+		IA.setLesNodes(this.idTerrain);
+		IA.setlisteOuverte();
 	}
 	
 	public void afficher(){
@@ -76,6 +79,8 @@ public class Terrain {
 			}
 		}
 		for (Zombie e : lesZomb){
+			IA ia= new IA();
+			//e.followNodes(new Node(Jeu.joueur));
 			e.afficher();
 		}
     }
