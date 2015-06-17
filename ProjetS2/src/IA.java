@@ -6,7 +6,7 @@ public class IA {
 	private static ArrayList<Node> listeOuverte = new ArrayList<>();
 	
 	
-	public void setListeOuverte(int terrainActuelle){
+	public void setLesNodes(int terrainActuelle){
 		//On initialise lesNodes grace a la map actuelle de l'entite
 				Graph g = new Graph();
 				g.setPoids(terrainActuelle);
@@ -68,8 +68,8 @@ public class IA {
 		return listeFerme;
 	}	
 	
-	/*//TEST SYSTEME NODE VOISIN 
-	public static void main(String[] args){
+	//TEST SYSTEME NODE VOISIN 
+	/*public static void main(String[] args){
 		Graph g = new Graph();
 		g.setPoids(0);
 		int[][] mapPoids = g.getPoids();		
@@ -79,7 +79,7 @@ public class IA {
 			}
 		}
 		
-		Liste des nodes praticables
+		//Liste des nodes praticables
 		ArrayList<Node> listeOuverte = new ArrayList<Node>();
 		for(int i =0;i<lesNodes.size();i++){
 			if(lesNodes.get(i).isPraticable()){
