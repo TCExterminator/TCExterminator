@@ -60,7 +60,7 @@ public class Jeu {
 					e.followNodes(new Node(Jeu.joueur.getX(),Jeu.joueur.getY()));
 				}
 				for(Projectile p : t.getlesProj()){
-					p.move(10, 10);
+					p.move();
 				}
 			}
 		}
@@ -143,8 +143,11 @@ public class Jeu {
 			glEnd();
 			glEnable(GL_BLEND);
 		}
-		if(Mouse.isButtonDown(0) & joueur.getCooldown()>=20){
-			joueur.tirer((joueur.getX()-(Mouse.getX()-mxr)),(joueur.getY()-(Mouse.getY()-myr)));
+		if(Mouse.isButtonDown(0) & joueur.getCooldown()>=20 & joueur.getArmeActive().getMunition() !=0){
+			int dist = (int) Math.sqrt( ((Mouse.getX()-mxr - joueur.getX()) * (Mouse.getX()-mxr - joueur.getX())) +
+										((Mouse.getY()-myr - joueur.getY()) * (Mouse.getY()-myr - joueur.getY())))/10;
+			System.out.println(((Mouse.getX()-mxr)-joueur.getX())/dist);
+			joueur.tirer((Mouse.getX()-mxr-joueur.getX())/dist,((Mouse.getY()-myr)-joueur.getY())/dist);
 		}else{
 			joueur.healCooldown();
 		}

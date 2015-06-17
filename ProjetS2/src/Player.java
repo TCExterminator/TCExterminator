@@ -72,6 +72,9 @@ public class Player extends Entity{
 		return res;
 	}
 		
+	public Arme getArmeActive(){
+		return new Arme(this.inventaire.get(this.caseActiveInventaire));
+	}
 	
 	//methode servant a affecter un bonus a un personnage
 	public void affecterBonus(Bonus b){

@@ -33,17 +33,20 @@ public class Terrain {
 	public Terrain(){
 		this.idTerrain=0;
 		Random r = new Random();
-		for(int i=0 ;i<20; i++){
-			lesZomb.add(new Zombie(r.nextInt(Jeu.winWidth),r.nextInt(Jeu.winHeight),1));
-		}
+		char map[][]= lireTerrain(0);
+		lesTiles=new Tiles[map.length][map[0].length];
 		Texture sol = Jeu.getTexture("sol");
 		Texture wall = Jeu.getTexture("wall");
 		
-		char map[][]= lireTerrain(0);
-		lesTiles=new Tiles[map.length][map[0].length];
+		
+		
 		for(int i=0;i<map.length;i++){
 			for(int j =0;j<map[i].length;j++){
 				switch(map[i][j]){
+					case 'Z':
+						lesTiles[i][j]=new Tiles(sol,'0');
+						lesZomb.add(new Zombie(i*32+16,j*32+16,2));
+						break;
 					case '1':
 						lesTiles[i][j]=new Tiles(wall,'1');
 						break;
