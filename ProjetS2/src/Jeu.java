@@ -145,26 +145,29 @@ public class Jeu {
 	
 	
 	public static void needMove(Entity entite,int dx,int dy){
-		int newX=entite.getX();
-		int newY=entite.getY();
+		int newX=entite.getX()+dx;
+		int newY=entite.getY()+dy;
 		Terrain played = null;
 		for (Terrain t : lesTerrains){
+			//perso = cercle 12h=point1 3h=point2 6h=point3 9h=point4
 			if (t.getIsActif()){played=t;
-				char caseH = played.getTypeCase(newX,joueur.getY());
-				char caseV = played.getTypeCase(joueur.getX(),newY);
-				char caseN = played.getTypeCase(newX,newY);
+				char point1 = played.getTypeCase(newX+16,newY);
+				char point12 = played.getTypeCase(newX+13,newY+13);
 				
-				switch (caseH) {
-				case '1' : dy=0;
-				break;
-				}
-				switch (caseV) {
-				case '1' : dx=0;
-				break;
-				}
-				switch (caseN) {
-				case '1' : dx=0;dy=0;
-				break;
+				char point2 = played.getTypeCase(newX,newY+16);
+				char point23 = played.getTypeCase(newX-13,newY+13);
+				
+				char point3 = played.getTypeCase(newX-16,newY);
+				char point34 = played.getTypeCase(newX-13,newY-13);
+				
+				char point4 = played.getTypeCase(newX,newY-16);
+				char point41 = played.getTypeCase(newX-13,newY+13);
+				
+
+				
+				
+				if((point1=='1')||(point2=='1')||(point3=='1')||(point12=='1')||(point23=='1')||(point34=='1')||(point41=='1')) {
+					dx=0;dx=0;
 				}
 				entite.move(dx,dy);
 			}
