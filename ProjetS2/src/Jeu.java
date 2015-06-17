@@ -28,7 +28,7 @@ public class Jeu {
 
 	//methode servant a initialiser le personnage
 	public static void initialiser(){
-		joueur =new Player(500, 375,4,"perso");
+		
 		listeArme = new Arme[]{
 				   new Arme(25,-42,0,1,0,4),
 				   new Arme(15,50,1,2,1,8),
@@ -39,7 +39,9 @@ public class Jeu {
 				   new Arme(150,5,1,3,1,2),
 				   new Arme(50,14,1,2,2,4),
 				   new Arme(10,1024,5,3,5,60)};
+		System.out.println(listeArme[0].getPuissance());
 		started=true;
+		joueur =new Player(500, 375,4,"perso");
 		lesTerrains.add(new Terrain());
 		
 	}

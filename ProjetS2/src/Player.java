@@ -6,13 +6,14 @@ public class Player extends Entity{
 	private int armure;
 	private int mana;
 	private int caseActiveInventaire;
-	private ArrayList<Arme> inventaire;
+	private ArrayList<Arme> inventaire=new ArrayList<Arme>();
 	//personnage jouable represente par un int
 	private int[] perso;
 	private static int poidMax=10;
 	
 	public Player(int posx, int posy, int speed, String texture) {
 		super(posx, posy, speed, texture);
+		inventaire.add(Jeu.listeArme[0]);
 	}
 	
 	//methode servant a faire tirer le personnage

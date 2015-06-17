@@ -92,7 +92,7 @@ public abstract class Entity {
         
     }
     public void move(int dx,int dy){
-    	//float coefDir = (this.posY-(Mouse.getY()-myr))/(this.posX-(Mouse.getX()-mxr));
+    	//float coefDir = /(this.posX-(Mouse.getX()-mxr));
 		this.posX+= dx;
 		this.posY+= dy;
 	}
