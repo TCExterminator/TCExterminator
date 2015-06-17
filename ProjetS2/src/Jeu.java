@@ -163,8 +163,10 @@ public class Jeu {
 				char point4 = played.getTypeCase(newX-16,newY);
 				char point41 = played.getTypeCase(newX-13,newY+13);
 				
+				System.out.println(point1+" : "+point2+" : "+point3+" : "+point4);
+				
 				if((point1=='1')||(point2=='1')||(point3=='1')||(point12=='1')||(point23=='1')||(point34=='1')||(point41=='1')) {
-					dx=0;dx=0;
+					dx=0;dy=0;
 				}
 				
 				entite.move(dx,dy);
