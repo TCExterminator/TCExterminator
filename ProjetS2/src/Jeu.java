@@ -9,6 +9,7 @@ import org.lwjgl.opengl.*;
 import org.newdawn.slick.opengl.*;
 public class Jeu {
 	
+	//attributs de la classes jeu
 	public static int winWidth =  1024;
 	public static int winHeight =  winWidth*3/4;
 	public static int mxr=0;
@@ -20,22 +21,26 @@ public class Jeu {
 	private static final ArrayList<Terrain> lesTerrains = new ArrayList<Terrain>() ;
 	public static Player joueur;
 	
-	//liste des armes du jeu
+	//initialisation de la liste des armes du jeu
 	public static Arme[] listeArme;
 
+	//methode de classe servant a stopper le jeu
 	public static void stop(){
 		started=false;
 	}
 
+	//methode servant a initialiser le personnage
 	public static void initialiser(){
 		joueur =new Player(500, 375,4,"perso");
 	}
 	
+	//methode servant a afficher un terrain
 	public static void afficher(){
 		lesTerrains.get(0).afficher();
 		joueur.afficher();
 	}
 	
+	//methode servant de boucle principal au jeu
 	public static void loop(){
 		while(started){
 			if(Display.isCloseRequested()){
@@ -53,8 +58,10 @@ public class Jeu {
 	}
 
 
-
+	//methode servant a lancer le jeu
 	public static void main(String[] args) {
+		
+		//creation de la liste d'arme
 		listeArme = new Arme[]{new Arme(15,50,1,2,1,4),
 				   new Arme(20,120,2,2,2,4),
 				   new Arme(10,240,2,2,4,32),
@@ -85,6 +92,7 @@ public class Jeu {
 		loop();
 	}
 	
+	//methode servant a recuperer les inputs du joueur
 	public static void getInputs(){
 		if(Keyboard.isKeyDown(Keyboard.KEY_E)){
 			Display.destroy();
@@ -127,7 +135,7 @@ public class Jeu {
 		}
 	}
 	
-	
+	//methode recuperant les textures 
 	public static Texture getTexture(String file){
 		Texture texture = null;
 		try {
