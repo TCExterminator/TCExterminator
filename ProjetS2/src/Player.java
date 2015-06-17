@@ -16,7 +16,7 @@ public class Player extends Entity{
 	}
 	
 	//m�thode servant � faire tirer le personnage
-	public void tirer(){
+	public void tirer(int dx,int dy){
 		Arme armeActive = inventaire.get(this.caseActiveInventaire);
 		int balles = armeActive.getMunition();
 		Projectile projectile = new Projectile(dx,dy,this.getX(),this.getY(),1,"bullet",armeActive.getPuissance());
