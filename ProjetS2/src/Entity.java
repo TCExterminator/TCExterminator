@@ -26,19 +26,10 @@ public abstract class Entity {
     public void setPosition(int x, int y){
         this.posX = x;
         this.posY = y;
-    }
+    }  
     
-    //getter de sante
-    public int getSante(){
-		return this.sante;
-	}
     
-    //setter de sante
-    public void setSante(int sante){
-		this.sante=sante;
-	}
-    
-  //getter de x
+    //getter de x
     public int getX(){
     	return this.posX;
     }
@@ -53,9 +44,29 @@ public abstract class Entity {
     	return this.vitesse;
     }
     
+    //getter de sante
+    public int getSante(){
+		return this.sante;
+	}
+    
+   
+   public void setPosX(int x){
+	   this.posX = x;
+   }
+    
+   public void setPosY(int y){
+	   this.posY = y;
+   }
+   
+    
     //setter de vitesse
     public void setVitesse(int vit){
 		this.sante=vit;
+	}
+    
+    //setter de sante
+    public void setSante(int sante){
+		this.sante=sante;
 	}
     
     //méthode servant à afficher une entite
