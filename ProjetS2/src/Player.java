@@ -20,6 +20,7 @@ public class Player extends Entity{
 		Arme armeActive = inventaire.get(this.caseActiveInventaire);
 		int balles = armeActive.getMunition();
 		Projectile projectile = new Projectile(dx,dy,this.getX(),this.getY(),1,"bullet",armeActive.getPuissance());
+		armeActive.setMunition(balles-1);
 		//� coder
 	}
 		
