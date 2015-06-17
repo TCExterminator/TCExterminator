@@ -35,16 +35,33 @@ public class Terrain {
 		for(int i=0 ;i<20; i++){
 			lesZomb.add(new Zombie(r.nextInt(Jeu.winWidth),r.nextInt(Jeu.winHeight),4,"pumpkin"));
 		}
-	}
-	
-	public void afficher(){
-		isActif=true;
-		
 		Texture sol = Jeu.getTexture("sol");
 		Texture wall = Jeu.getTexture("wall");
 		
 		char map[][]= lireTerrain(0);
 		lesTiles=new Tiles[map.length][map[0].length];
+		for(int i=0;i<map.length;i++){
+			for(int j =0;j<map[i].length;j++){
+				switch(map[i][j]){
+					case '1':
+						lesTiles[i][j]=new Tiles(wall,'1');
+						break;
+					case '0':
+						lesTiles[i][j]=new Tiles(sol,'0');
+						break;
+					default :
+						break;
+				}
+			}
+		}
+	}
+	
+	public void afficher(){
+		isActif=true;
+		
+		
+		
+		
 		
 		for(int i=0;i<map.length;i++){
 			for(int j =0;j<map[i].length;j++){
