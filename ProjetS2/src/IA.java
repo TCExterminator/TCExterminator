@@ -31,42 +31,38 @@ public class IA {
 	
 	public ArrayList<Node> IAZombie(Entity e,int terrainActuelle){
 		
-		ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(IA.listeOuverte);
-		ArrayList<Node> listeFerme = new ArrayList<>();
-		Node nCourant = new Node(e);
-		Node nFinal = new Node(Jeu.joueur);
+			ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(IA.listeOuverte);
+			ArrayList<Node> listeFerme = new ArrayList<Node>();
+			Node nCourant = new Node(e);
+			Node nFinal = new Node(Jeu.joueur);
 		
-		//Permet de definir les nodes de débuts et de fin précisement, avec leurs voisins.
-		for(Node n:listeOuverteCopie){
+			//Permet de definir les nodes de débuts et de fin précisement, avec leurs voisins.
+			for(Node n:listeOuverteCopie){
 			if(n.equals(nCourant)){
 				nCourant = n;
-			}
-			if(n.equals(nFinal)){
+				}
+				if(n.equals(nFinal)){
 				nFinal = n;
+				}
 			}
-		}
 
-		//Boucle principale
+			//Boucle principale
 		
-		while(!nCourant.equals(nFinal)){
-			if(!listeOuverteCopie.isEmpty()){
-			int dist = 1000000000;
-			Node nIdeal = new Node(-1,-1,-1);
-			for(Node n:nCourant.getVoisin()){
-				int a =(n.getPosX() - nFinal.getPosX()) - (n.getPosY() - nFinal.getPosY()) * 
-						(n.getPosX() - nFinal.getPosX()) - (n.getPosY() - nFinal.getPosY());
-				if(a < dist && !listeFerme.contains(n)){
-					dist = a;
-					nIdeal = n;
-				}	
-				listeFerme.add(nIdeal);
-				listeOuverteCopie.remove(nIdeal);
-				nCourant = nIdeal;
+			while(!nCourant.equals(nFinal)){
+				if(!listeOuverteCopie.isEmpty()){
+					Node nIdeal = nCourant.getVoisin().get(0);
+					for(Node n:nCourant.getVoisin()){
+						if(n.getDistanceNode(nFinal)<nIdeal.getDistanceNode(nFinal) 
+								&& !listeFerme.contains(n)) nIdeal = n;
+					
+					listeFerme.add(nIdeal);
+					listeOuverteCopie.remove(nIdeal);
+					nCourant = nIdeal;
+				}
 			}
-			}
-			else nCourant = nFinal;
+				else nCourant = nFinal;
 		}
-		return listeFerme;
+			return listeFerme;
 	}	
 	
 	//TEST SYSTEME NODE VOISIN 
