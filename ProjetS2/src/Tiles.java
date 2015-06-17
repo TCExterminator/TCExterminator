@@ -20,4 +20,5 @@ public class Tiles {
 	public Texture getTexture(){
 		return this.textur;
 	}
+	
 }
