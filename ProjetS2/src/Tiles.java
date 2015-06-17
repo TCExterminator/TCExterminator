@@ -3,6 +3,9 @@ public class Tiles {
 	private char typeTiles;
 	private Texture textur;
 	
+	public Tiles(Texture tex,char typeTiles){
+		
+	}
 	public char getTypeTiles(){
 		return this.typeTiles;
 	}
