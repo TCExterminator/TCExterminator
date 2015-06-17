@@ -84,6 +84,7 @@ public class Jeu {
 			Display.destroy();
 			System.exit(1);
 		}
+		
 		initialiser();
 		loop();
 		
