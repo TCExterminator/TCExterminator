@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/Arme.java=UTF-8
 encoding//src/Entity.java=UTF-8
+encoding//src/Node.java=UTF-8
+encoding//src/Terrain.java=UTF-8
+encoding//src/Zombie.java=UTF-8
