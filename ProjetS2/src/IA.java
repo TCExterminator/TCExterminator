@@ -61,7 +61,6 @@ public class IA {
 				}	
 				listeFerme.add(nIdeal);
 				listeOuverteCopie.remove(nIdeal);
-			
 			}
 		return listeFerme;
 	}	
