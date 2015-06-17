@@ -1,5 +1,7 @@
 
 import static org.lwjgl.opengl.GL11.*;
+
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
 
 
@@ -89,11 +91,17 @@ public abstract class Entity {
         return this.sante<=0;
         
     }
-    public void move(int dx,int dy){
-		this.posX=this.posX+dx;
-		this.posY=this.posY+dy;
+    public void move(){
+    	float coefDir = (this.posY-(Mouse.getY()-myr))/(this.posX-(Mouse.getX()-mxr));
+		this.posX=(int) (this.posX+coefDir);
+		this.posY=(int) (this.posY+coefDir);
 	}
     
 }
 
-
+/*
+ * 
+ * 
+ * 
+ * 
+ */
