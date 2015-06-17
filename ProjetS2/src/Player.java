@@ -17,6 +17,8 @@ public class Player extends Entity{
 	
 	//m�thode servant � faire tirer le personnage
 	public void tirer(){
+		Arme armeActive = inventaire.get(this.caseActiveInventaire);
+		int balles = armeActive.getMunition();
 		//� coder
 	}
 		
