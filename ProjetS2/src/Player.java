@@ -11,8 +11,8 @@ public class Player extends Entity{
 	private int[] perso;
 	private static int poidMax=10;
 	
-	public Player(int x, int y, int speed, String texture) {
-		super(x, y, speed, texture);
+	public Player(int posx, int posy, int speed, String texture) {
+		super(posx, posy, speed, texture);
 	}
 	
 	//m�thode servant � faire tirer le personnage
@@ -74,6 +74,7 @@ public class Player extends Entity{
 		}
 	}
 	public void move(int dx,int dy){
-		
+		this.posX=this.posX+dx;
+		this.posY=this.posY+dy;
 	}		 
 }
