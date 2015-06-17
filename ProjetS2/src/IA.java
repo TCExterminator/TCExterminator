@@ -48,8 +48,8 @@ public class IA {
 
 		//Boucle principale
 		
-		
-			
+		while(!nCourant.equals(nFinal)){
+			if(!listeOuverteCopie.isEmpty()){
 			int dist = 1000000000;
 			Node nIdeal = new Node(-1,-1,-1);
 			for(Node n:nCourant.getVoisin()){
@@ -61,8 +61,11 @@ public class IA {
 				}	
 				listeFerme.add(nIdeal);
 				listeOuverteCopie.remove(nIdeal);
-				
+				nCourant = nIdeal;
 			}
+			}
+			else nCourant = nFinal;
+		}
 		return listeFerme;
 	}	
 	
