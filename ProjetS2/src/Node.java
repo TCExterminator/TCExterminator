@@ -91,6 +91,11 @@ public class Node {
 	 public String toString(){
 		 return ("Node X " + this.posX + " Y " + this.posY);
 	 }
+	 
+	 public int getDistanceNode(Node n){
+		 return ((this.posX - n.getPosX()) - (this.posY - n.getPosY()) * 
+					(this.posX - n.getPosX()) - this.posY - n.getPosY());
+	 }
 	
 	//TEST NODE
 	public static void main(String[] args){
@@ -118,5 +123,4 @@ public class Node {
 		System.out.println("Centre : " + nCentre.isPraticable());
 		System.out.println("Inutile : " +inutile.isPraticable());	
 	}
-	
 }	
