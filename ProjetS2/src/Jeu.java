@@ -42,6 +42,22 @@ public class Jeu {
 				   new Arme(10,1024,5,3,5,60)};
 		started=true;
 		lesTerrains.add(new Terrain());
+		try{
+			Display.setDisplayMode(new DisplayMode(winWidth,winHeight));
+			Display.setTitle(title + " - " + version);
+			Display.create();
+			glMatrixMode(GL_PROJECTION);
+			glOrtho(0,winWidth,0,winHeight,1,-1);
+			glMatrixMode(GL_MODELVIEW);
+			glEnable(GL_TEXTURE_2D);  
+		    glEnable (GL_COLOR_MATERIAL);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glLoadIdentity();
+		}catch(LWJGLException e){
+			e.printStackTrace();
+			Display.destroy();
+			System.exit(1);
+		}
 	}
 	
 	//methode servant a afficher un terrain
@@ -73,24 +89,8 @@ public class Jeu {
 		
 		//creation de la liste d'arme
 		initialiser();
-		
-		try{
-			Display.setDisplayMode(new DisplayMode(winWidth,winHeight));
-			Display.setTitle(title + " - " + version);
-			Display.create();
-			glMatrixMode(GL_PROJECTION);
-			glOrtho(0,winWidth,0,winHeight,1,-1);
-			glMatrixMode(GL_MODELVIEW);
-			glEnable(GL_TEXTURE_2D);  
-		    glEnable (GL_COLOR_MATERIAL);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			glLoadIdentity();
-		}catch(LWJGLException e){
-			e.printStackTrace();
-			Display.destroy();
-			System.exit(1);
-		}
 		loop();
+		
 	}
 	
 	//methode servant a recuperer les inputs du joueur
