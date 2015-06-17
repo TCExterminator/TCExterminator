@@ -1,4 +1,6 @@
 
+
+
 public class Node {
 	private int posX;
 	private int posY;	

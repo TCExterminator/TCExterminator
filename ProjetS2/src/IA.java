@@ -25,6 +25,7 @@ public class IA {
 		ArrayList<Node> listeFerme = new ArrayList<>();
 		Node nCourant = new Node(e);
 		Node nFinal = new Node(Jeu.joueur);
+		
 		return null;
 		
 	}
