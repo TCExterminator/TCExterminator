@@ -101,20 +101,17 @@ public class Jeu {
 			myr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
-			
-			joueur.setPosition(joueur.getX()-joueur.getVitesse(),joueur.getY());
+			needMove(joueur,-joueur.getVitesse(),0);
 			glTranslated(joueur.getVitesse()/2, 0, 0);
 			mxr+=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_D)){
-			
-			joueur.setPosition(joueur.getX()+joueur.getVitesse(),joueur.getY());
+			needMove(joueur,joueur.getVitesse(),0);
 			glTranslated(-joueur.getVitesse()/2,0, 0);
 			mxr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_S)){
-			
-			joueur.setPosition(joueur.getX(),joueur.getY()-joueur.getVitesse());
+			needMove(joueur,0,-joueur.getVitesse());
 			glTranslated(0, joueur.getVitesse()/2, 0);
 			myr+=joueur.getVitesse()/2;
 		}
@@ -167,7 +164,7 @@ public class Jeu {
 				case '1' : dx=0;dy=0;
 				break;
 				}
-				
+				entite.move(dx,dy);
 			}
 		}
 	
