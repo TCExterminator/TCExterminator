@@ -107,7 +107,7 @@ public class Terrain {
 	
 	//methode servant a tester la collision entre une Entite est une case
 		public void collision(){
-			//�ｿｽ coder
+			//a coder
 		}
 		
 		//methode servant a recuperer un type de case a une position donnee passe en parametre
