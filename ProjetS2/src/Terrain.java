@@ -53,7 +53,6 @@ public class Terrain {
 						lesTiles[i][j]=new Tiles(wall,'1');
 						break;
 				}
-				System.out.println(i+" : "+j);
 			}
 		}
 	}
