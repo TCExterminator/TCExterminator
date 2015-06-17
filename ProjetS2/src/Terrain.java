@@ -25,10 +25,10 @@ public class Terrain {
 	private ArrayList<Projectile> lesProj = new ArrayList<Projectile>();
 	private Tiles[][] lesTiles;
 	private ArrayList<Bonus> lesBonus;
-	private boolean isActif=false;
+	private boolean actif=false;
 	
-	public boolean getIsActif(){
-		return isActif;
+	public boolean isActif(){
+		return actif;
 	}
 	public Terrain(){
 		this.idTerrain=0;
@@ -61,7 +61,10 @@ public class Terrain {
 	}
 	
 	public void afficher(){
-		isActif=true;
+		for(Terrain t : Jeu.getLesTerrains()){
+			t.actif=false;
+		}
+		actif=true;
 		
 		for(int i=0;i<lesTiles.length;i++){
 			for(int j =0;j<lesTiles[i].length;j++){

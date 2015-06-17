@@ -145,6 +145,10 @@ public class Jeu {
 		return texture;
 	}
 	
+	public static ArrayList<Terrain> getLesTerrains(){
+		return lesTerrains;
+	}
+	
 	
 	public static void needMove(Entity entite,int dx,int dy){
 		int newX=entite.getX()+dx;
@@ -152,7 +156,7 @@ public class Jeu {
 		Terrain played = null;
 		for (Terrain t : lesTerrains){
 			//perso = cercle 12h=point1 3h=point2 6h=point3 9h=point4
-			if (t.getIsActif()){played=t;
+			if (t.isActif()){played=t;
 				char point1 = played.getTypeCase(newX,newY+15);
 				char point12 = played.getTypeCase(newX+13,newY+13);
 				

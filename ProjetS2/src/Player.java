@@ -20,7 +20,10 @@ public class Player extends Entity{
 	public void tirer(int dx,int dy){
 		Arme armeActive = inventaire.get(this.caseActiveInventaire);
 		int balles = armeActive.getMunition();
-		Jeu.add(projectile = new Projectile(dx,dy,this.getX(),this.getY(),1,"bullet",armeActive.getPuissance()));
+		for(Terrain t : Jeu.getLesTerrains()){
+			if(t.isActif())
+			t.getlesProj().add(new Projectile(dx,dy,this.getX(),this.getY(),1,armeActive.getPuissance()));
+		}
 		armeActive.setMunition(balles-1);
 		System.out.println(armeActive.getMunition());
 		//a coder
