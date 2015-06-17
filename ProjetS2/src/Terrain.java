@@ -23,7 +23,7 @@ public class Terrain {
 	private int idTerrain;
 	private Player lePerso;
 	private ArrayList<Projectile> lesProj;
-	private Tiles[][] lesCases;
+	private Tiles[][] lesTiles;
 	private ArrayList<Bonus> lesBonus;
 	private boolean isActif=false;
 	
@@ -44,16 +44,17 @@ public class Terrain {
 		Texture wall = Jeu.getTexture("wall");
 		
 		char map[][]= lireTerrain(0);
-		lesCases=new Tiles[map.length][map[0].length];
+		lesTiles=new Tiles[map.length][map[0].length];
 		
 		for(int i=0;i<map.length;i++){
 			for(int j =0;j<map[i].length;j++){
 				switch(map[i][j]){
 					case '1':
-						/*lesCases[i][j]=new case()*/;
+						lesTiles[i][j]=new Tiles(wall,'1');
 						wall.bind();
 						break;
 					case '0':
+						lesTiles[i][j]=new Tiles(sol,'0');
 						sol.bind();
 						break;
 					default :
@@ -110,7 +111,7 @@ public class Terrain {
 		//m�thode servant � r�cup�rer un type de case � une position donn�e pass� en param�tre
 		public char getTypeCase(int posX, int posY){
 			char res;
-			res =lesCases[(int) posX/32][(int) posY/32 ].getTypeTiles();
+			res =lesTiles[(int) posX/32][(int) posY/32 ].getTypeTiles();
 			return res;
 		}
 		
