@@ -105,19 +105,19 @@ public class Terrain {
 		return resultat;
 	}
 	
-	//m�ｿｽthode servant �ｿｽ tester la collision entre une Entite est une case
+	//methode servant a tester la collision entre une Entite est une case
 		public void collision(){
 			//�ｿｽ coder
 		}
 		
-		//m�ｿｽthode servant �ｿｽ r�ｿｽcup�ｿｽrer un type de case �ｿｽ une position donn�ｿｽe pass�ｿｽ en param�ｿｽtre
+		//methode servant a recuperer un type de case a une position donnee passe en parametre
 		public char getTypeCase(int posX, int posY){
 			char res;
 			res =lesTiles[(int) posX/32][(int) posY/32 ].getTypeTiles();
 			return res;
 		}
 
-		//m�ｿｽthode servant �ｿｽ supprim er une entite et retourne un boolean 
+		//methode servant a supprimer une entite et retourne un boolean 
 		public void supprimerMorts(){
 			boolean res = false;		
 			for (int i=0 ; i<lesZomb.size();i++){			
