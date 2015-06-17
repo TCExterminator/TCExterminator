@@ -37,7 +37,7 @@ public class IA {
 			Node nFinal = new Node(Jeu.joueur);
 		
 			//Permet de definir les nodes de débuts et de fin précisement, avec leurs voisins.
-			for(Node n:listeOuverteCopie){
+			/*for(Node n:listeOuverteCopie){
 			if(n.equals(nCourant)){
 				nCourant = n;
 				}
@@ -45,7 +45,7 @@ public class IA {
 				nFinal = n;
 				}
 			}
-
+*/
 			//Boucle principale
 		
 			/*while(!nCourant.equals(nFinal)){
