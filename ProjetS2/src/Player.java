@@ -74,6 +74,7 @@ public class Player extends Entity{
 		}
 	}
 	public void move(int dx,int dy){
-		
+		this.posX=this.posX+dx;
+		this.posY=this.posY+dy;
 	}		 
 }
