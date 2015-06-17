@@ -29,8 +29,8 @@ public class IA {
 			}
 	}
 	
-	
 	public ArrayList<Node> IAZombie(Entity e,int terrainActuelle){
+		
 		ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(IA.listeOuverte);
 		ArrayList<Node> listeFerme = new ArrayList<>();
 		Node nCourant = new Node(e);
@@ -48,8 +48,8 @@ public class IA {
 
 		//Boucle principale
 		
-		while(!nCourant.equals(nFinal)){
-			if(!listeOuverteCopie.isEmpty()){
+		
+			
 			int dist = 1000000000;
 			Node nIdeal = new Node(-1,-1,-1);
 			for(Node n:nCourant.getVoisin()){
@@ -61,15 +61,13 @@ public class IA {
 				}	
 				listeFerme.add(nIdeal);
 				listeOuverteCopie.remove(nIdeal);
+			
 			}
-			}
-			else nCourant = nFinal;
-		}
 		return listeFerme;
 	}	
 	
 	//TEST SYSTEME NODE VOISIN 
-	/*public static void main(String[] args){
+	public static void main(String[] args){
 		Graph g = new Graph();
 		g.setPoids(0);
 		int[][] mapPoids = g.getPoids();		
@@ -94,5 +92,5 @@ public class IA {
 			}
 			System.out.println();
 		}
-	}*/
+	}
 }
