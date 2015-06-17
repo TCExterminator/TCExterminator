@@ -9,10 +9,10 @@ public class Zombie extends Entity{
 		this.degat = this.degat * 1;
 	}
 
-	//m騁hode servant � tester la collision entre un zombie et une entite
+	//mehode servant a tester la collision entre un zombie et une entite
 	public boolean collision(Entity entite){
 		boolean res = false;
-		//� co der
+		//a coder
 		return res;
 		}
 		
