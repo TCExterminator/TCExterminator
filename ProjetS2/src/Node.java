@@ -73,7 +73,7 @@ public class Node {
 				(this.posX==n.getPosX() - 1 && this.posY==n.getPosY() - 1) ||
 				(this.posX==n.getPosX() - 1 && this.posY==n.getPosY()) ||
 				(this.posX==n.getPosX() - 1 && this.posY==n.getPosY() + 1) ||
-				(this.posX==n.getPosX() + 1 && this.posY==n.getPosY() + 1)){
+				(this.posX==n.getPosX() && this.posY==n.getPosY() + 1)){
 					b = true;
 			
 	}
@@ -86,14 +86,30 @@ public class Node {
 	}
 	
 	//TEST NODE
-	public static void mainNode(String[] args){
+	public static void main(String[] args){
 		Node nCentre = new Node(5,5,1);
 		Node nDroite = new Node(6,5,1);
+		Node nGauche = new Node(4,5,1);
+		Node nHaut = new Node(5,4,1);
+		Node nBas = new Node(5,6,1);
+		Node nD1 = new Node(6,6,1);
+		Node nD2 = new Node(4,4,1);
+		Node nD3 = new Node(6,4,1);
+		Node nD4 = new Node(4,6,1);
 		Node inutile = new Node (0,0,2);
-		System.out.println(nCentre.estVoisin(nDroite));
-		System.out.println(nCentre.estVoisin(inutile));
-		System.out.println(nCentre.isPraticable());
-		System.out.println(inutile.isPraticable());
+		System.out.println(" Voisin du centre :\n");
+		System.out.println("Droite : " + nCentre.estVoisin(nDroite));
+		System.out.println("Gauche : " + nCentre.estVoisin(nGauche));
+		System.out.println("Haut : " + nCentre.estVoisin(nHaut));
+		System.out.println("Bas : " + nCentre.estVoisin(nBas));
+		System.out.println("D1 : " + nCentre.estVoisin(nD1));
+		System.out.println("D2 : " + nCentre.estVoisin(nD2));
+		System.out.println("D3 : " + nCentre.estVoisin(nD3));
+		System.out.println("D4 : " + nCentre.estVoisin(nD4));
+		System.out.println("Inutile : " + nCentre.estVoisin(inutile));
+		System.out.println("\nPraticabilité");
+		System.out.println("Centre : " + nCentre.isPraticable());
+		System.out.println("Inutile : " +inutile.isPraticable());
 		
 	}
 	
