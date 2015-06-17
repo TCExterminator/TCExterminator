@@ -31,13 +31,13 @@ public class IA {
 	
 	
 	public ArrayList<Node> IAZombie(Entity e,int terrainActuelle){
-				
+		ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(IA.listeOuverte);
 		ArrayList<Node> listeFerme = new ArrayList<>();
 		Node nCourant = new Node(e);
 		Node nFinal = new Node(Jeu.joueur);
 		
 		//Permet de definir les nodes de débuts et de fin précisement, avec leurs voisins.
-		for(Node n:IA.listeOuverte){
+		for(Node n:listeOuverteCopie){
 			if(n.equals(nCourant)){
 				nCourant = n;
 			}
@@ -49,7 +49,7 @@ public class IA {
 		//Boucle principale
 		
 		while(!nCourant.equals(nFinal)){
-			if(!IA.listeOuverte.isEmpty()){
+			if(!listeOuverteCopie.isEmpty()){
 			int dist = 1000000000;
 			Node nIdeal = new Node(-1,-1,-1);
 			for(Node n:nCourant.getVoisin()){
@@ -60,7 +60,7 @@ public class IA {
 					nIdeal = n;
 				}	
 				listeFerme.add(nIdeal);
-				IA.listeOuverte.remove(nIdeal);
+				listeOuverteCopie.remove(nIdeal);
 			}
 			}
 			else nCourant = nFinal;
