@@ -29,41 +29,49 @@ public class IA {
 			}
 	}
 	
-	public ArrayList<Node> IAZombie(Entity e,int terrainActuelle){
+	public ArrayList<Node> IAZombie(int x, int y,int terrainActuelle){
 		
 			ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(IA.listeOuverte);
 			ArrayList<Node> listeFerme = new ArrayList<Node>();
-			Node nCourant = new Node(e);
-			Node nFinal = new Node(Jeu.joueur);
+			Node nCourant = new Node(x,y);
+			
+			Node nFinal = new Node(Jeu.joueur.getX(),Jeu.joueur.getY());
 		
 			//Permet de definir les nodes de débuts et de fin précisement, avec leurs voisins.
 			for(Node n:listeOuverteCopie){
 			if(n.equals(nCourant)){
 				nCourant = n;
+				
 				}
 				if(n.equals(nFinal)){
+					
 				nFinal = n;
 				}
 			}
 
 			//Boucle principale
-		
-			while(nCourant != nFinal){
-				if(!listeOuverteCopie.isEmpty()){
-					Node nIdeal = new Node(-1,-1,-1);
-					for(Node n:nCourant.getVoisin()){
-						if(n.getDistanceNode(nFinal)<nIdeal.getDistanceNode(nFinal) 
-								&& !listeFerme.contains(n)) nIdeal = n;
-					
-					listeFerme.add(nIdeal);
-					listeOuverteCopie.remove(nIdeal);
-					nCourant = nIdeal;
+			System.out.println(nCourant.equals(nFinal));
+			while(!nCourant.equals(nFinal)){
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
+				Node nIdeal = nCourant;
+				System.out.println(nCourant.getVoisin().size());
+				for(Node n:nCourant.getVoisin()){
+					if(nCourant.equals(nIdeal)){
+						nIdeal = n;
+					}
+					else if(n.getDistanceNode(nFinal)<nIdeal.getDistanceNode(nFinal) 
+								&& !listeFerme.contains(n)) nIdeal = n;
+				}
+				listeFerme.add(nIdeal);
+				nCourant = nIdeal;
 			}
-				else nCourant = nFinal;
-		}
 			return listeFerme;
-	}	
+		}	
 	
 	//TEST SYSTEME NODE VOISIN 
 	public static void main(String[] args){

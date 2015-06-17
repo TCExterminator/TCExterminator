@@ -8,9 +8,9 @@ public class Node {
 	// 1 pour le praticable, 2 pour les murs
 	
 	
-	public Node(Entity e){
-		this.setPosX((int)e.getX()/32);
-		this.setPosY((int)e.getY()/32);
+	public Node(int x ,int y){
+		this.setPosX((int)x/32);
+		this.setPosY((int)y/32);
 	}
 	
 	public Node(int x,int y, int type){
@@ -108,7 +108,7 @@ public class Node {
 		Node nD4 = new Node(4,6,1);
 		Node inutile = new Node (0,0,2);
 		Node nd11 = new Node(1,1,1);
-		Node zombie = new Node(new Zombie(34,34,1));
+		Node zombie = new Node(34,34);
 		System.out.println(" Voisin du centre :\n");
 		System.out.println("Droite : " + nCentre.estVoisin(nDroite));
 		System.out.println("Gauche : " + nCentre.estVoisin(nGauche));

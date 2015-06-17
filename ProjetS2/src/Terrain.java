@@ -80,10 +80,8 @@ public class Terrain {
 		}
 		for (Zombie e : lesZomb){
 			IA ia= new IA();
-			e.followNodes(new Node(Jeu.joueur));
-			/*for(Node n : ia.IAZombie(e, this.idTerrain)){
-				//e.followNodes(n);
-			}*/
+			//e.followNodes(new Node(Jeu.joueur.getX(),Jeu.joueur.getY()));
+			e.followNodes(ia.IAZombie(e.getX(),e.getY(), this.idTerrain).get(0));
 			e.afficher();
 		}
 		for(Projectile p : lesProj){
