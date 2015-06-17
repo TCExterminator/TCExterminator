@@ -149,6 +149,7 @@ public class Jeu {
 		int newY=entite.getY()+dy;
 		Terrain played = null;
 		for (Terrain t : lesTerrains){
+			System.out.println(entite.getX()+" : "+entite.getY()+16);
 			//perso = cercle 12h=point1 3h=point2 6h=point3 9h=point4
 			if (t.getIsActif()){played=t;
 				char point1 = played.getTypeCase(newX,newY+16);
@@ -163,9 +164,15 @@ public class Jeu {
 				char point4 = played.getTypeCase(newX-16,newY);
 				char point41 = played.getTypeCase(newX-13,newY+13);
 				
-				if((point1=='1')||(point2=='1')||(point3=='1')||(point12=='1')||(point23=='1')||(point34=='1')||(point41=='1')) {
-					dx=0;dx=0;
-				}
+				System.out.println(point1+" : "+point2+" : "+point3+" : "+point4);
+				
+				if(point1 =='1'){dx=0;dy=0;}
+				if(point2 =='1'){dx=0;dy=0;}
+				if(point3 =='1'){dx=0;dy=0;}
+				if(point12=='1'){dx=0;dy=0;}
+				if(point23=='1'){dx=0;dy=0;}
+				if(point34=='1'){dx=0;dy=0;}
+				if(point41=='1'){dx=0;dy=0;}
 				
 				entite.move(dx,dy);
 			}
