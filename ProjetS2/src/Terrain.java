@@ -34,7 +34,7 @@ public class Terrain {
 		this.idTerrain=0;
 		Random r = new Random();
 		for(int i=0 ;i<20; i++){
-			lesZomb.add(new Zombie(r.nextInt(Jeu.winWidth),r.nextInt(Jeu.winHeight),1,"pumpkin"));
+			lesZomb.add(new Zombie(r.nextInt(Jeu.winWidth),r.nextInt(Jeu.winHeight),1));
 		}
 		Texture sol = Jeu.getTexture("sol");
 		Texture wall = Jeu.getTexture("wall");
