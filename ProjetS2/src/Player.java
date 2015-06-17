@@ -10,10 +10,13 @@ public class Player extends Entity{
 	//personnage jouable represente par un int
 	private int[] perso;
 	private static int poidMax=10;
+	
 	private int cooldown;
+	//private int reloading = 40;
+	//private int reloadTime = 40;
 	
 	public Player(int posx, int posy, int speed, String texture) {
-		super(posx, posy, speed, texture);
+		super(posx, posy, speed,100, texture);
 		inventaire.add(Jeu.listeArme[0]);
 		inventaire.add(Jeu.listeArme[1]);
 	}

@@ -5,7 +5,7 @@ public class Zombie extends Entity{
 	private int degat = 20;
 	
 	public Zombie(int x, int y, int speed) {
-		super(x, y, speed, "pumpkin");
+		super(x, y, speed,100, "pumpkin");
 		this.degat = this.degat * 1;
 	}
 

@@ -49,8 +49,21 @@ public class Jeu {
 	//methode servant a afficher un terrain
 	public static void afficher(){
 		lesTerrains.get(0).afficher();
-
 		joueur.afficher();
+	}
+	
+	public static void movements(){
+		for(Terrain t: lesTerrains){
+			if(t.isActif()){
+				for (Zombie e : t.getlesZomb()){
+					IA ia= new IA();
+					e.followNodes(new Node(Jeu.joueur.getX(),Jeu.joueur.getY()));
+				}
+				for(Projectile p : t.getlesProj()){
+					p.move(10, 10);
+				}
+			}
+		}
 	}
 	
 	//methode servant de boucle principal au jeu
@@ -62,6 +75,7 @@ public class Jeu {
 			Display.update();
 			Display.sync(60);
 			glClear(GL_COLOR_BUFFER_BIT);
+			movements();
 			afficher();
 			getInputs();
 			glEnable(GL_BLEND);
