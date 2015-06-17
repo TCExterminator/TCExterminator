@@ -50,8 +50,10 @@ public class Terrain {
 						lesTiles[i][j]=new Tiles(sol,'0');
 						break;
 					default :
+						lesTiles[i][j]=new Tiles(wall,'1');
 						break;
 				}
+				System.out.println(i+" : "+j);
 			}
 		}
 	}
@@ -59,26 +61,10 @@ public class Terrain {
 	public void afficher(){
 		isActif=true;
 		
-		
-		
-		
-		
-		for(int i=0;i<map.length;i++){
-			for(int j =0;j<map[i].length;j++){
-				switch(map[i][j]){
-					case '1':
-						lesTiles[i][j]=new Tiles(wall,'1');
-						wall.bind();
-						break;
-					case '0':
-						lesTiles[i][j]=new Tiles(sol,'0');
-						sol.bind();
-						break;
-					default :
-						
-						break;
-					
-				}
+		for(int i=0;i<lesTiles.length;i++){
+			for(int j =0;j<lesTiles[i].length;j++){
+				lesTiles[i][j].getTexture().bind();
+				System.out.println(i+" : "+j);
 				glBegin(GL_QUADS);
 						glTexCoord2f(0, 0);
 						glVertex2i(((i+1)*32),(j*32));
