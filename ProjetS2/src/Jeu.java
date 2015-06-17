@@ -32,6 +32,16 @@ public class Jeu {
 	//methode servant a initialiser le personnage
 	public static void initialiser(){
 		joueur =new Player(500, 375,4,"perso");
+		listeArme = new Arme[]{new Arme(15,50,1,2,1,4),
+				   new Arme(20,120,2,2,2,4),
+				   new Arme(10,240,2,2,4,32),
+				   new Arme(40,42,3,1,5,2),
+				   new Arme(125,12,3,3,1,1),
+				   new Arme(150,5,1,3,1,2),
+				   new Arme(50,14,1,2,2,4),
+				   new Arme(10,1024,5,3,5,60)};
+		started=true;
+		lesTerrains.add(new Terrain());
 	}
 	
 	//methode servant a afficher un terrain
@@ -62,14 +72,8 @@ public class Jeu {
 	public static void main(String[] args) {
 		
 		//creation de la liste d'arme
-		listeArme = new Arme[]{new Arme(15,50,1,2,1,4),
-				   new Arme(20,120,2,2,2,4),
-				   new Arme(10,240,2,2,4,32),
-				   new Arme(40,42,3,1,5,2),
-				   new Arme(125,12,3,3,1,1),
-				   new Arme(150,5,1,3,1,2),
-				   new Arme(50,14,1,2,2,4),
-				   new Arme(10,1024,5,3,5,60)};
+		initialiser();
+		
 		try{
 			Display.setDisplayMode(new DisplayMode(winWidth,winHeight));
 			Display.setTitle(title + " - " + version);
@@ -86,9 +90,6 @@ public class Jeu {
 			Display.destroy();
 			System.exit(1);
 		}
-		started=true;
-		initialiser();
-		lesTerrains.add(new Terrain());
 		loop();
 	}
 	
