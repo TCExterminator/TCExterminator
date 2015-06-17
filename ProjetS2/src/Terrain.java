@@ -80,7 +80,7 @@ public class Terrain {
 		}
 		for (Zombie e : lesZomb){
 			IA ia= new IA();
-			//e.followNodes(new Node(Jeu.joueur));
+			e.followNodes(new Node(Jeu.joueur));
 			
 			e.afficher();
 		}
