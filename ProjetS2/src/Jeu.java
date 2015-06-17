@@ -74,7 +74,7 @@ public class Jeu {
 				stop();
 			}
 			Display.update();
-			Display.sync(60);
+			Display.sync(30);
 			glClear(GL_COLOR_BUFFER_BIT);
 			movements();
 			afficher();

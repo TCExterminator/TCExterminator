@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-
-
 public class Zombie extends Entity{
 	private int degat = 20;
 	

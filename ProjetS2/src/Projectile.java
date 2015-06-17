@@ -1,4 +1,3 @@
-
 public class Projectile extends Entity{
 	private int puissanceProjectile;
 	private int dx;
