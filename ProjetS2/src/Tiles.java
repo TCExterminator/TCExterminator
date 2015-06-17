@@ -1,14 +1,14 @@
 import org.newdawn.slick.opengl.Texture;
 public class Tiles {
-	private char typeCase;
+	private char typeTiles;
 	private Texture text;
 	
-	public char getTypeCase(){
-		return this.typeCase;
+	public char getTypeTiles(){
+		return this.typeTiles;
 	}
 	
-	public void setTypeCase(char tyC){
-		this.typeCase = tyC;
+	public void setTypeTiles(char tyC){
+		this.typeTiles = tyC;
 	}
 	
 }
