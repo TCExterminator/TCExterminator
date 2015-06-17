@@ -7,7 +7,7 @@ public class Player extends Entity{
 	private int mana;
 	private int caseActiveInventaire;
 	private ArrayList<Arme> inventaire;
-	//personnage jouable repr�sent� par un int
+	//personnage jouable represente par un int
 	private int[] perso;
 	private static int poidMax=10;
 	
@@ -15,18 +15,18 @@ public class Player extends Entity{
 		super(posx, posy, speed, texture);
 	}
 	
-	//m�thode servant � faire tirer le personnage
+	//methode servant a faire tirer le personnage
 	public void tirer(int dx,int dy){
 		Arme armeActive = inventaire.get(this.caseActiveInventaire);
 		int balles = armeActive.getMunition();
 		Projectile projectile = new Projectile(dx,dy,this.getX(),this.getY(),1,"bullet",armeActive.getPuissance());
 		armeActive.setMunition(balles-1);
-		//� coder
+		//a coder
 	}
 		
-	//m�thode servant � faire lacher l'arme au personnage
+	//methode servant a faire lacher l'arme au personnage
 	public void lacherArme(){
-		//� coder
+		//a coder
 	}
 		
 	public void setArmure(int ar){
@@ -53,7 +53,7 @@ public class Player extends Entity{
 		return res;
 	}
 		
-	//m�thode servant � affecter un bonus � un personnage
+	//methode servant a affecter un bonus a un personnage
 	public void affecterBonus(Bonus b){
 		int nbBonus=b.getEffet();
 		/*effet 1 : sante
