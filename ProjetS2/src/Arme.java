@@ -58,4 +58,28 @@ public class Arme {
 	public int getCadence(){
 		return this.cadence;
 	}
+	
+	public void setPuissance(int puissance){
+		this.puissance=puissance;
+	}
+	
+	public void setMunition(int munition){
+		this.munition=munition;
+	}
+	
+	public void setPoid(int poid){
+		this.poid=poid;
+	}
+	
+	public void setPortee(int portee){
+		this.portee=portee;
+	}
+	
+	public void setDispertion(int dispertion){
+		this.dispertion=dispertion;
+	}
+	
+	public void setCadence(int cadence){
+		this.cadence=cadence;
+	}
 }
