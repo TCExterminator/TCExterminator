@@ -7,7 +7,7 @@ public class Node {
 	private int posX;
 	private int posY;	
 	private int typeCase;
-	private ArrayList<Node> voisins;
+	private ArrayList<Node> voisins = new ArrayList<Node>();
 	// 1 pour le praticable, 2 pour les murs
 	
 	
@@ -22,7 +22,7 @@ public class Node {
 		this.setPosY(y);
 		this.typeCase=type;
 	}
-	
+
 	public boolean isPraticable(){
 		return(this.typeCase==1);
 	}
@@ -64,6 +64,7 @@ public class Node {
 			}
 		return b;
 		}
+	
 	public boolean estVoisin(Node n){
 		boolean b = false;
 		if((this.posX==n.getPosX() + 1 && this.posY==n.getPosY() +1) || 
@@ -84,6 +85,15 @@ public class Node {
 			if(this.estVoisin(n))this.voisins.add(n);			
 		}	
 	}
+	
+	public ArrayList<Node> getVoisin(){
+		return this.voisins;
+	}
+	
+	 @Override
+	 public String toString(){
+		 return ("Node X " + this.posX + " Y " + this.posY);
+	 }
 	
 	//TEST NODE
 	public static void main(String[] args){
@@ -109,8 +119,7 @@ public class Node {
 		System.out.println("Inutile : " + nCentre.estVoisin(inutile));
 		System.out.println("\nPraticabilité");
 		System.out.println("Centre : " + nCentre.isPraticable());
-		System.out.println("Inutile : " +inutile.isPraticable());
-		
+		System.out.println("Inutile : " +inutile.isPraticable());	
 	}
 	
 }	
