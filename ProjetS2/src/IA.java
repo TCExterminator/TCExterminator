@@ -48,7 +48,7 @@ public class IA {
 
 			//Boucle principale
 		
-			while(!nCourant.equals(nFinal)){
+			/*while(!nCourant.equals(nFinal)){
 				if(!listeOuverteCopie.isEmpty()){
 					Node nIdeal = nCourant.getVoisin().get(0);
 					for(Node n:nCourant.getVoisin()){
@@ -61,7 +61,7 @@ public class IA {
 				}
 			}
 				else nCourant = nFinal;
-		}
+		}*/
 			return listeFerme;
 	}	
 	
