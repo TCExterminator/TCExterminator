@@ -69,7 +69,7 @@ public class IA {
 	
 	
 	
-	//TEST SYSTEME NODE VOISIN
+	//TEST SYSTEME NODE VOISIN 
 	public static void main(String[] args){
 		Graph g = new Graph();
 		g.setPoids(0);
