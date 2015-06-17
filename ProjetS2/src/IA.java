@@ -6,10 +6,10 @@ public class IA {
 	private static ArrayList<Node> listeOuverte = new ArrayList<>();
 	
 	
-	public static void setLesNodes(int terrainActuelle){
+	public static void setLesNodes(int terrainActuel){
 		//On initialise lesNodes grace a la map actuelle de l'entite
 				Graph g = new Graph();
-				g.setPoids(terrainActuelle);
+				g.setPoids(terrainActuel);
 				int[][] mapPoids = g.getPoids();		
 				for(int i = 0;i<mapPoids.length;i++){
 					for(int j = 0; j< mapPoids[i].length;j++){
@@ -48,9 +48,9 @@ public class IA {
 
 			//Boucle principale
 		
-			while(!nCourant.equals(nFinal)){
+			while(nCourant != nFinal){
 				if(!listeOuverteCopie.isEmpty()){
-					Node nIdeal = nCourant.getVoisin().get(0);
+					Node nIdeal = new Node(-1,-1,-1);
 					for(Node n:nCourant.getVoisin()){
 						if(n.getDistanceNode(nFinal)<nIdeal.getDistanceNode(nFinal) 
 								&& !listeFerme.contains(n)) nIdeal = n;

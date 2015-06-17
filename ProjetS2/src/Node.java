@@ -9,9 +9,8 @@ public class Node {
 	
 	
 	public Node(Entity e){
-		this.setPosX(e.getX());
-		this.setPosY(e.getY());
-		this.typeCase = 1;
+		this.setPosX((int)e.getX() / 32);
+		this.setPosY((int)e.getY() / 32);
 	}
 	
 	public Node(int x,int y, int type){
@@ -55,8 +54,7 @@ public class Node {
 		else{
 			if(o instanceof Node){
 				Node n = (Node) o;
-				if(this.posX==n.getPosX() && this.posY==n.getPosY() && 
-						this.typeCase==n.getTypeCase())b = true;
+				if(this.posX==n.getPosX() && this.posY==n.getPosY())b = true;
 				}
 			}
 		return b;
@@ -109,6 +107,8 @@ public class Node {
 		Node nD3 = new Node(6,4,1);
 		Node nD4 = new Node(4,6,1);
 		Node inutile = new Node (0,0,2);
+		Node nd11 = new Node(1,1,1);
+		Node zombie = new Node(new Zombie(34,34,1));
 		System.out.println(" Voisin du centre :\n");
 		System.out.println("Droite : " + nCentre.estVoisin(nDroite));
 		System.out.println("Gauche : " + nCentre.estVoisin(nGauche));
@@ -119,8 +119,9 @@ public class Node {
 		System.out.println("D3 : " + nCentre.estVoisin(nD3));
 		System.out.println("D4 : " + nCentre.estVoisin(nD4));
 		System.out.println("Inutile : " + nCentre.estVoisin(inutile));
-		System.out.println("\nPraticabilité");
+		System.out.println("\nPraticabilitï¿½");
 		System.out.println("Centre : " + nCentre.isPraticable());
-		System.out.println("Inutile : " +inutile.isPraticable());	
+		System.out.println("Inutile : " +inutile.isPraticable());
+		System.out.println(zombie.equals(nd11));
 	}
 }	
