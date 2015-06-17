@@ -18,7 +18,18 @@ public class Zombie extends Entity{
 		
 	public void followNodes(ArrayList<Node> nodes){
 		for(Node n : nodes){
-			this.setPosition(n.getPosX()*32+16, n.getPosY()*32+16);
+			while(this.getX()<n.getPosX()){
+				this.setPosition(this.getX()+this.vitesse,this.getY());
+			}
+			while(this.getX()>n.getPosX()){
+				this.setPosition(this.getX()-this.vitesse,this.getY());
+			}
+			while(this.getY()<n.getPosY()){
+				this.setPosition(this.getX(),this.getY()+this.vitesse);
+			}
+			while(this.getY()>n.getPosY()){
+				this.setPosition(this.getX(),this.getY()-this.vitesse);
+			}
 		}
 	}
 }
