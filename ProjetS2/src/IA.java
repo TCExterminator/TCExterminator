@@ -4,7 +4,7 @@ public class IA {
 	
 	private static ArrayList<Node> lesNodes = new ArrayList<>();
 	
-	public Node IAZombie(Entity e,int terrainActuelle){
+	public ArrayList<Node> IAZombie(Entity e,int terrainActuelle){
 		//On initialise lesNodes grace a la map actuelle de l'entite
 		Graph g = new Graph();
 		g.setPoids(terrainActuelle);
@@ -26,7 +26,7 @@ public class IA {
 			n.setVoisin(listeOuverte);
 			}
 		
-		//ArrayList<Node> listeFerme = new ArrayList<>();
+		ArrayList<Node> listeFerme = new ArrayList<>();
 		Node nCourant = new Node(e);
 		Node nFinal = new Node(Jeu.joueur);
 		//Permet de definir les nodes de débuts et de fin précisement, avec leurs voisins.
@@ -40,19 +40,25 @@ public class IA {
 		}
 
 		//Boucle principale
-		//while(!nCourant.equals(nFinal)){
+		
+		while(!nCourant.equals(nFinal)){
+			if(!listeOuverte.isEmpty()){
 			int dist = 1000000000;
 			Node nIdeal = new Node(-1,-1,-1);
 			for(Node n:nCourant.getVoisin()){
 				int a =(n.getPosX() - nFinal.getPosX()) - (n.getPosY() - nFinal.getPosY()) * 
 						(n.getPosX() - nFinal.getPosX()) - (n.getPosY() - nFinal.getPosY());
-				if(a < dist){
+				if(a < dist && !listeFerme.contains(n)){
 					dist = a;
 					nIdeal = n;
-				}			
+				}	
+				listeFerme.add(nIdeal);
+				listeOuverte.remove(nIdeal);
 			}
-		//}
-		return nIdeal;
+			}
+			else nCourant = nFinal;
+		}
+		return listeFerme;
 	}
 
 	
