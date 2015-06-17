@@ -9,8 +9,8 @@ public class Node {
 	
 	
 	public Node(Entity e){
-		this.setPosX((int)e.getX() / 32);
-		this.setPosY((int)e.getY() / 32);
+		this.setPosX((int)e.getX()/32);
+		this.setPosY((int)e.getY()/32);
 	}
 	
 	public Node(int x,int y, int type){

@@ -17,16 +17,16 @@ public class Zombie extends Entity{
 		}
 		
 	public void followNodes(Node n){
-		if(this.getX()<n.getPosX()){
+		if(this.getX()<n.getPosX()*32+16){
 			this.move(this.vitesse, 0);
 		}
-		if(this.getX()>n.getPosX()){
+		if(this.getX()>n.getPosX()*32+16){
 			this.move(-this.vitesse,0);
 		}
-		if(this.getY()<n.getPosY()){
+		if(this.getY()<n.getPosY()*32+16){
 			this.move(0,this.vitesse);
 		}
-		if(this.getY()>n.getPosY()){
+		if(this.getY()>n.getPosY()*32+16){
 			this.move(0,-this.vitesse);
 		}
 	}

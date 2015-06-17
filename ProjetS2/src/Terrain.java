@@ -79,8 +79,8 @@ public class Terrain {
 			}
 		}
 		for (Zombie e : lesZomb){
-			//IA ia= new IA();
-			//e.followNodes(ia.IAZombie(e, this.idTerrain).get(0));
+			IA ia= new IA();
+			e.followNodes(new Node(Jeu.joueur));
 			/*for(Node n : ia.IAZombie(e, this.idTerrain)){
 				//e.followNodes(n);
 			}*/
