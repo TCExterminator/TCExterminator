@@ -97,22 +97,22 @@ public class Jeu {
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
 			needMove(joueur,0,joueur.getVitesse());
-			glTranslated(0, -joueur.getVitesse()/2, 0);
+			//glTranslated(0, -joueur.getVitesse()/2, 0);
 			myr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
 			needMove(joueur,-joueur.getVitesse(),0);
-			glTranslated(joueur.getVitesse()/2, 0, 0);
+			//glTranslated(joueur.getVitesse()/2, 0, 0);
 			mxr+=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_D)){
 			needMove(joueur,joueur.getVitesse(),0);
-			glTranslated(-joueur.getVitesse()/2,0, 0);
+			//glTranslated(-joueur.getVitesse()/2,0, 0);
 			mxr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_S)){
 			needMove(joueur,0,-joueur.getVitesse());
-			glTranslated(0, joueur.getVitesse()/2, 0);
+			//glTranslated(0, joueur.getVitesse()/2, 0);
 			myr+=joueur.getVitesse()/2;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_A)){
@@ -149,19 +149,19 @@ public class Jeu {
 		int newY=entite.getY()+dy;
 		Terrain played = null;
 		for (Terrain t : lesTerrains){
-			System.out.println(entite.getX()+" : "+entite.getY()+16);
+			System.out.println(entite.getX()-16+" : "+(entite.getY()-16));
 			//perso = cercle 12h=point1 3h=point2 6h=point3 9h=point4
 			if (t.getIsActif()){played=t;
-				char point1 = played.getTypeCase(newX,newY+16);
+				char point1 = played.getTypeCase(newX,newY+15);
 				char point12 = played.getTypeCase(newX+13,newY+13);
 				
-				char point2 = played.getTypeCase(newX+16,newY);
+				char point2 = played.getTypeCase(newX+15,newY);
 				char point23 = played.getTypeCase(newX+13,newY-13);
 				
-				char point3 = played.getTypeCase(newX,newY-16);
+				char point3 = played.getTypeCase(newX,newY-15);
 				char point34 = played.getTypeCase(newX-13,newY-13);
 				
-				char point4 = played.getTypeCase(newX-16,newY);
+				char point4 = played.getTypeCase(newX-15,newY);
 				char point41 = played.getTypeCase(newX-13,newY+13);
 				
 				System.out.println(point1+" : "+point2+" : "+point3+" : "+point4);
@@ -174,6 +174,7 @@ public class Jeu {
 				if(point34=='1'){dx=0;dy=0;}
 				if(point41=='1'){dx=0;dy=0;}
 				
+				glTranslated(-dx/2, -dy/2, 0);
 				entite.move(dx,dy);
 			}
 		}
