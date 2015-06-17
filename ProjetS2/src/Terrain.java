@@ -38,13 +38,19 @@ public class Terrain {
 	}
 	
 	public void afficher(){
+		isActif=true;
+		
 		Texture sol = Jeu.getTexture("sol");
 		Texture wall = Jeu.getTexture("wall");
+		
 		char map[][]= lireTerrain(0);
+		lesCases=new Case[map.length][map[0].length];
+		
 		for(int i=0;i<map.length;i++){
 			for(int j =0;j<map[i].length;j++){
 				switch(map[i][j]){
 					case '1':
+						lesCases[i][j]=new case()
 						wall.bind();
 						break;
 					case '0':
