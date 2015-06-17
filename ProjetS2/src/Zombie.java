@@ -12,7 +12,7 @@ public class Zombie extends Entity{
 	//m騁hode servant � tester la collision entre un zombie et une entite
 	public boolean collision(Entity entite){
 		boolean res = false;
-		//� coder
+		//� co der
 		return res;
 		}
 		
