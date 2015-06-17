@@ -80,7 +80,8 @@ public class Terrain {
 		}
 		for (Zombie e : lesZomb){
 			IA ia= new IA();
-			e.followNodes(new Node(Jeu.joueur));
+			//e.followNodes(ia.IAZombie(e, this.idTerrain).get(0));
+			ia.IAZombie(e, this.idTerrain);
 			e.afficher();
 		}
     }
@@ -135,8 +136,12 @@ public class Terrain {
 				}	
 			}	
 		}
-		
+
 		public ArrayList<Zombie> getlesZomb(){
 			return this.lesZomb;
+		}
+		
+		public ArrayList<Projectile> getlesProj(){
+			return this.lesProj;
 		}
 }
