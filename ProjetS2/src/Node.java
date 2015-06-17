@@ -37,4 +37,12 @@ public class Node {
 	public void setPosX(int posX) {
 		this.posX = posX;
 	}
+
+	public int getTypeCase() {
+		return typeCase;
+	}
+
+	public void setTypeCase(int typeCase) {
+		this.typeCase = typeCase;
+	}
 }	
