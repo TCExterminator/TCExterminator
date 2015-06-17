@@ -97,23 +97,17 @@ public class Jeu {
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
 			needMove(joueur,0,joueur.getVitesse());
-			//glTranslated(0, -joueur.getVitesse()/2, 0);
-			myr-=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
 			needMove(joueur,-joueur.getVitesse(),0);
-			//glTranslated(joueur.getVitesse()/2, 0, 0);
-			mxr+=joueur.getVitesse()/2;
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_D)){
 			needMove(joueur,joueur.getVitesse(),0);
-			//glTranslated(-joueur.getVitesse()/2,0, 0);
-			mxr-=joueur.getVitesse()/2;
+			
 		}	
 		if(Keyboard.isKeyDown(Keyboard.KEY_S)){
 			needMove(joueur,0,-joueur.getVitesse());
-			//glTranslated(0, joueur.getVitesse()/2, 0);
-			myr+=joueur.getVitesse()/2;
+			
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_A)){
 			System.out.println("P "+(joueur.getX()) + " "+ (joueur.getY()));
@@ -169,6 +163,8 @@ public class Jeu {
 				if((point1 =='1')||(point2 =='1')||(point3 =='1')||(point12=='1')||(point23=='1')||(point34=='1')||(point41=='1')){dx=0;dy=0;}
 				
 				glTranslated(-dx/2, -dy/2, 0);
+				mxr-=dx/2;
+				myr-=dy/2;
 				entite.move(dx,dy);
 			}
 		}
