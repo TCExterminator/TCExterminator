@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 
 
@@ -5,6 +7,7 @@ public class Node {
 	private int posX;
 	private int posY;	
 	private int typeCase;
+	private ArrayList<Node> voisins;
 	// 1 pour le praticable, 2 pour les murs
 	
 	
@@ -60,5 +63,28 @@ public class Node {
 				}
 			}
 		return b;
-		}	
-	}	
+		}
+	public boolean estVoisin(Node n){
+		boolean b = false;
+		if((this.posX==n.getPosX() + 1 && this.posY==n.getPosY() +1) || 
+				(this.posX==n.getPosX() + 1 && this.posY==n.getPosY()) ||
+				(this.posX==n.getPosX() + 1 && this.posY==n.getPosY() -1) ||
+				(this.posX==n.getPosX() && this.posY==n.getPosY() - 1) ||
+				(this.posX==n.getPosX() - 1 && this.posY==n.getPosY() - 1) ||
+				(this.posX==n.getPosX() - 1 && this.posY==n.getPosY()) ||
+				(this.posX==n.getPosX() - 1 && this.posY==n.getPosY() + 1) ||
+				(this.posX==n.getPosX() + 1 && this.posY==n.getPosY() + 1)){
+					b = true;
+			
+	}
+		return b;
+	}
+	public void setVoisin(ArrayList<Node> listeVoisin){
+		for(Node n:listeVoisin){
+			if(this.estVoisin(n)){
+				this.voisins.add(n);
+			}
+		}
+		
+	}
+}	

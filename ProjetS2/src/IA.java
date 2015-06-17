@@ -22,11 +22,14 @@ public class IA {
 				listeOuverte.add(lesNodes.get(i));
 			}
 		}
-		
+		for(Node n:listeOuverte){
+			n.setVoisin(listeOuverte);
+		}
 		ArrayList<Node> listeFerme = new ArrayList<>();
 		Node nCourant = new Node(e);
 		Node nFinal = new Node(Jeu.joueur);
 		while(!nCourant.equals(nFinal)){
+			
 			
 		}
 		return null;
