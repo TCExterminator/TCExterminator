@@ -146,7 +146,7 @@ public class Jeu {
 		}
 		return texture;
 	}
-	public static needMove(Player joueur,int dx,int dy){
+	public static void needMove(Player joueur,int dx,int dy){
 		joueur.move(1,1);
 	}
 }
