@@ -63,7 +63,6 @@ public class Terrain {
 		for(int i=0;i<lesTiles.length;i++){
 			for(int j =0;j<lesTiles[i].length;j++){
 				lesTiles[i][j].getTexture().bind();
-				System.out.println(i+" : "+j);
 				glBegin(GL_QUADS);
 						glTexCoord2f(0, 0);
 						glVertex2i(((i+1)*32),(j*32));
