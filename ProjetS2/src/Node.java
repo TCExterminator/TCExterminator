@@ -103,6 +103,18 @@ public class Node
     return this.voisins;
   }
   
+  public ArrayList<Node> getVoisinPraticable()
+  {
+	ArrayList<Node> vP = new ArrayList<Node>();
+	for(Node n:this.voisins)
+	{
+		if(n.isPraticable()){
+			vP.add(n);
+		}
+	}
+	return vP;
+  }
+  
   public String toString()
   {
     return "Node X " + this.posX + " Y " + this.posY;
@@ -110,8 +122,8 @@ public class Node
   
   public int getDistanceNode(Node n)
   {
-    return this.posX - n.getPosX() - (this.posY - n.getPosY()) * (
-      this.posX - n.getPosX()) - this.posY - n.getPosY();
+    return (int) Math.sqrt(this.posX - n.getPosX() - (this.posY - n.getPosY() ) );/* * (
+      this.posX - n.getPosX()) - this.posY - n.getPosY()*/
   }
   
   public static void main(String[] args)
