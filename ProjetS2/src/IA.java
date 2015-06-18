@@ -52,23 +52,26 @@ public class IA {
 			//Boucle principale
 			System.out.println(nCourant.equals(nFinal));
 			while(!nCourant.equals(nFinal)){
-				try {
+				/*try {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-				Node nIdeal = nCourant;
-				System.out.println(nCourant.getVoisin().size());
-				for(Node n:nCourant.getVoisin()){
+				}*/
+				Node nIdeal = nCourant.getVoisinPraticable().get(0);
+				//System.out.println(nCourant.getVoisin().size());
+				for(Node n:nCourant.getVoisinPraticable()){
 					if(nCourant.equals(nIdeal)){
 						nIdeal = n;
 					}
-					else if(n.getDistanceNode(nFinal)<nIdeal.getDistanceNode(nFinal) 
+					else if(listeOuverteCopie.contains(n) && n.getDistanceNode(nFinal)<nIdeal.getDistanceNode(nFinal) 
 								&& !listeFerme.contains(n)) nIdeal = n;
 				}
+				System.out.println(nIdeal);
+				listeOuverteCopie.remove(nCourant);
 				listeFerme.add(nIdeal);
 				nCourant = nIdeal;
+				//listeOuverteCopie.remove(nIdeal);
 			}
 			return listeFerme;
 		}	
