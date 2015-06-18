@@ -203,7 +203,7 @@ public class Terrain
       char point4 = getTypeCase(a - taille, b);
       char point41 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
       if ((point1 != '1') && (point2 != '1') && (point3 != '1') && (point12 != '1') && (point23 != '1') && (point34 != '1') && (point41 != '1')) {
-        this.lesZomb.add(new Zombie(a, b, 1));
+        this.lesZomb.add(new Zombie(a, b, 2));
       }
     }
   }
