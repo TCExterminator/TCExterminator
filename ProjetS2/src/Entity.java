@@ -121,13 +121,19 @@ public abstract class Entity
     		  int y=z.getY()-this.getY();
     		  if(Math.sqrt(x*x+y*y)<this.taille+z.taille){
     			  this.sante-=1;
+    			  System.out.println(this.sante);
     		  }
     	  }
       }else if (this.getClass() == Zombie.class){
-    	  for (Projectile p :played.getlesProj()){
+    	  
+    	  for (int i=0 ;i<played.getlesProj().size();i++){
+    		  Projectile p=played.getlesProj().get(i);
     		  int x=p.getX()-this.getX();
     		  int y=p.getY()-this.getY();
-    		  
+    		  if(Math.sqrt(x*x+y*y)<this.taille+p.taille){
+    			  this.sante-=1;
+    			  played.getlesProj().remove(p);
+    		  }
     		  
     	  }
     	  for(Zombie z :played.getlesZomb()){
