@@ -114,6 +114,7 @@ public class Terrain
 	        glTexCoord2f(0.0F, 1.0F);
 	        glVertex2i(i * 32, j * 32);
         glEnd();
+        
       }
     }
     for (Zombie e : this.lesZomb) {
