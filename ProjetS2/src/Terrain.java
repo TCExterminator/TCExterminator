@@ -25,25 +25,28 @@ public class Terrain {
 	private ArrayList<Projectile> lesProj = new ArrayList<Projectile>();
 	private Tiles[][] lesTiles;
 	private ArrayList<Bonus> lesBonus;
-	private boolean isActif=false;
+	private boolean actif=false;
 	
-	public boolean getIsActif(){
-		return isActif;
+	public boolean isActif(){
+		return actif;
 	}
 	public Terrain(){
 		this.idTerrain=0;
 		Random r = new Random();
-		for(int i=0 ;i<20; i++){
-			lesZomb.add(new Zombie(r.nextInt(Jeu.winWidth),r.nextInt(Jeu.winHeight),1));
-		}
+		char map[][]= lireTerrain(0);
+		lesTiles=new Tiles[map.length][map[0].length];
 		Texture sol = Jeu.getTexture("sol");
 		Texture wall = Jeu.getTexture("wall");
 		
-		char map[][]= lireTerrain(0);
-		lesTiles=new Tiles[map.length][map[0].length];
+		
+		
 		for(int i=0;i<map.length;i++){
 			for(int j =0;j<map[i].length;j++){
 				switch(map[i][j]){
+					case 'Z':
+						lesTiles[i][j]=new Tiles(sol,'0');
+						lesZomb.add(new Zombie(i*32+16,j*32+16,2));
+						break;
 					case '1':
 						lesTiles[i][j]=new Tiles(wall,'1');
 						break;
@@ -61,7 +64,10 @@ public class Terrain {
 	}
 	
 	public void afficher(){
-		isActif=true;
+		for(Terrain t : Jeu.getLesTerrains()){
+			t.actif=false;
+		}
+		actif=true;
 		
 		for(int i=0;i<lesTiles.length;i++){
 			for(int j =0;j<lesTiles[i].length;j++){
@@ -79,9 +85,6 @@ public class Terrain {
 			}
 		}
 		for (Zombie e : lesZomb){
-			IA ia= new IA();
-			//e.followNodes(new Node(Jeu.joueur.getX(),Jeu.joueur.getY()));
-			e.followNodes(ia.IAZombie(e.getX(),e.getY(), this.idTerrain).get(0));
 			e.afficher();
 		}
 		for(Projectile p : lesProj){

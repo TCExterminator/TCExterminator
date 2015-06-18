@@ -49,8 +49,23 @@ public class Jeu {
 	//methode servant a afficher un terrain
 	public static void afficher(){
 		lesTerrains.get(0).afficher();
-
 		joueur.afficher();
+	}
+	
+	public static void movements(){
+		for(Terrain t: lesTerrains){
+			if(t.isActif()){
+				for (Zombie e : t.getlesZomb()){
+					System.out.println(e);
+					IA ia= new IA();
+					e.followNodes(ia.IAZombie(e.getX(), e.getY(), 0).get(0));
+					//e.followNodes(new Node (joueur.posX,joueur.posY));
+				}
+				for(Projectile p : t.getlesProj()){
+					p.move();
+				}
+			}
+		}
 	}
 	
 	//methode servant de boucle principal au jeu
@@ -60,8 +75,9 @@ public class Jeu {
 				stop();
 			}
 			Display.update();
-			Display.sync(60);
+			Display.sync(30);
 			glClear(GL_COLOR_BUFFER_BIT);
+			movements();
 			afficher();
 			getInputs();
 			glEnable(GL_BLEND);
@@ -129,8 +145,13 @@ public class Jeu {
 			glEnd();
 			glEnable(GL_BLEND);
 		}
-		if(Mouse.isButtonDown(0)){
-			joueur.tirer((joueur.getX()-(Mouse.getX()-mxr)),(joueur.getY()-(Mouse.getY()-myr)));
+		if(Mouse.isButtonDown(0) & joueur.getCooldown()>=20 & joueur.getArmeActive().getMunition() !=0){
+			int dist = (int) Math.sqrt( ((Mouse.getX()-mxr - joueur.getX()) * (Mouse.getX()-mxr - joueur.getX())) +
+										((Mouse.getY()-myr - joueur.getY()) * (Mouse.getY()-myr - joueur.getY())))/10;
+			System.out.println(((Mouse.getX()-mxr)-joueur.getX())/dist);
+			joueur.tirer((Mouse.getX()-mxr-joueur.getX())/dist,((Mouse.getY()-myr)-joueur.getY())/dist);
+		}else{
+			joueur.healCooldown();
 		}
 	}
 	
@@ -145,6 +166,10 @@ public class Jeu {
 		return texture;
 	}
 	
+	public static ArrayList<Terrain> getLesTerrains(){
+		return lesTerrains;
+	}
+	
 	
 	public static void needMove(Entity entite,int dx,int dy){
 		int newX=entite.getX()+dx;
@@ -152,7 +177,7 @@ public class Jeu {
 		Terrain played = null;
 		for (Terrain t : lesTerrains){
 			//perso = cercle 12h=point1 3h=point2 6h=point3 9h=point4
-			if (t.getIsActif()){played=t;
+			if (t.isActif()){played=t;
 				char point1 = played.getTypeCase(newX,newY+15);
 				char point12 = played.getTypeCase(newX+13,newY+13);
 				

@@ -5,23 +5,31 @@ public class Player extends Entity{
 
 	private int armure;
 	private int mana;
-	private int caseActiveInventaire;
+	private int caseActiveInventaire = 1;
 	private ArrayList<Arme> inventaire=new ArrayList<Arme>();
 	//personnage jouable represente par un int
 	private int[] perso;
 	private static int poidMax=10;
 	
+	private int cooldown;
+	//private int reloading = 40;
+	//private int reloadTime = 40;
+	
 	public Player(int posx, int posy, int speed, String texture) {
-		super(posx, posy, speed, texture);
+		super(posx, posy, speed,100, texture);
 		inventaire.add(Jeu.listeArme[0]);
+		inventaire.add(Jeu.listeArme[1]);
 	}
 	
 	//methode servant a faire tirer le personnage
 	public void tirer(int dx,int dy){
 		Arme armeActive = inventaire.get(this.caseActiveInventaire);
 		int balles = armeActive.getMunition();
-		Jeu.add(projectile = new Projectile(dx,dy,this.getX(),this.getY(),1,"bullet",armeActive.getPuissance()));
+		for(Terrain t : Jeu.getLesTerrains()){
+			if(t.isActif())	t.getlesProj().add(new Projectile(dx,dy,this.getX(),this.getY(),1,armeActive.getPuissance()));
+		}
 		armeActive.setMunition(balles-1);
+		this.cooldown = 0;
 		System.out.println(armeActive.getMunition());
 		//a coder
 	}
@@ -40,6 +48,15 @@ public class Player extends Entity{
 	}
 		
 		
+	public int getCooldown() {
+		return cooldown;
+	}
+
+	public void healCooldown() {
+		if(this.cooldown<=20)
+		this.cooldown++;
+	}
+
 	public boolean ajouterArme(Arme arme){
 		boolean res = false;
 		int placeRestante=poidMax;
@@ -55,6 +72,10 @@ public class Player extends Entity{
 		return res;
 	}
 		
+	public Arme getArmeActive(){
+		return new Arme(this.inventaire.get(this.caseActiveInventaire));
+	}
+	
 	//methode servant a affecter un bonus a un personnage
 	public void affecterBonus(Bonus b){
 		int nbBonus=b.getEffet();

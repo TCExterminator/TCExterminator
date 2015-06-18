@@ -1,7 +1,4 @@
-
 import static org.lwjgl.opengl.GL11.*;
-
-import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
 
 
@@ -17,9 +14,10 @@ public abstract class Entity {
     
 	
     //constructeur de la classe
-    public Entity(int x,int y,int speed,String texture){
+    public Entity(int x,int y,int speed,int sante,String texture){
     		this.posX = x;
     		this.posY = y;
+    		this.sante = sante;
     		this.vitesse = speed;
     		this.texture = Jeu.getTexture(texture);
     	}
