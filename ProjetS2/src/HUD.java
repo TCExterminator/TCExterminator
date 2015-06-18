@@ -37,21 +37,21 @@ public class HUD {
 		public void renderHUD(Player player) {
 		
 			//création d'un rectangle ou on initialise les 4 coins
-			int x = 30 - Jeu.mxr;
+			int x = 10 -Jeu.mxr;
 			int y = Jeu.winHeight - 30 - Jeu.myr;
 			hp.bind();
 			glBegin(GL_QUADS);
 	        	glTexCoord2f(0.0F, 0.0F);
-					glVertex2f(x,y);
+				glVertex2f(x,y);
 		        glTexCoord2f(1F, 0.0F);
-					glVertex2f(x + (player.sante* 400/500) ,y);
+				glVertex2f(x + player.sante ,y);
 		        glTexCoord2f(1F, 1F);
-					glVertex2f(x + (player.sante* 400/500)  ,y - 40);
+				glVertex2f(x + player.sante ,y - 40);
 		        glTexCoord2f(0.0F, 1F);
-					glVertex2f(x,y - 40);
+				glVertex2f(x,y - 40);
 			glEnd();
 			
-			this.mana.bind();
+		/*	this.mana.bind();
 			glBegin(GL_QUADS);
 	        	glTexCoord2f(1F, 0.0F);
 					glVertex2f(x,y - 50);
@@ -61,10 +61,16 @@ public class HUD {
 					glVertex2f(x + (player.getMana()/100) * 400 ,y - 70);
 		        glTexCoord2f(0.0F, 0F);
 					glVertex2f(x,y - 70);
-			glEnd();        
-			
-			Color.white.bind();
-	        font.drawString(x, y - 50, "Ammo : " + player.getArmeActive().getMunition() , Color.white);
+			glEnd();    */    
+			String ammos ="";
+			if(player.getArmeActive().getMunition()<100){
+			for(int i = 0 ;i<player.getArmeActive().getMunition(); i++){
+				ammos+= "I";
+			}
+			}else{
+				ammos = "IXX";
+			}
+	        font.drawString(x, y - 100, ammos , Color.white);
 			
 		}
 }

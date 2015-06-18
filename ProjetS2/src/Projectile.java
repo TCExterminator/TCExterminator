@@ -14,6 +14,16 @@ public class Projectile
     this.coefDir = (Math.sqrt(dx * dx + dy * dy) / speed);
     this.DY = (dy / this.coefDir);
     this.DX = (dx / this.coefDir);
+  }  
+  
+  public Projectile(int dx, int dy, int x, int y, int speed, int puissanceProjectile,int porte,String texture)
+  {
+    super(x, y, speed, texture, 1, porte);
+    this.puissanceProjectile = puissanceProjectile;
+    
+    this.coefDir = (Math.sqrt(dx * dx + dy * dy) / speed);
+    this.DY = (dy / this.coefDir);
+    this.DX = (dx / this.coefDir);
   }
   
   public double getDY()

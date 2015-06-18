@@ -53,7 +53,8 @@ public class Jeu
       new Arme(125, 12, 3, 500, 1, 1), 
       new Arme(150, 5, 1, 50, 1, 2), 
       new Arme(50, 14, 1, 100, 2, 4), 
-      new Arme(10, 1024, 5, 1000, 5, 60) };
+      new Arme(10, 1024, 5, 1000, 5, 1) };
+   // Arme(int puissance, int munition, int poid, int portee, int dispertion, int cadence)
     System.out.println(listeArme[0].getPuissance());
     started = true;
     lesTerrains.add(new Terrain(0));

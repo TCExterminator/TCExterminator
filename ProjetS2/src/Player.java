@@ -51,7 +51,7 @@ public class Player
   
   public void couteau(int dx, int dy)
   {
-      Jeu.getActivTerrain().getlesProj().add(new Projectile(dx, dy, getX(), getY(), 10, couteau.getPuissance(),couteau.getPortee()));
+      Jeu.getActivTerrain().getlesProj().add(new Projectile(dx, dy, getX(), getY(), 10, couteau.getPuissance(),couteau.getPortee(),"couteau"));
       cooldown = couteau.getCadence();
   }
   
