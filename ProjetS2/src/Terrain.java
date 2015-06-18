@@ -6,7 +6,9 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
+
 import static org.lwjgl.opengl.GL11.*;
+
 import org.lwjgl.opengl.*;
 import org.newdawn.slick.opengl.Texture;
 
@@ -133,7 +135,7 @@ public class Terrain
   
   public void moveAll()
   {
-	  
+	  Terrain played = Jeu.getActivTerrain();
     for (Zombie e : this.lesZomb)
     {
     	System.out.println(e.getX()+" : "+ e.getY());
@@ -147,20 +149,20 @@ public class Terrain
       int vouluY=this.lePerso.getY();
       
       if (e.getX() < vouluX) {
-         e.move( e.vitesse, 0.0D);
+         e.move( e.vitesse, 0.0D,played);
       }
       if (e.getX() > vouluX) {
-    	  e.move( -e.vitesse, 0.0D);
+    	  e.move( -e.vitesse, 0.0D,played);
       }
       if (e.getY() < vouluY) {
-    	  e.move( 0.0D, e.vitesse);
+    	  e.move( 0.0D, e.vitesse,played);
       }
       if (e.getY() > vouluY) {
-    	  e.move( 0.0D, -e.vitesse);
+    	  e.move( 0.0D, -e.vitesse,played);
       }
     }
     for (Projectile p : this.lesProj) {
-    	p.move( p.getDX(), p.getDY());
+    	p.move( p.getDX(), p.getDY(),played);
     }
   }
   

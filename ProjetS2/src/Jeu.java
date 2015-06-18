@@ -41,7 +41,7 @@ public class Jeu
   public static void initialiser()
   {
     listeArme = new Arme[] {
-      new Arme(25, -42, 0, 5, 0, 4), 
+      new Arme(25, -42, 0, 5, 0, 10), 
       new Arme(15, 50, 1, 2, 1, 8), 
       new Arme(20, 120, 2, 2, 2, 4), 
       new Arme(10, 240, 2, 2, 4, 32), 
@@ -114,16 +114,16 @@ public class Jeu
       System.exit(0);
     }
     if (Keyboard.isKeyDown(44)) {
-    	lePerso.move(0.0, lePerso.getVitesse());
+    	lePerso.move(0.0, lePerso.getVitesse(),getActivTerrain());
     }
     if (Keyboard.isKeyDown(16)) {
-    	lePerso.move( -lePerso.getVitesse(), 0.0D);
+    	lePerso.move( -lePerso.getVitesse(), 0.0D,getActivTerrain());
     }
     if (Keyboard.isKeyDown(32)) {
-    	lePerso.move( lePerso.getVitesse(), 0.0D);
+    	lePerso.move( lePerso.getVitesse(), 0.0D,getActivTerrain());
     }
     if (Keyboard.isKeyDown(31)) {
-    	lePerso.move( 0.0D, -lePerso.getVitesse());
+    	lePerso.move( 0.0D, -lePerso.getVitesse(),getActivTerrain());
     }
     if (Keyboard.isKeyDown(30))
     {

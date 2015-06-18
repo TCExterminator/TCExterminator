@@ -103,11 +103,10 @@ public abstract class Entity
       return res;
   }
   
-  public void move(double dx, double dy)
+  public void move(double dx, double dy,Terrain played)
   {
     int newX = (int)(getX() + dx);
     int newY = (int)(getY() + dy);
-    Terrain played = Jeu.getActivTerrain();
     int taille = this.taille;
     
     if (played.IsActif())
