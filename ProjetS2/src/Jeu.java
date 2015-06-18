@@ -20,6 +20,7 @@ public class Jeu {
 	private static final ArrayList<Terrain> lesTerrains = new ArrayList<Terrain>() ;
 	public static Player joueur;
 	public static Arme[] listeArme;
+	private static IA ia = new IA();
 
 	//methode de classe servant a stopper le jeu
 	public static void stop(){
@@ -57,7 +58,6 @@ public class Jeu {
 			if(t.isActif()){
 				for (Zombie e : t.getlesZomb()){
 					System.out.println(e);
-					IA ia= new IA();
 					e.followNodes(ia.IAZombie(e.getX(), e.getY(), 0).get(0));
 					//e.followNodes(new Node (joueur.posX,joueur.posY));
 				}
