@@ -109,7 +109,7 @@ public abstract class Entity
         (point1 == '2') || (point2 == '2') || (point3 == '2') || (point12 == '2') || (point23 == '2') || (point34 == '2') || (point41 == '2'))
       {
         if (getClass() == Projectile.class) {
-          setSante(0);
+          setSante(-1);
         }
       }
       else

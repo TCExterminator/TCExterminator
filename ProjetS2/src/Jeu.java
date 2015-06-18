@@ -41,7 +41,7 @@ public class Jeu
   public static void initialiser()
   {
     listeArme = new Arme[] {
-      new Arme(25, -42, 0, 1, 0, 4), 
+      new Arme(25, -42, 0, 5, 0, 4), 
       new Arme(15, 50, 1, 2, 1, 8), 
       new Arme(20, 120, 2, 2, 2, 4), 
       new Arme(10, 240, 2, 2, 4, 32), 
@@ -146,7 +146,7 @@ public class Jeu
       (lePerso.getCooldown() <= 0)) {
       lePerso.tirer(Mouse.getX() - mxr - lePerso.getX(), Mouse.getY() - myr - lePerso.getY());
     }
-    lePerso.heatCooldown();
+    
   }
   
   public static Texture getTexture(String file)

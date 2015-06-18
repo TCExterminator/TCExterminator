@@ -97,6 +97,7 @@ public class Terrain
     afficher();
     moveAll();
     supprimerMorts();
+    lePerso.heatCooldown();
   }
   
   public void afficher()
@@ -126,6 +127,7 @@ public class Terrain
     this.lePerso.afficher();
     for (Projectile p : this.lesProj) {
       p.afficher();
+      p.heatSante(1);
     }
   }
   
@@ -166,14 +168,14 @@ public class Terrain
   {
     boolean res = false;
     for (int i = 0; i < this.lesZomb.size();) {
-      if (((Zombie)this.lesZomb.get(i)).getSante() == 0) {
+      if (((Zombie)this.lesZomb.get(i)).getSante() <= 0) {
         this.lesZomb.remove(i);
       } else {
         i++;
       }
     }
     for (int i = 0; i < this.lesProj.size(); i++) {
-      if (((Projectile)this.lesProj.get(i)).getSante() == 0) {
+      if (((Projectile)this.lesProj.get(i)).getSante() <= 0) {
         this.lesProj.remove(i);
       } else {
         i++;
