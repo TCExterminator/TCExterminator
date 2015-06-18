@@ -1,105 +1,93 @@
 import java.util.ArrayList;
 
-
-public class Player extends Entity{
-
-	private int armure;
-	private int mana;
-	private int caseActiveInventaire = 1;
-	private ArrayList<Arme> inventaire=new ArrayList<Arme>();
-	//personnage jouable represente par un int
-	private int[] perso;
-	private static int poidMax=10;
-	
-	private int cooldown;
-	//private int reloading = 40;
-	//private int reloadTime = 40;
-	
-	public Player(int posx, int posy, int speed, String texture) {
-		super(posx, posy, speed,100, texture);
-		inventaire.add(Jeu.listeArme[0]);
-		inventaire.add(Jeu.listeArme[1]);
-	}
-	
-	//methode servant a faire tirer le personnage
-	public void tirer(int dx,int dy){
-		Arme armeActive = inventaire.get(this.caseActiveInventaire);
-		int balles = armeActive.getMunition();
-		for(Terrain t : Jeu.getLesTerrains()){
-			if(t.isActif())	t.getlesProj().add(new Projectile(dx,dy,this.getX(),this.getY(),1,armeActive.getPuissance()));
-		}
-		armeActive.setMunition(balles-1);
-		this.cooldown = 0;
-		System.out.println(armeActive.getMunition());
-		//a coder
-	}
-		
-	//methode servant a faire lacher l'arme au personnage
-	public void lacherArme(){
-		//a coder
-	}
-		
-	public void setArmure(int ar){
-		this.armure=ar;
-	}
-		
-	public void setMana(int ma){
-		this.mana=ma;
-	}
-		
-		
-	public int getCooldown() {
-		return cooldown;
-	}
-
-	public void healCooldown() {
-		if(this.cooldown<=20)
-		this.cooldown++;
-	}
-
-	public boolean ajouterArme(Arme arme){
-		boolean res = false;
-		int placeRestante=poidMax;
-			
-		for(Arme a : inventaire){
-			placeRestante-=a.getPoid();
-				
-		}
-		if(arme.getPoid()<=placeRestante){
-			res=true;
-			inventaire.add(arme);
-		}
-		return res;
-	}
-		
-	public Arme getArmeActive(){
-		return new Arme(this.inventaire.get(this.caseActiveInventaire));
-	}
-	
-	//methode servant a affecter un bonus a un personnage
-	public void affecterBonus(Bonus b){
-		int nbBonus=b.getEffet();
-		/*effet 1 : sante
-		*effet 2 : armure
-		*effet 3 : mana
-		*effet 4 : vitesse
-		*effet 5 : Arme 
-		*/
-			
-		switch (nbBonus) {
-		case 1 : this.setSante(this.getSante() + 50);
-		break;
-		case 2 : this.setArmure(this.armure + 50);
-		break;
-		case 3 : this.setMana(this.mana + 20);
-		break;
-		case 4 : this.setVitesse(this.vitesse + 1);
-		break;
-		case 5 : this.ajouterArme(b.getArme());
-		}
-	}
-	public void move(int dx,int dy){
-		this.posX=this.posX+dx;
-		this.posY=this.posY+dy;
-	}		 
+public class Player
+  extends Entity
+{
+  private int armure;
+  private int mana;
+  private int caseActiveInventaire = 0;
+  private ArrayList<Arme> inventaire = new ArrayList();
+  private int[] perso;
+  private static int poidMax = 10;
+  private static int cooldown;
+  
+  public Player(int posx, int posy, int speed)
+  {
+    super(posx, posy, speed, "perso", 15, 100);
+    this.inventaire.add(Jeu.listeArme[0]);
+  }
+  
+  public int getCooldown()
+  {
+    return cooldown;
+  }
+  
+  public void heatCooldown()
+  {
+    cooldown -= 1;
+  }
+  
+  public void tirer(int dx, int dy)
+  {
+    Arme armeActive = (Arme)this.inventaire.get(this.caseActiveInventaire);
+    
+    int balles = armeActive.getMunition();
+    if ((balles > 0) || (armeActive.getPoid() == 0))
+    {
+      Jeu.getActivTerrain().getlesProj().add(new Projectile(dx, dy, getX(), getY(), 10, armeActive.getPuissance()));
+      if (balles != -42) {
+        armeActive.setMunition(balles - 1);
+      }
+      cooldown = armeActive.getCadence();
+    }
+  }
+  
+  public void lacherArme() {}
+  
+  public void setArmure(int ar)
+  {
+    this.armure = ar;
+  }
+  
+  public void setMana(int ma)
+  {
+    this.mana = ma;
+  }
+  
+  public boolean ajouterArme(Arme arme)
+  {
+    boolean res = false;
+    int placeRestante = poidMax;
+    for (Arme a : this.inventaire) {
+      placeRestante -= a.getPoid();
+    }
+    if (arme.getPoid() <= placeRestante)
+    {
+      res = true;
+      this.inventaire.add(arme);
+    }
+    return res;
+  }
+  
+  public void affecterBonus(Bonus b)
+  {
+    int nbBonus = b.getEffet();
+    switch (nbBonus)
+    {
+    case 1: 
+      setSante(getSante() + 50);
+      break;
+    case 2: 
+      setArmure(this.armure + 50);
+      break;
+    case 3: 
+      setMana(this.mana + 20);
+      break;
+    case 4: 
+      setVitesse(this.vitesse + 1);
+      break;
+    case 5: 
+      ajouterArme(b.getArme());
+    }
+  }
 }
