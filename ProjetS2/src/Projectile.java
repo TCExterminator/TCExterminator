@@ -1,17 +1,28 @@
-public class Projectile extends Entity{
-	private int puissanceProjectile;
-	private int dx;
-	private int dy;
-	
-	public Projectile(int dx, int dy, int x, int y, int speed, int puissanceProjectile){
-		super(x, y, speed, 1, "bullet");
-		this.dx=dx;
-		this.dy=dy;
-		this.puissanceProjectile = puissanceProjectile;
-	}
-	
-	public void move(){
-		this.posX=this.posX+(dx*this.vitesse);
-		this.posY=this.posY+(dy*this.vitesse);
-	}
+public class Projectile
+  extends Entity
+{
+  private int puissanceProjectile;
+  private double coefDir;
+  private double DY;
+  private double DX;
+  
+  public Projectile(int dx, int dy, int x, int y, int speed, int puissanceProjectile)
+  {
+    super(x, y, speed, "bullet", 2, 1);
+    this.puissanceProjectile = puissanceProjectile;
+    
+    this.coefDir = (Math.sqrt(dx * dx + dy * dy) / speed);
+    this.DY = (dy / this.coefDir);
+    this.DX = (dx / this.coefDir);
+  }
+  
+  public double getDY()
+  {
+    return this.DY;
+  }
+  
+  public double getDX()
+  {
+    return this.DX;
+  }
 }
