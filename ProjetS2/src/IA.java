@@ -58,6 +58,7 @@ public class IA {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}*/
+				
 				Node nIdeal = nCourant.getVoisinPraticable().get(0);
 				//System.out.println(nCourant.getVoisin().size());
 				for(Node n:nCourant.getVoisinPraticable()){
@@ -75,6 +76,54 @@ public class IA {
 			}
 			return listeFerme;
 		}	
+	
+	public Node IAZombie2(int x, int y,int terrainActuelle){
+		
+		ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(IA.listeOuverte);
+		ArrayList<Node> listeFerme = new ArrayList<Node>();
+		Node nCourant = new Node(x,y);
+		
+		Node nFinal = new Node(Jeu.joueur.getX(),Jeu.joueur.getY());
+	
+		//Permet de definir les nodes de débuts et de fin précisement, avec leurs voisins.
+		for(Node n:listeOuverteCopie){
+		if(n.equals(nCourant)){
+			nCourant = n;
+			
+			}
+			if(n.equals(nFinal)){
+				
+			nFinal = n;
+			}
+		}
+
+		//Boucle principale
+		System.out.println(nCourant.equals(nFinal));
+		while(!nCourant.equals(nFinal)){
+			/*try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+			
+			Node nIdeal = nCourant.getVoisinPraticable().get(0);
+			//System.out.println(nCourant.getVoisin().size());
+			for(Node n:nCourant.getVoisinPraticable()){
+				if(nCourant.equals(nIdeal)){
+					nIdeal = n;
+				}
+				else if(listeOuverteCopie.contains(n) && n.getDistanceNode(nFinal)<nIdeal.getDistanceNode(nFinal) 
+							&& !listeFerme.contains(n)) nIdeal = n;
+			}
+			System.out.println(nIdeal);
+			listeOuverteCopie.remove(nCourant);
+			listeFerme.add(nIdeal);
+			nCourant = nIdeal;
+			//listeOuverteCopie.remove(nIdeal);
+		}
+		return listeFerme.get(0);
+	}	
 	
 	//TEST SYSTEME NODE VOISIN 
 	public static void main(String[] args){
