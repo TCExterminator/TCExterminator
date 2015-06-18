@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class IA
 {
-  private static ArrayList<Node> lesNodes = new ArrayList();
-  private static ArrayList<Node> listeOuverte = new ArrayList();
+  private static ArrayList<Node> lesNodes = new ArrayList<Node>();
+  private static ArrayList<Node> listeOuverte = new ArrayList<Node>();
   
   public static void setLesNodes(int terrainActuel)
   {
@@ -32,8 +32,8 @@ public class IA
   
   public ArrayList<Node> IAZombie(int x, int y, int terrainActuelle)
   {
-    ArrayList<Node> listeOuverteCopie = new ArrayList(listeOuverte);
-    ArrayList<Node> listeFerme = new ArrayList();
+    ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(listeOuverte);
+    ArrayList<Node> listeFerme = new ArrayList<Node>();
     Node nCourant = new Node(x, y);
     
     Node nFinal = new Node(Jeu.getActivTerrain().getPerso().getX(), Jeu.getActivTerrain().getPerso().getY());
@@ -46,23 +46,24 @@ public class IA
         nFinal = n;
       }
     }
-    System.out.println(nCourant.equals(nFinal));
+    
+    //System.out.println(nCourant.equals(nFinal));
     while (!nCourant.equals(nFinal))
     {
-      try
+      /*try
       {
         Thread.sleep(100L);
       }
       catch (InterruptedException e)
       {
         e.printStackTrace();
-      }
-      Node nIdeal = nCourant;
-      System.out.println(nCourant.getVoisin().size());
-      for (Node n : nCourant.getVoisin()) {
-        if (nCourant.equals(nIdeal)) {
+      }*/
+      Node nIdeal = nCourant.getVoisinPraticable().get(0);
+      //System.out.println(nCourant.getVoisin().size());
+      for (Node n : nCourant.getVoisinPraticable()) {
+        /*if (nCourant.equals(nIdeal)) {
           nIdeal = n;
-        } else if ((n.getDistanceNode(nFinal) < nIdeal.getDistanceNode(nFinal)) && 
+        } else*/ if ((n.getDistanceNode(nFinal) < nIdeal.getDistanceNode(nFinal)) && 
           (!listeFerme.contains(n))) {
           nIdeal = n;
         }
@@ -73,6 +74,8 @@ public class IA
     return listeFerme;
   }
   
+  
+  //TEST NODE VOISIN
   public static void main(String[] args)
   {
     Graph g = new Graph();
@@ -83,7 +86,7 @@ public class IA
         lesNodes.add(new Node(i, j, mapPoids[i][j]));
       }
     }
-    ArrayList<Node> listeOuverte = new ArrayList();
+    ArrayList<Node> listeOuverte = new ArrayList<Node>();
     for (int i = 0; i < lesNodes.size(); i++) {
       if (((Node)lesNodes.get(i)).isPraticable()) {
         listeOuverte.add((Node)lesNodes.get(i));
