@@ -28,4 +28,5 @@ public class Projectile
   public void heatSante(int d){
 	  this.sante-=d;
   }
+  
 }

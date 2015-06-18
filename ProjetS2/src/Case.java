@@ -11,4 +11,5 @@ public class Case
   {
     this.typeCase = tyC;
   }
+  
 }

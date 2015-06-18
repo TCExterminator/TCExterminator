@@ -73,4 +73,5 @@ public class Bonus
   {
     this.a = new Arme(arm);
   }
+  
 }

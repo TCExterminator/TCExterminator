@@ -155,4 +155,5 @@ public class Node
     System.out.println("Inutile : " + inutile.isPraticable());
     System.out.println(zombie.equals(nd11));
   }
+  
 }

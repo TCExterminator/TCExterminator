@@ -90,4 +90,5 @@ public class Player
       ajouterArme(b.getArme());
     }
   }
+  
 }
