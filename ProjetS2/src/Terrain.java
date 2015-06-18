@@ -9,6 +9,7 @@ import java.util.Random;
 
 import static org.lwjgl.opengl.GL11.*;
 
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.*;
 import org.newdawn.slick.opengl.Texture;
 
@@ -100,6 +101,15 @@ public class Terrain
     moveAll();
     supprimerMorts();
     lePerso.heatCooldown();
+	  if(lePerso.sante<0){
+		  try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		  Jeu.stop();
+	  }
   }
   
   public void afficher()
@@ -205,8 +215,9 @@ public class Terrain
       
       char point4 = getTypeCase(a - taille, b);
       char point41 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
-      if ((point1 != '1') && (point2 != '1') && (point3 != '1') && (point12 != '1') && (point23 != '1') && (point34 != '1') && (point41 != '1')) {
+      if ((point1 != '1') && (point2 != '1') && (point3 != '1') &&( point4 != '1') && (point12 != '1') && (point23 != '1') && (point34 != '1') && (point41 != '1')) {
         this.lesZomb.add(new Zombie(a, b, r.nextInt(3)+1));
+        i++;
       }
     }
   }

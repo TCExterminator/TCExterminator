@@ -110,24 +110,24 @@ public class Jeu
   public static void getInputs()
   {
     Player lePerso = getActivTerrain().getPerso();
-    if (Keyboard.isKeyDown(18))
+    if (Keyboard.isKeyDown(Keyboard.KEY_E))
     {
       Display.destroy();
       System.exit(0);
     }
-    if (Keyboard.isKeyDown(44)) {
+    if (Keyboard.isKeyDown(Keyboard.KEY_Z)) {
     	lePerso.move(0.0, lePerso.getVitesse(),getActivTerrain());
     }
-    if (Keyboard.isKeyDown(16)) {
+    if (Keyboard.isKeyDown(Keyboard.KEY_Q)) {
     	lePerso.move( -lePerso.getVitesse(), 0.0D,getActivTerrain());
     }
-    if (Keyboard.isKeyDown(32)) {
+    if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
     	lePerso.move( lePerso.getVitesse(), 0.0D,getActivTerrain());
     }
-    if (Keyboard.isKeyDown(31)) {
+    if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
     	lePerso.move( 0.0D, -lePerso.getVitesse(),getActivTerrain());
     }
-    if (Keyboard.isKeyDown(30))
+    if (Keyboard.isKeyDown(Keyboard.KEY_A))
     {
       System.out.println("P " + lePerso.getX() + " " + lePerso.getY());
       System.out.println("D " + mxr + " " + myr);

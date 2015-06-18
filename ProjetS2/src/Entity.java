@@ -120,7 +120,6 @@ public abstract class Entity
     		  int x=z.getX()-this.getX();
     		  int y=z.getY()-this.getY();
     		  if(Math.sqrt(x*x+y*y)<this.taille+z.taille){
-    			  if(this.sante<0)Jeu.stop();
     			  this.sante-=1;
     			  System.out.println(this.sante);
     		  }
