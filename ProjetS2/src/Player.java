@@ -34,7 +34,7 @@ public class Player
     int balles = armeActive.getMunition();
     if ((balles > 0) || (armeActive.getPoid() == 0))
     {
-      Jeu.getActivTerrain().getlesProj().add(new Projectile(dx, dy, getX(), getY(), 0, armeActive.getPuissance()));
+      Jeu.getActivTerrain().getlesProj().add(new Projectile(dx, dy, getX(), getY(), 10, armeActive.getPuissance()));
       if (balles != -42) {
         armeActive.setMunition(balles - 1);
       }
