@@ -128,6 +128,7 @@ public class Terrain
   
   public void moveAll()
   {
+	  
     for (Zombie e : this.lesZomb)
     {
       if (e.getX() < this.lePerso.getX()) {
