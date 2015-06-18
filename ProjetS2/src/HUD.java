@@ -91,9 +91,9 @@ public class HUD {
 	        	glTexCoord2f(0.0F, 0.0F);
 					glVertex2f(x,y);
 		        glTexCoord2f(1F, 0.0F);
-					glVertex2f(x + (sante/100) * 400,y);
+					glVertex2f(x + (sante* 400/100) ,y);
 		        glTexCoord2f(1F, 1F);
-					glVertex2f(x + (sante/100) * 400 ,y - 40);
+					glVertex2f(x + (sante* 400/100)  ,y - 40);
 		        glTexCoord2f(0.0F, 1F);
 					glVertex2f(x,y - 40);
 			glEnd();
