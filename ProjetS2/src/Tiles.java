@@ -1,5 +1,6 @@
 import org.newdawn.slick.opengl.Texture;
 
+
 public class Tiles
 {
   private char typeTiles;
