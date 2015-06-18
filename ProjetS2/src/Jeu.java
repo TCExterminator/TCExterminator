@@ -45,8 +45,8 @@ public class Jeu
   public static void initialiser()
   {
     listeArme = new Arme[] {
-      new Arme(25, -42, 0, 5, 0, 10), 
-      new Arme(15, 50, 1, 100, 1, 8), 
+      new Arme(35, -42, 0, 5, 0, 10), 
+      new Arme(20, 50, 1, 100, 1, 8), 
       new Arme(20, 120, 2, 100, 2, 4), 
       new Arme(10, 240, 2, 1000, 4, 32), 
       new Arme(40, 42, 3, 100, 5, 2), 
