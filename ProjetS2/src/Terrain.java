@@ -139,7 +139,7 @@ public class Terrain
 	  Terrain played = Jeu.getActivTerrain();
     for (Zombie e : this.lesZomb)
     {
-    	System.out.println(e.getX()+" : "+ e.getY());
+    	//System.out.println(e.getX()+" : "+ e.getY());
     	
     	/*
       Node one =iaZomb.IAZombie(e.getX(), e.getY(), this.idTerrain).get(0);

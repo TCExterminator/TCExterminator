@@ -105,8 +105,8 @@ public abstract class Entity
   
   public void move(double dx, double dy,Terrain played)
   {
-    int newX = (int)(getX() + dx);
-    int newY = (int)(getY() + dy);
+    int newX = (int)(this.getX() + dx);
+    int newY = (int)(this.getY() + dy);
     int taille = this.taille;
     
     if (played.IsActif())
@@ -115,14 +115,40 @@ public abstract class Entity
       for (char c:allPoint(played,newY,newX)){
     	  if(c=='1'||c=='2')colision=true;
       }
+      if (this.getClass() == Player.class){
+    	  for(Zombie z :played.getlesZomb()){
+    		  int x=z.getX()-this.getX();
+    		  int y=z.getY()-this.getY();
+    		  if(Math.sqrt(x*x+y*y)<this.taille+z.taille){
+    			  this.sante-=1;
+    		  }
+    	  }
+      }else if (this.getClass() == Zombie.class){
+    	  for (Projectile p :played.getlesProj()){
+    		  int x=p.getX()-this.getX();
+    		  int y=p.getY()-this.getY();
+    		  
+    		  
+    	  }
+    	  for(Zombie z :played.getlesZomb()){
+    		  int x=z.getX()-this.getX();
+    		  int y=z.getY()-this.getY();
+    		  if(Math.sqrt(x*x+y*y)<this.taille+z.taille){
+    			  colision=true;
+    		  }
+    	  }
+      }/*else if (this.getClass() == Projectile.class){
+    	  
+      }*/
+      
       if (colision){
-        if (getClass() == Projectile.class) {
+        if (this.getClass() == Projectile.class) {
           setSante(-1);
         }
       }
       else
       {
-        if (getClass() == Player.class)
+        if (this.getClass() == Player.class)
         {
           GL11.glTranslated(-dx / 2.0D, -dy / 2.0D, 0.0D);
           Jeu.mxr = (int)(Jeu.mxr - dx / 2.0D);
