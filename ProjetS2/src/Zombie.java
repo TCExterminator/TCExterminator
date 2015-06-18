@@ -12,7 +12,7 @@ public class Zombie
   public boolean collision(Entity entite)
   {
     boolean res = false;
-    
+    //HI BIATCH
     return res;
   }
 }
