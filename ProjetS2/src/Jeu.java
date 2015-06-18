@@ -1,6 +1,7 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.IntBuffer;
@@ -179,33 +180,4 @@ public class Jeu
     entite.move(dx, dy);
   }
   
-  public static void changeMouse(){
-	  int cursorWidth  = 32;
-	  int cursorHeight = 32;
-	  int numImages= 16;
-	  // note that image needs to be flipped, because OpenGL and image formats disagree about the coordinate system
-	  BufferedImage img = null;
-	  try {
-		  img = ImageIO.read(new File("res/img/aim.png"));
-	  } catch (IOException e1) {
-		  // TODO Auto-generated catch block
-		  e1.printStackTrace();
-	  }
-	  int[] rgbs = new int[cursorWidth*cursorHeight];
-	  IntBuffer imageBuffer = IntBuffer.allocate(img.getWidth()*img.getHeight()/16*numImages);
-	  for( int y = 0; y < img.getHeight()/cursorHeight; y++){
-	     for (int x = 0; x < img.getWidth()/cursorWidth; x++){
-	        if( y*(img.getWidth()/cursorWidth)+x < numImages){
-	           imageBuffer.put(img.getRGB(x*cursorWidth, y*cursorHeight, cursorWidth, cursorHeight, rgbs, 0, cursorWidth));
-	        }
-	     }
-	  }
-	  imageBuffer.rewind();
-	  try {
-		Mouse.setNativeCursor(new Cursor(cursorWidth,cursorHeight,0,cursorWidth-1,numImages,imageBuffer,null));
-	} catch (LWJGLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	  }
 }
