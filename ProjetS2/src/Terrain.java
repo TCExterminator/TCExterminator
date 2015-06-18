@@ -21,10 +21,11 @@ public class Terrain
   private Tiles[][] lesTiles;
   private ArrayList<Bonus> lesBonus;
   private boolean actif = false;
+  private IA iaZomb=new IA();
   
   public Terrain(int num)
   {
-    this.idTerrain = 0;
+    this.idTerrain = num;
     
     Texture sol = Jeu.getTexture("sol");
     Texture wall = Jeu.getTexture("wall");
@@ -50,6 +51,8 @@ public class Terrain
         }
       }
     }
+    IA.setlisteOuverte();
+    IA.setLesNodes(num);
     spawnZombie();
   }
   
@@ -131,16 +134,26 @@ public class Terrain
 	  
     for (Zombie e : this.lesZomb)
     {
-      if (e.getX() < this.lePerso.getX()) {
+    	System.out.println(e.getX()+" : "+ e.getY());
+    	
+    	/*
+      Node one =iaZomb.IAZombie(e.getX(), e.getY(), this.idTerrain).get(0);
+      int vouluX=one.getPosX()*32+16;
+      int vouluY=one.getPosY()*32+16;
+      */
+      int vouluX=this.lePerso.getX();
+      int vouluY=this.lePerso.getY();
+      
+      if (e.getX() < vouluX) {
         Jeu.needMove(e, e.vitesse, 0.0D);
       }
-      if (e.getX() > this.lePerso.getX()) {
+      if (e.getX() > vouluX) {
         Jeu.needMove(e, -e.vitesse, 0.0D);
       }
-      if (e.getY() < this.lePerso.getY()) {
+      if (e.getY() < vouluY) {
         Jeu.needMove(e, 0.0D, e.vitesse);
       }
-      if (e.getY() > this.lePerso.getY()) {
+      if (e.getY() > vouluY) {
         Jeu.needMove(e, 0.0D, -e.vitesse);
       }
     }

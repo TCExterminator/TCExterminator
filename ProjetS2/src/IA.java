@@ -34,6 +34,7 @@ public class IA
   {
     ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(listeOuverte);
     ArrayList<Node> listeFerme = new ArrayList<Node>();
+    
     Node nCourant = new Node(x, y);
     
     Node nFinal = new Node(Jeu.getActivTerrain().getPerso().getX(), Jeu.getActivTerrain().getPerso().getY());
@@ -46,25 +47,17 @@ public class IA
         nFinal = n;
       }
     }
+    listeFerme.add(nFinal);
     
-    //System.out.println(nCourant.equals(nFinal));
+    System.out.println(nCourant.equals(nFinal));
     while (!nCourant.equals(nFinal))
     {
-      /*try
-      {
-        Thread.sleep(100L);
-      }
-      catch (InterruptedException e)
-      {
-        e.printStackTrace();
-      }*/
-      Node nIdeal = nCourant.getVoisinPraticable().get(0);
-      //System.out.println(nCourant.getVoisin().size());
+     
+      Node nIdeal = new Node(10000000,10000000,1);
+      System.out.println(nCourant.getVoisin().size());
       for (Node n : nCourant.getVoisinPraticable()) {
-        /*if (nCourant.equals(nIdeal)) {
-          nIdeal = n;
-        } else*/ if ((listeOuverteCopie.contains(n) && n.getDistanceNode(nFinal) < nIdeal.getDistanceNode(nFinal)) && 
-          (!listeFerme.contains(n))) {
+        if ((listeOuverteCopie.contains(n) && n.getDistanceNode(nFinal) <= nIdeal.getDistanceNode(nFinal)) && 
+          (!listeFerme.contains(n) && !n.getVoisinPraticable().isEmpty())) {
           nIdeal = n;
         }
       }
