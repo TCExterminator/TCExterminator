@@ -18,6 +18,7 @@ public class Tiles
   
   public void setTypeTiles(char tyC)
   {
+	  
     this.typeTiles = tyC;
   }
   
