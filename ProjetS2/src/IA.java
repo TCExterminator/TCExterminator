@@ -68,6 +68,7 @@ public class IA
           nIdeal = n;
         }
       }
+      listeOuverteCopie.remove(nCourant);
       listeFerme.add(nIdeal);
       nCourant = nIdeal;
     }
