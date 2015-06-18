@@ -13,7 +13,7 @@ public class Player
   
   public Player(int posx, int posy, int speed)
   {
-    super(posx, posy, speed, "perso", 15, 100);
+    super(posx, posy, speed, "perso", 15, 500);
     this.inventaire.add(Jeu.listeArme[0]);
   }
   
