@@ -63,7 +63,7 @@ public class IA
       for (Node n : nCourant.getVoisinPraticable()) {
         /*if (nCourant.equals(nIdeal)) {
           nIdeal = n;
-        } else*/ if ((n.getDistanceNode(nFinal) < nIdeal.getDistanceNode(nFinal)) && 
+        } else*/ if ((listeOuverteCopie.contains(n) && n.getDistanceNode(nFinal) < nIdeal.getDistanceNode(nFinal)) && 
           (!listeFerme.contains(n))) {
           nIdeal = n;
         }
