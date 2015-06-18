@@ -56,9 +56,10 @@ public class Jeu {
 		for(Terrain t: lesTerrains){
 			if(t.isActif()){
 				for (Zombie e : t.getlesZomb()){
+					System.out.println("Zombie" + e);
 					IA ia= new IA();
-					//e.followNodes(ia.IAZombie(e.getX(), e.getY(), 0).get(0));
-					e.followNodes(new Node (joueur.posX,joueur.posY));
+					e.followNodes(ia.IAZombie(e.getX(), e.getY(), 0).get(0));
+					//e.followNodes(new Node (joueur.posX,joueur.posY));
 				}
 				for(Projectile p : t.getlesProj()){
 					p.move();
