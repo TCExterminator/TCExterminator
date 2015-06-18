@@ -7,6 +7,7 @@ import org.lwjgl.util.glu.GLU;
 
 import static org.lwjgl.opengl.GL11.*;
 
+
 public class HUD {
 	
 
@@ -83,10 +84,10 @@ public class HUD {
 	
 		public void renderHUD() {
 			
-			//création d'un rectangle
+			//crï¿½ation d'un rectangle
 			//glRectf(25,25, 20 , 100);
 			
-			//création d'un rectangle ou on initialise les 4 coins
+			//crï¿½ation d'un rectangle ou on initialise les 4 coins
 			int x = 15;
 			int y = 5;
 			int size = 16;

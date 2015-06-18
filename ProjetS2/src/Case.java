@@ -1,3 +1,4 @@
+
 public class Case
 {
   private char typeCase;

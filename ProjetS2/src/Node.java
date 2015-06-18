@@ -1,6 +1,7 @@
 import java.io.PrintStream;
 import java.util.ArrayList;
 
+
 public class Node
 {
   private int posX;

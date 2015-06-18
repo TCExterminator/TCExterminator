@@ -1,3 +1,4 @@
+
 public class Arme
 {
   private int puissance;

@@ -1,5 +1,6 @@
 import java.io.PrintStream;
 
+
 public class Graph
 {
   private int[][] poids = new int[32][32];
