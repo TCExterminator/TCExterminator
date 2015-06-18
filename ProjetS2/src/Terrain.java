@@ -127,6 +127,7 @@ public class Terrain
       e.afficher();
     }
     this.lePerso.afficher();
+    Jeu.stats.renderHUD();
     for (Projectile p : this.lesProj) {
       p.afficher();
       p.heatSante(1);
