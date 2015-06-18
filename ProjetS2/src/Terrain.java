@@ -213,7 +213,7 @@ public class Terrain
   
   public static char[][] lireTerrain(int numTerrain)
   {
-    LinkedList<char[]> res = new LinkedList();
+    LinkedList<char[]> res = new LinkedList<char[]>();
     String fichier = listMap[numTerrain];
     try
     {
