@@ -1,21 +1,11 @@
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.nio.IntBuffer;
+import java.io.*;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-
+import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.LWJGLException;
-import org.lwjgl.input.Cursor;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.*;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
@@ -28,7 +18,7 @@ public class Jeu
   private static String title = "Shinkuest";
   private static String version = "alpha 1.0";
   private static boolean started = false;
-  private static final ArrayList<Terrain> lesTerrains = new ArrayList();
+  private static final ArrayList<Terrain> lesTerrains = new ArrayList<Terrain>();
   public static Arme[] listeArme;
   private static IA ia = new IA();
   
@@ -79,14 +69,12 @@ public class Jeu
       if (Display.isCloseRequested()) {
         stop();
       }
-      Display.update();
-      Display.sync(60);
-      GL11.glClear(16384);
-      
-      getActivTerrain().run();
-      GL11.glEnable(3042);
-      
-      getInputs();
+		Display.update();
+		Display.sync(60);
+		glClear(GL_COLOR_BUFFER_BIT);;
+		getActivTerrain().run();
+		glEnable(GL_BLEND);
+		getInputs();
     }
     Display.destroy();
     System.exit(0);
@@ -99,13 +87,13 @@ public class Jeu
       Display.setDisplayMode(new DisplayMode(winWidth, winHeight));
       Display.setTitle(title + " - " + version);
       Display.create();
-      GL11.glMatrixMode(5889);
-      GL11.glOrtho(0.0D, winWidth, 0.0D, winHeight, 1.0D, -1.0D);
-      GL11.glMatrixMode(5888);
-      GL11.glEnable(3553);
-      GL11.glEnable(2903);
-      GL11.glBlendFunc(770, 771);
-      GL11.glLoadIdentity();
+		glMatrixMode(GL_PROJECTION);
+		glOrtho(0,winWidth,0,winHeight,1,-1);
+		glMatrixMode(GL_MODELVIEW);
+		glEnable(GL_TEXTURE_2D);  
+	    glEnable (GL_COLOR_MATERIAL);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glLoadIdentity();
     }
     catch (LWJGLException e)
     {
@@ -147,12 +135,12 @@ public class Jeu
     }
     if (Mouse.isButtonDown(1))
     {
-      GL11.glDisable(3042);
-      GL11.glBegin(1);
-      GL11.glVertex2i(lePerso.getX(), lePerso.getY());
-      GL11.glVertex2i(Mouse.getX() - mxr + (Mouse.getX() - mxr - lePerso.getX()) * 1000, Mouse.getY() - myr + (Mouse.getY() - myr - lePerso.getY()) * 1000);
-      GL11.glEnd();
-      GL11.glEnable(3042);
+		glDisable(GL_BLEND);
+		glBegin(GL_LINES);
+			glVertex2i(lePerso.getX(), lePerso.getY());
+			glVertex2i((Mouse.getX()-mxr)+(((Mouse.getX()-mxr)-lePerso.getX())*1000),(Mouse.getY()-myr)+(((Mouse.getY()-myr)-lePerso.getY())*1000));
+		glEnd();
+		glEnable(GL_BLEND);
     }
     if ((Mouse.isButtonDown(0)) && 
       (lePerso.getCooldown() <= 0)) {
