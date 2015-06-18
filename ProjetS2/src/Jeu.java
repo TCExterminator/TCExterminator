@@ -73,7 +73,7 @@ public class Jeu
       }
 		Display.update();
 		Display.sync(60);
-		glClear(GL_COLOR_BUFFER_BIT);;
+		glClear(GL_COLOR_BUFFER_BIT);
 		getActivTerrain().run();
 		glEnable(GL_BLEND);
 		getInputs();
