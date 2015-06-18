@@ -22,6 +22,10 @@ public class Player
     return cooldown;
   }
   
+  public int getMana(){
+	return this.mana;
+  }
+  
   public void heatCooldown()
   {
     cooldown -= 1;
