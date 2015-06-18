@@ -85,6 +85,15 @@ public class Node {
 		return this.voisins;
 	}
 	
+	public ArrayList<Node> getVoisinPraticable(){
+		ArrayList<Node> vP = new ArrayList<Node>();
+		for(Node n:this.voisins){
+			if(n.isPraticable())vP.add(n);
+			
+		}
+		return vP;
+}
+	
 	 @Override
 	 public String toString(){
 		 return ("Node X " + this.posX + " Y " + this.posY);
@@ -95,6 +104,7 @@ public class Node {
 					(this.posX - n.getPosX()) - this.posY - n.getPosY())*/;
 	 }
 	
+	 
 	//TEST NODE
 	public static void main(String[] args){
 		Node nCentre = new Node(5,5,1);
