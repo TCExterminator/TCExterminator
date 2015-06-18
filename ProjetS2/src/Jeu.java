@@ -114,16 +114,16 @@ public class Jeu
       System.exit(0);
     }
     if (Keyboard.isKeyDown(44)) {
-      needMove(lePerso, 0.0D, lePerso.getVitesse());
+    	lePerso.move(0.0, lePerso.getVitesse());
     }
     if (Keyboard.isKeyDown(16)) {
-      needMove(lePerso, -lePerso.getVitesse(), 0.0D);
+    	lePerso.move( -lePerso.getVitesse(), 0.0D);
     }
     if (Keyboard.isKeyDown(32)) {
-      needMove(lePerso, lePerso.getVitesse(), 0.0D);
+    	lePerso.move( lePerso.getVitesse(), 0.0D);
     }
     if (Keyboard.isKeyDown(31)) {
-      needMove(lePerso, 0.0D, -lePerso.getVitesse());
+    	lePerso.move( 0.0D, -lePerso.getVitesse());
     }
     if (Keyboard.isKeyDown(30))
     {
@@ -162,10 +162,6 @@ public class Jeu
     }
     return texture;
   }
-  
-  public static void needMove(Entity entite, double dx, double dy)
-  {
-    entite.move(dx, dy);
-  }
+
   
 }

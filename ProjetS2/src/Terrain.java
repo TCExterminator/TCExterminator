@@ -147,20 +147,20 @@ public class Terrain
       int vouluY=this.lePerso.getY();
       
       if (e.getX() < vouluX) {
-        Jeu.needMove(e, e.vitesse, 0.0D);
+         e.move( e.vitesse, 0.0D);
       }
       if (e.getX() > vouluX) {
-        Jeu.needMove(e, -e.vitesse, 0.0D);
+    	  e.move( -e.vitesse, 0.0D);
       }
       if (e.getY() < vouluY) {
-        Jeu.needMove(e, 0.0D, e.vitesse);
+    	  e.move( 0.0D, e.vitesse);
       }
       if (e.getY() > vouluY) {
-        Jeu.needMove(e, 0.0D, -e.vitesse);
+    	  e.move( 0.0D, -e.vitesse);
       }
     }
     for (Projectile p : this.lesProj) {
-      Jeu.needMove(p, p.getDX(), p.getDY());
+    	p.move( p.getDX(), p.getDY());
     }
   }
   
