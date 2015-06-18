@@ -75,13 +75,13 @@ public class HUD {
 				if(Display.isCloseRequested()) stopHUD();
 				Display.update();
 				
-				renderHUD();
+				//renderHUD();
 			}
 			exit();
 		}
 		
 	
-		public void renderHUD() {
+		public void renderHUD(int sante, int mana) {
 		
 			//création d'un rectangle ou on initialise les 4 coins
 			int x = 30 - Jeu.mxr;
@@ -91,9 +91,9 @@ public class HUD {
 	        	glTexCoord2f(0.0F, 0.0F);
 					glVertex2f(x,y);
 		        glTexCoord2f(1F, 0.0F);
-					glVertex2f(x + 400,y);
+					glVertex2f(x + (sante/100) * 400,y);
 		        glTexCoord2f(1F, 1F);
-					glVertex2f(x + 400 ,y - 40);
+					glVertex2f(x + (sante/100) * 400 ,y - 40);
 		        glTexCoord2f(0.0F, 1F);
 					glVertex2f(x,y - 40);
 			glEnd();
@@ -101,13 +101,13 @@ public class HUD {
 		Jeu.getTexture("BLUEOFDEATH").bind();
 			glBegin(GL_QUADS);
 	        	glTexCoord2f(1F, 0.0F);
-					glVertex2f(x+40,y - 50);
+					glVertex2f(x,y - 50);
 		        glTexCoord2f(1F, 1F);
-					glVertex2f(x-48 + 400,y - 50 );
+					glVertex2f(x + (mana/100) * 400,y - 50 );
 		        glTexCoord2f(0F, 1F);
-					glVertex2f(x-48 + 400 ,y - 70);
+					glVertex2f(x + (mana/100) * 400 ,y - 70);
 		        glTexCoord2f(0.0F, 0F);
-					glVertex2f(x+40,y - 70);
+					glVertex2f(x,y - 70);
 			glEnd();
 			
 		}

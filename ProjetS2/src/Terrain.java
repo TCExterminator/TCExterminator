@@ -16,10 +16,10 @@ public class Terrain
   extends Thread
 {
   private static final String[] listMap = { "map0.txt", "map1.txt", "map2.txt", "map3.txt", "map4.txt", "map5.txt", "map6.txt" };
-  private ArrayList<Zombie> lesZomb = new ArrayList();
+  private ArrayList<Zombie> lesZomb = new ArrayList<Zombie>();
   private int idTerrain;
   private Player lePerso;
-  private ArrayList<Projectile> lesProj = new ArrayList();
+  private ArrayList<Projectile> lesProj = new ArrayList<Projectile>();
   private Tiles[][] lesTiles;
   private ArrayList<Bonus> lesBonus;
   private boolean actif = false;
@@ -127,7 +127,7 @@ public class Terrain
       e.afficher();
     }
     this.lePerso.afficher();
-    Jeu.stats.renderHUD();
+    Jeu.stats.renderHUD(this.lePerso.getSante(),this.lePerso.getMana());
     for (Projectile p : this.lesProj) {
       p.afficher();
       p.heatSante(1);
@@ -206,14 +206,14 @@ public class Terrain
       char point4 = getTypeCase(a - taille, b);
       char point41 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
       if ((point1 != '1') && (point2 != '1') && (point3 != '1') && (point12 != '1') && (point23 != '1') && (point34 != '1') && (point41 != '1')) {
-        this.lesZomb.add(new Zombie(a, b, 2));
+        this.lesZomb.add(new Zombie(a, b, r.nextInt(3)+1));
       }
     }
   }
   
   public static char[][] lireTerrain(int numTerrain)
   {
-    LinkedList<char[]> res = new LinkedList();
+    LinkedList<char[]> res = new LinkedList<char[]>();
     String fichier = listMap[numTerrain];
     try
     {
