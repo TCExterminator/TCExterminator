@@ -42,15 +42,15 @@ public class Jeu
   public static void initialiser()
   {
     listeArme = new Arme[] {
-      new Arme(25, -42, 0, 5, 0, 10), 
-      new Arme(15, 50, 1, 2, 1, 8), 
-      new Arme(20, 120, 2, 2, 2, 4), 
-      new Arme(10, 240, 2, 2, 4, 32), 
-      new Arme(40, 42, 3, 1, 5, 2), 
-      new Arme(125, 12, 3, 3, 1, 1), 
-      new Arme(150, 5, 1, 3, 1, 2), 
-      new Arme(50, 14, 1, 2, 2, 4), 
-      new Arme(10, 1024, 5, 3, 5, 60) };
+      new Arme(25, -42, 0, 300, 0, 5), 
+      new Arme(15, 50, 1, 100, 1, 8), 
+      new Arme(20, 120, 2, 100, 2, 4), 
+      new Arme(10, 240, 2, 1000, 4, 32), 
+      new Arme(40, 42, 3, 100, 5, 2), 
+      new Arme(125, 12, 3, 500, 1, 1), 
+      new Arme(150, 5, 1, 50, 1, 2), 
+      new Arme(50, 14, 1, 100, 2, 4), 
+      new Arme(10, 1024, 5, 1000, 5, 60) };
     System.out.println(listeArme[0].getPuissance());
     started = true;
     lesTerrains.add(new Terrain(0));

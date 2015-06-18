@@ -119,7 +119,7 @@ public abstract class Entity
     	  for(Zombie z :played.getlesZomb()){
     		  int x=z.getX()-this.getX();
     		  int y=z.getY()-this.getY();
-    		  if(Math.sqrt(x*x+y*y)<this.taille+z.taille){
+    		  if(Math.sqrt(x*x+y*y)<taille+z.taille){
     			  this.sante-=1;
     			  System.out.println(this.sante);
     		  }
@@ -130,7 +130,7 @@ public abstract class Entity
     		  Projectile p=played.getlesProj().get(i);
     		  int x=p.getX()-this.getX();
     		  int y=p.getY()-this.getY();
-    		  if(Math.sqrt(x*x+y*y)<this.taille+p.taille){
+    		  if(Math.sqrt(x*x+y*y)<taille+p.taille){
     			  this.sante-=1;
     			  played.getlesProj().remove(p);
     		  }

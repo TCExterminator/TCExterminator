@@ -6,8 +6,7 @@ public class Player
   private int armure;
   private int mana;
   private int caseActiveInventaire = 0;
-  private ArrayList<Arme> inventaire = new ArrayList();
-  private int[] perso;
+  private ArrayList<Arme> inventaire = new ArrayList<Arme>();
   private static int poidMax = 10;
   private static int cooldown;
   
