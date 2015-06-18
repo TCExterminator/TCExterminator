@@ -104,7 +104,6 @@ public class Node {
 					(this.posX - n.getPosX()) - this.posY - n.getPosY())*/;
 	 }
 	
-	 
 	//TEST NODE
 	public static void main(String[] args){
 		Node nCentre = new Node(5,5,1);
