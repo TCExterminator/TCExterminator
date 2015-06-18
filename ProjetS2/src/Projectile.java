@@ -6,9 +6,9 @@ public class Projectile
   private double DY;
   private double DX;
   
-  public Projectile(int dx, int dy, int x, int y, int speed, int puissanceProjectile)
+  public Projectile(int dx, int dy, int x, int y, int speed, int puissanceProjectile,int porte)
   {
-    super(x, y, speed, "bullet", 2, 1);
+    super(x, y, speed, "bullet", 2, porte);
     this.puissanceProjectile = puissanceProjectile;
     
     this.coefDir = (Math.sqrt(dx * dx + dy * dy) / speed);
