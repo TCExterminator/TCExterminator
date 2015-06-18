@@ -1,11 +1,14 @@
+import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
 
 import static org.lwjgl.opengl.GL11.*;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.*;
+import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
@@ -42,7 +45,7 @@ public class Jeu
   public static void initialiser()
   {
     listeArme = new Arme[] {
-      new Arme(25, -42, 0, 300, 0, 5), 
+      new Arme(25, -42, 0, 5, 0, 10), 
       new Arme(15, 50, 1, 100, 1, 8), 
       new Arme(20, 120, 2, 100, 2, 4), 
       new Arme(10, 240, 2, 1000, 4, 32), 
@@ -90,7 +93,7 @@ public class Jeu
       Display.setTitle(title + " - " + version);
       Display.create();
 		glMatrixMode(GL_PROJECTION);
-		glOrtho(0,winWidth,0,winHeight,1,-1);
+		glOrtho(0,winWidth,0,winHeight,-1,1);
 		glMatrixMode(GL_MODELVIEW);
 		glEnable(GL_TEXTURE_2D);  
 	    glEnable (GL_COLOR_MATERIAL);
@@ -110,23 +113,36 @@ public class Jeu
   public static void getInputs()
   {
     Player lePerso = getActivTerrain().getPerso();
+
+	glDisable(GL_BLEND);
+	glBegin(GL_LINES);
+		glVertex2i(lePerso.getX(), lePerso.getY());
+		glVertex2i((Mouse.getX()-mxr)+(((Mouse.getX()-mxr)-lePerso.getX())*1000),(Mouse.getY()-myr)+(((Mouse.getY()-myr)-lePerso.getY())*1000));
+	glEnd();
+	glEnable(GL_BLEND);
+	
     if (Keyboard.isKeyDown(Keyboard.KEY_E))
     {
       Display.destroy();
       System.exit(0);
     }
+    
     if (Keyboard.isKeyDown(Keyboard.KEY_Z)) {
     	lePerso.move(0.0, lePerso.getVitesse(),getActivTerrain());
     }
+    
     if (Keyboard.isKeyDown(Keyboard.KEY_Q)) {
     	lePerso.move( -lePerso.getVitesse(), 0.0D,getActivTerrain());
     }
+    
     if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
     	lePerso.move( lePerso.getVitesse(), 0.0D,getActivTerrain());
     }
+    
     if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
     	lePerso.move( 0.0D, -lePerso.getVitesse(),getActivTerrain());
     }
+    
     if (Keyboard.isKeyDown(Keyboard.KEY_A))
     {
       System.out.println("P " + lePerso.getX() + " " + lePerso.getY());
@@ -135,15 +151,12 @@ public class Jeu
       System.out.println("R " + (Mouse.getX() - lePerso.getX() - mxr) + " " + (Mouse.getY() - lePerso.getY() - myr));
       System.out.println();
     }
-    if (Mouse.isButtonDown(1))
-    {
-		glDisable(GL_BLEND);
-		glBegin(GL_LINES);
-			glVertex2i(lePerso.getX(), lePerso.getY());
-			glVertex2i((Mouse.getX()-mxr)+(((Mouse.getX()-mxr)-lePerso.getX())*1000),(Mouse.getY()-myr)+(((Mouse.getY()-myr)-lePerso.getY())*1000));
-		glEnd();
-		glEnable(GL_BLEND);
+    
+    if ((Mouse.isButtonDown(1)) && 
+    	      (lePerso.getCooldown() <= 0)) {
+    	lePerso.couteau(Mouse.getX() - mxr - lePerso.getX(), Mouse.getY() - myr - lePerso.getY());
     }
+    
     if ((Mouse.isButtonDown(0)) && 
       (lePerso.getCooldown() <= 0)) {
       lePerso.tirer(Mouse.getX() - mxr - lePerso.getX(), Mouse.getY() - myr - lePerso.getY());

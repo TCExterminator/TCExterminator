@@ -7,13 +7,14 @@ public class Player
   private int mana;
   private int caseActiveInventaire = 0;
   private ArrayList<Arme> inventaire = new ArrayList<Arme>();
+  private Arme couteau = new Arme(Jeu.listeArme[0]);
   private static int poidMax = 10;
   private static int cooldown;
   
   public Player(int posx, int posy, int speed)
   {
     super(posx, posy, speed, "perso", 15, 500);
-    this.inventaire.add(Jeu.listeArme[0]);
+    this.inventaire.add(Jeu.listeArme[1]);
   }
   
   public int getCooldown()
@@ -25,6 +26,9 @@ public class Player
 	return this.mana;
   }
   
+  public Arme getArmeActive(){
+	  return this.inventaire.get(this.caseActiveInventaire);
+  }
   public void heatCooldown()
   {
     cooldown -= 1;
@@ -43,6 +47,12 @@ public class Player
       }
       cooldown = armeActive.getCadence();
     }
+  }  
+  
+  public void couteau(int dx, int dy)
+  {
+      Jeu.getActivTerrain().getlesProj().add(new Projectile(dx, dy, getX(), getY(), 10, couteau.getPuissance(),couteau.getPortee()));
+      cooldown = couteau.getCadence();
   }
   
   public void lacherArme() {}
