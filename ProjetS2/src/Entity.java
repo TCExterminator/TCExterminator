@@ -86,28 +86,37 @@ public abstract class Entity
     return this.sante <= 0;
   }
   
+  public char[] allPoint(Terrain played,int newY,int newX){
+	  char[] res=new char[8];
+	  res[0]= played.getTypeCase(newX, newY + taille);
+	  res[1]= played.getTypeCase((int)(newX + Math.cos(0.0D) * taille), (int)(newY + Math.cos(0.0D) * taille));
+      
+	  res[2]= played.getTypeCase(newX + taille, newY);
+	  res[3]= played.getTypeCase(newX + (int)Math.cos(0.0D) * taille, newY - (int)Math.cos(0.0D) * taille);
+      
+	  res[4]= played.getTypeCase(newX, newY - taille);
+	  res[5]= played.getTypeCase((int)(newX - Math.cos(0.0D) * taille), (int)(newY - Math.cos(0.0D) * taille));
+      
+	  res[6]= played.getTypeCase(newX - taille, newY);
+	  res[7]= played.getTypeCase((int)(newX - Math.cos(0.0D) * taille), (int)(newY + Math.cos(0.0D) * taille));
+      
+      return res;
+  }
+  
   public void move(double dx, double dy)
   {
     int newX = (int)(getX() + dx);
     int newY = (int)(getY() + dy);
     Terrain played = Jeu.getActivTerrain();
     int taille = this.taille;
+    
     if (played.IsActif())
     {
-      char point1 = played.getTypeCase(newX, newY + taille);
-      char point12 = played.getTypeCase((int)(newX + Math.cos(0.0D) * taille), (int)(newY + Math.cos(0.0D) * taille));
-      
-      char point2 = played.getTypeCase(newX + taille, newY);
-      char point23 = played.getTypeCase(newX + (int)Math.cos(0.0D) * taille, newY - (int)Math.cos(0.0D) * taille);
-      
-      char point3 = played.getTypeCase(newX, newY - taille);
-      char point34 = played.getTypeCase((int)(newX - Math.cos(0.0D) * taille), (int)(newY - Math.cos(0.0D) * taille));
-      
-      char point4 = played.getTypeCase(newX - taille, newY);
-      char point41 = played.getTypeCase((int)(newX - Math.cos(0.0D) * taille), (int)(newY + Math.cos(0.0D) * taille));
-      if ((point1 == '1') || (point2 == '1') || (point3 == '1') || (point12 == '1') || (point23 == '1') || (point34 == '1') || (point41 == '1') || 
-        (point1 == '2') || (point2 == '2') || (point3 == '2') || (point12 == '2') || (point23 == '2') || (point34 == '2') || (point41 == '2'))
-      {
+      boolean colision=false;
+      for (char c:allPoint(played,newY,newX)){
+    	  if(c=='1'||c=='2')colision=true;
+      }
+      if (colision){
         if (getClass() == Projectile.class) {
           setSante(-1);
         }
