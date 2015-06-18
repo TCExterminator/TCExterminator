@@ -21,6 +21,7 @@ public class Jeu
   private static final ArrayList<Terrain> lesTerrains = new ArrayList<Terrain>();
   public static Arme[] listeArme;
   private static IA ia = new IA();
+  public static HUD stats;
   
   public static void stop()
   {
@@ -55,6 +56,7 @@ public class Jeu
     lesTerrains.add(new Terrain(0));
     ((Terrain)lesTerrains.get(0)).setActif(true);
     getActivTerrain().setPerso(new Player(500, 375, 4));
+    stats = new HUD();
   }
   
   public static void afficher()

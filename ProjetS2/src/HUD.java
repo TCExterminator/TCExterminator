@@ -20,10 +20,10 @@ public class HUD {
 	//private static final int BOLD = 0;
 	//public static Font myFont = new Font("fontHUD", BOLD, 15);
 	
-	DisplayMode mode = new DisplayMode(width * scale,height * scale);
+	//DisplayMode mode = new DisplayMode(width * scale,height * scale);
 	
 	public HUD(){
-		try {
+		/*try {
 		Display.setDisplayMode(mode);
 		Display.setResizable(true);
 		Display.setFullscreen(false);
@@ -33,7 +33,7 @@ public class HUD {
 		initGl();
 		} catch (LWJGLException e){
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	private void initGl(){
@@ -82,41 +82,33 @@ public class HUD {
 		
 	
 		public void renderHUD() {
-			
-			//crï¿½ation d'un rectangle
-			//glRectf(25,25, 20 , 100);
-			
-			//crï¿½ation d'un rectangle ou on initialise les 4 coins
-			int x = 15;
-			int y = 5;
-			int size = 16;
+		
+			//création d'un rectangle ou on initialise les 4 coins
+			int x = 30 - Jeu.mxr;
+			int y = Jeu.winHeight - 30 - Jeu.myr;
+			Jeu.getTexture("red").bind();
 			glBegin(GL_QUADS);
-				glColor3f(1.0f,0.0f,0.0f); //couleur rouge
-				glVertex2f(x,y);
-				
-				glColor3f(0.0f,1.0f,0.0f); //couleur vert
-				glVertex2f(x + 100 + size,y);
-				
-				glColor3f(0.0f,1.0f,0.0f); //couleur vert
-				glVertex2f(x + 100 + size,y + size - 10);
-				
-				glColor3f(1.0f,0.0f,0.0f); //couleur rouge
-				glVertex2f(x,y + size - 10);
+	        	glTexCoord2f(0.0F, 0.0F);
+					glVertex2f(x,y);
+		        glTexCoord2f(1F, 0.0F);
+					glVertex2f(x + 400,y);
+		        glTexCoord2f(1F, 1F);
+					glVertex2f(x + 400 ,y - 40);
+		        glTexCoord2f(0.0F, 1F);
+					glVertex2f(x,y - 40);
 			glEnd();
 			
+		Jeu.getTexture("BLUEOFDEATH").bind();
 			glBegin(GL_QUADS);
-			glColor3f(0.0f,0.0f,1.0f); //couleur blue
-			glVertex2f(x,y+10);
-			
-			glColor3f(0.0f,0.0f,1.0f); //couleur blue
-			glVertex2f(x + 100 + size,y+10);
-			
-			glColor3f(0.0f,0.0f,1.0f); //couleur blue
-			glVertex2f(x + 100 + size,y + size - 10+10);
-			
-			glColor3f(0.0f,0.0f,1.0f); //couleur blue
-			glVertex2f(x,y + size - 10+10);
-		glEnd();
+	        	glTexCoord2f(1F, 0.0F);
+					glVertex2f(x+40,y - 50);
+		        glTexCoord2f(1F, 1F);
+					glVertex2f(x-48 + 400,y - 50 );
+		        glTexCoord2f(0F, 1F);
+					glVertex2f(x-48 + 400 ,y - 70);
+		        glTexCoord2f(0.0F, 0F);
+					glVertex2f(x+40,y - 70);
+			glEnd();
 			
 		}
 		
@@ -127,7 +119,6 @@ public class HUD {
 		
 		res.startHUD();
 	}
-	
 }
 	
 	
