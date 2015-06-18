@@ -56,7 +56,7 @@ public class Jeu {
 		for(Terrain t: lesTerrains){
 			if(t.isActif()){
 				for (Zombie e : t.getlesZomb()){
-					System.out.println("Zombie" + e);
+					System.out.println(e);
 					IA ia= new IA();
 					e.followNodes(ia.IAZombie(e.getX(), e.getY(), 0).get(0));
 					//e.followNodes(new Node (joueur.posX,joueur.posY));
