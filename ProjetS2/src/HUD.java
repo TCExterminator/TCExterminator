@@ -7,7 +7,6 @@ import org.lwjgl.util.glu.GLU;
 
 import static org.lwjgl.opengl.GL11.*;
 
-
 public class HUD {
 	
 

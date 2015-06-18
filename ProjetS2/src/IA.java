@@ -1,7 +1,6 @@
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-
 public class IA
 {
   private static ArrayList<Node> lesNodes = new ArrayList<Node>();

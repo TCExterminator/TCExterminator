@@ -1,7 +1,6 @@
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.opengl.Texture;
 
-
 public abstract class Entity
 {
   protected double posX;

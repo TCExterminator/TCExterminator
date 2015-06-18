@@ -10,7 +10,6 @@ import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.opengl.*;
 import org.newdawn.slick.opengl.Texture;
 
-
 public class Terrain
   extends Thread
 {

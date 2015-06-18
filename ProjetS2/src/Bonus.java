@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.opengl.Texture;
 
-
 public class Bonus
 {
   private int posX;
