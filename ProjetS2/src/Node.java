@@ -91,8 +91,8 @@ public class Node {
 	 }
 	 
 	 public int getDistanceNode(Node n){
-		 return ((this.posX - n.getPosX()) - (this.posY - n.getPosY()) * 
-					(this.posX - n.getPosX()) - this.posY - n.getPosY());
+		 return ((int)Math.sqrt(this.posX - n.getPosX()) - (this.posY - n.getPosY())) /** 
+					(this.posX - n.getPosX()) - this.posY - n.getPosY())*/;
 	 }
 	
 	//TEST NODE
