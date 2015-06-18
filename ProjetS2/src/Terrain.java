@@ -16,10 +16,10 @@ public class Terrain
   extends Thread
 {
   private static final String[] listMap = { "map0.txt", "map1.txt", "map2.txt", "map3.txt", "map4.txt", "map5.txt", "map6.txt" };
-  private ArrayList<Zombie> lesZomb = new ArrayList();
+  private ArrayList<Zombie> lesZomb = new ArrayList<Zombie>();
   private int idTerrain;
   private Player lePerso;
-  private ArrayList<Projectile> lesProj = new ArrayList();
+  private ArrayList<Projectile> lesProj = new ArrayList<Projectile>();
   private Tiles[][] lesTiles;
   private ArrayList<Bonus> lesBonus;
   private boolean actif = false;
