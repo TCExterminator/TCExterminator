@@ -6,7 +6,8 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
-import org.lwjgl.opengl.GL11;
+import static org.lwjgl.opengl.GL11.*;
+import org.lwjgl.opengl.*;
 import org.newdawn.slick.opengl.Texture;
 
 public class Terrain
@@ -103,16 +104,16 @@ public class Terrain
       for (j = 0; j < this.lesTiles[i].length; j++)
       {
         this.lesTiles[i][j].getTexture().bind();
-        GL11.glBegin(7);
-        GL11.glTexCoord2f(0.0F, 0.0F);
-        GL11.glVertex2i((i + 1) * 32, j * 32);
-        GL11.glTexCoord2f(1.0F, 0.0F);
-        GL11.glVertex2i((i + 1) * 32, (j + 1) * 32);
-        GL11.glTexCoord2f(1.0F, 1.0F);
-        GL11.glVertex2i(i * 32, (j + 1) * 32);
-        GL11.glTexCoord2f(0.0F, 1.0F);
-        GL11.glVertex2i(i * 32, j * 32);
-        GL11.glEnd();
+        glBegin(GL_QUADS);
+	        glTexCoord2f(0.0F, 0.0F);
+	        glVertex2i((i + 1) * 32, j * 32);
+	        glTexCoord2f(1.0F, 0.0F);
+	        glVertex2i((i + 1) * 32, (j + 1) * 32);
+	        glTexCoord2f(1.0F, 1.0F);
+	        glVertex2i(i * 32, (j + 1) * 32);
+	        glTexCoord2f(0.0F, 1.0F);
+	        glVertex2i(i * 32, j * 32);
+        glEnd();
       }
     }
     for (Zombie e : this.lesZomb) {
