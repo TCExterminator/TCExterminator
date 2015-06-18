@@ -135,14 +135,14 @@ public abstract class Entity
     			  played.getlesProj().remove(p);
     		  }
     		  
-    	  }
+    	  }/*
     	  for(Zombie z :played.getlesZomb()){
     		  int x=z.getX()-this.getX();
     		  int y=z.getY()-this.getY();
     		  if(Math.sqrt(x*x+y*y)<this.taille+z.taille){
     			  colision=true;
     		  }
-    	  }
+    	  }*/
       }/*else if (this.getClass() == Projectile.class){
     	  
       }*/
