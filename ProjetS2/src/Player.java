@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import org.newdawn.slick.openal.SoundStore;
+
 public class Player
   extends Entity
 {
