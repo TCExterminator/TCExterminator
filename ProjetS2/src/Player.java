@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+//import java.io.ByteArrayInputStream;
+//import java.io.InputStream;
 
 import org.newdawn.slick.openal.SoundStore;
 
@@ -13,6 +15,7 @@ public class Player
   public static int poidMax = 10;
   public static int cooldown;
   public static int invulnerable;
+  //private static Sound armeSon = new Sound("Gun.wav");
   
   
   //constructeur parametre de la classe Player : la position ( int, int) et la vitesse (int) sont en parametres
@@ -61,6 +64,8 @@ public class Player
     if ((balles > 0) || (armeActive.getPoid() == 0))
     {
       Jeu.getActivTerrain().getlesProj().add(new Projectile(dx, dy, getX(), getY(), 10, armeActive.getPuissance(),armeActive.getPortee()));
+     // InputStream stream = new ByteArrayInputStream(armeSon.getSamples());
+      //armeSon.play(stream);
       if (balles != -42) {
         armeActive.setMunition(balles - 1);
       }
