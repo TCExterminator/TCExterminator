@@ -17,6 +17,10 @@ public class Sound {
 
 	private byte[] samples;
 
+	/**
+	 * 
+	 * @param filename
+	 */
 	public Sound(String filename) {
 		try {
 			AudioInputStream stream = AudioSystem.getAudioInputStream(new File(filename));
@@ -26,10 +30,19 @@ public class Sound {
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public byte[] getSamples() {
 		return samples;
 	}
 
+	/**
+	 * 
+	 * @param stream
+	 * @return
+	 */
 	public byte[] getSamples(AudioInputStream stream) {
 		int length = (int) (stream.getFrameLength() * format.getFrameSize());
 		byte[] samples = new byte[length];
@@ -41,6 +54,10 @@ public class Sound {
 		return samples;
 	}
 
+	/**
+	 * 
+	 * @param source
+	 */
 	public void play(InputStream source) {
 		int bufferSize = format.getFrameSize() * Math.round(format.getSampleRate() / 10);
 		byte[] buffer = new byte[bufferSize];
