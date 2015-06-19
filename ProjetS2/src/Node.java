@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/**
+ * Classe permettant de créer un système de nod epour chaque Terrain. Ces nodes permettent de calculer des chemins entre deux positions, en passant par des cases praticables.
+ * @author Luca PELISSERO
+ *
+ */
 public class Node
 {
   private int posX;
@@ -9,31 +14,33 @@ public class Node
   
   /**
    * 
-   * @param x
-   * @param y
+   * @param x, la position en x d'une entité
+   * @param y la position en y d'une entité
+   * Constructeur d'une node avec des coordonnées.
    */
   public Node(int x, int y)
   {
-    setPosX(x / 32);
-    setPosY(y / 32);
+    this.posX = (x / 32);
+    this.posY = (y / 32);
   }
   
   /**
    * 
-   * @param x
-   * @param y
-   * @param type
+   * @param x, la position en x de la node dans les tableaux de la classe Graph
+   * @param y, la position en y de la node dans les tableaux de la classe Graph
+   * @param type, le type de la Node, qui correspond au type de la case x,y d'un tableau de la classe Graph
+   * Constructeur d'une node via les informations de la classe Graph
    */
   public Node(int x, int y, int type)
   {
-    setPosX(x);
-    setPosY(y);
+	this.posX = (x);
+	this.posY = (y);
     this.typeCase = type;
   }
   
   /**
-   * 
-   * @return
+   * Méthode permettant de savoir si une node est praticable.
+   * @return true si la node est praticable, false sinon
    */
   public boolean isPraticable()
   {
@@ -41,62 +48,9 @@ public class Node
   }
   
   /**
-   * 
-   * @return
+   * Methode testant l'égalité de deux nodes
    */
-  public int getPosY()
-  {
-    return this.posY;
-  }
-  
-  /**
-   * 
-   * @param posY
-   */
-  public void setPosY(int posY)
-  {
-    this.posY = posY;
-  }
-  
-  /**
-   * 
-   * @return
-   */
-  public int getPosX()
-  {
-    return this.posX;
-  }
-  
-  /**
-   * 
-   * @param posX
-   */
-  public void setPosX(int posX)
-  {
-    this.posX = posX;
-  }
-  
-  /**
-   * 
-   * @return
-   */
-  public int getTypeCase()
-  {
-    return this.typeCase;
-  }
-  
-  /**
-   * 
-   * @param typeCase
-   */
-  public void setTypeCase(int typeCase)
-  {
-    this.typeCase = typeCase;
-  }
-  
-  /**
-   * 
-   */
+  @Override
   public boolean equals(Object o)
   {
     boolean b = false;
@@ -115,9 +69,23 @@ public class Node
   }
   
   /**
-   * 
-   * @param n
-   * @return
+   * Getter sur l'attribut PosY
+   */
+  private int getPosY() {
+	return this.posY;
+}
+
+  /**
+   * Getter sur l'attribut PosX
+   */
+private int getPosX() {
+	return this.posX;
+}
+
+/**
+   * Méthode vérifiant si la node this est voisine à la node en paramètre
+   * @param n la node sur laquelle le test sera effectué
+   * @return true si la node en paramètre est voisine à la node, false sinon
    */
   public boolean estVoisin(Node n)
   {
@@ -136,8 +104,8 @@ public class Node
   }
   
   /**
-   * 
-   * @param listeVoisin
+   * Methode affectant à chaque node d'une liste les nodes qui lui sont voisines dans cette même liste
+   * @param listeVoisin la liste des nodes
    */
   public void setVoisin(ArrayList<Node> listeVoisin)
   {
@@ -149,7 +117,7 @@ public class Node
   }
   
   /**
-   * 
+   * Getter sur l'attribut voisins
    * @return
    */
   public ArrayList<Node> getVoisin()
@@ -158,7 +126,7 @@ public class Node
   }
   
   /**
-   * 
+   * Methode retournant une liste des voisins praticable de la node this.
    * @return
    */
   public ArrayList<Node> getVoisinPraticable()
@@ -176,20 +144,20 @@ public class Node
   /**
    * 
    */
+  @Override
   public String toString()
   {
     return "Node X " + this.posX + " Y " + this.posY;
   }
   
   /**
-   * 
-   * @param n
-   * @return
+   * Méthode calculant la distance eucliennde entre la node this et la node en paramètre
+   * @param n la node 
+   * @return la distance euclienne entre les deux nodes
    */
   public int getDistanceNode(Node n)
   {
-    return (int) Math.sqrt(this.posX - n.getPosX() - (this.posY - n.getPosY() ) );/* * (
-      this.posX - n.getPosX()) - this.posY - n.getPosY()*/
+    return (int) Math.sqrt(this.posX - n.getPosX() - (this.posY - n.getPosY() ) );
   }
   
   /*

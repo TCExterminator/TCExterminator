@@ -1,9 +1,14 @@
+/**
+ * Classe permettant de transformer un fichier de terrain en un tableau de int, permettant à la classe Node de créer des Nodes praticables ou non praticables
+ * @author Luca PELISSERO
+ *
+ */
 public class Graph
 {
   private int[][] poids = new int[32][32];
   
   /**
-   * 
+   * Méthode créant le graphique de la map sous forme de tableau 2D de int. Une case à pour valeur 1 si elle est praticable, 2 sinon.
    * @param numeroTerrain
    */
   public void setPoids(int numeroTerrain)
@@ -21,7 +26,7 @@ public class Graph
   }
   
   /**
-   * 
+   * Getter sur l'attribut poids
    * @return
    */
   public int[][] getPoids()

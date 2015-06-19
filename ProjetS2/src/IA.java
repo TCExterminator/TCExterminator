@@ -1,5 +1,11 @@
+
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Luca PELISSERO
+ *Classe permettant aux zombie de calculer le plus court chemin pour accéder au personnage, avec l'algorithme AStar
+ */
 public class IA
 {
   private static ArrayList<Node> lesNodes = new ArrayList<Node>();
@@ -7,7 +13,8 @@ public class IA
   
   /**
    * 
-   * @param terrainActuel
+   * @param terrainActuel? le terrain sur lequel évolue le joueur
+   * Cette méthode permet de créer les nodes du terrain actif
    */
   public static void setLesNodes(int terrainActuel)
   {
@@ -23,7 +30,7 @@ public class IA
   
   
   /**
-   * 
+   * Méthode permettant de créer la liste des nodes praticables du terrain actif
    */
   public static void setlisteOuverte()
   {
@@ -39,12 +46,12 @@ public class IA
   
   /**
    * 
-   * @param x
-   * @param y
-   * @param terrainActuelle
-   * @return
+   * @param x, la position en x du zombie
+   * @param y, la position en y du zombie
+   * @return, la liste des nodes que le zombie doit parcourir
+   * Cette méthode calcule le chemin idéale entre le zombie et le joueur sous forme d'un ArrayList de Nodes.
    */
-  public ArrayList<Node> IAZombie(int x, int y, int terrainActuelle)
+  public ArrayList<Node> IAZombie(int x, int y)
   {
     ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(listeOuverte);
     ArrayList<Node> listeFerme = new ArrayList<Node>();
