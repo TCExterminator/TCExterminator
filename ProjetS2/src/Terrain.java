@@ -57,6 +57,7 @@ public class Terrain
     IA.setlisteOuverte();
     IA.setLesNodes(num);
     spawnZombie();
+    spawnBonus();
   }
   
   public boolean IsActif()
@@ -140,8 +141,11 @@ public class Terrain
       }
     }
     for (Zombie e : this.lesZomb) {
-      e.afficher();
-    }
+        e.afficher();
+      }
+    for (Bonus b : this.lesBonus) {
+        b.afficher();
+      }
     this.lePerso.afficher();
     Jeu.stats.renderHUD(lePerso);
     for (Projectile p : this.lesProj) {
@@ -233,6 +237,26 @@ public class Terrain
   {
 	  Random r = new Random();
 	  int taille = 15;  
+	  int a = r.nextInt(Jeu.winWidth - taille - 10);
+      int b = r.nextInt(Jeu.winHeight - taille - 10);
+      char point1 = getTypeCase(a, b + taille);
+      char point12 = getTypeCase((int)(a + Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
+      
+      char point2 = getTypeCase(a + taille, b);
+      char point23 = getTypeCase(a + (int)Math.cos(0.0D) * taille, b - (int)Math.cos(0.0D) * taille);
+      
+      char point3 = getTypeCase(a, b - taille);
+      char point34 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b - Math.cos(0.0D) * taille));
+      
+      char point4 = getTypeCase(a - taille, b);
+      char point41 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
+      int typeSpawn = r.nextInt(3)+1;
+      if(typeSpawn<5){
+    	 this.lesBonus.add(new Bonus(a,b,typeSpawn));
+     }
+     else if(typeSpawn == 5){
+    	 this.lesBonus.add(new Bonus(a,b,new Arme(Jeu.listeArme[(r.nextInt(7)+1)])));    	 
+     }
 	  
   }
   

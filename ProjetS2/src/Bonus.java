@@ -1,4 +1,7 @@
+import static org.lwjgl.opengl.GL11.*;
+
 import java.util.ArrayList;
+
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.opengl.Texture;
 
@@ -7,7 +10,6 @@ public class Bonus
   private int posX;
   private int posY;
   private int effet;
-  private ArrayList<Arme> lesArmes;
   private Arme a = null;
   private Texture textureBonus;
   
@@ -21,7 +23,7 @@ public class Bonus
   }
   
   // constructeur parametre de la classe Bonus : la position ( int, int ) est en prametre
-  public Bonus(int x, int y)
+  public Bonus(int x, int y, Arme a)
   {
     this.textureBonus = Jeu.getTexture("pika");
     this.posX = x;
@@ -29,12 +31,20 @@ public class Bonus
     this.effet = 5;
   }
   
-  // mÈthode servant ‡ afficher un Bonus selon une texture
+  // mÈ®Åhode servant ÔøΩ afficher un Bonus selon une texture
   public void afficher()
   {
     this.textureBonus.bind();
-    GL11.glBegin(7);
-    GL11.glEnd();
+    glBegin(GL_QUADS);
+    	glTexCoord2f(0.0F, 0.0F);
+    	glVertex2i(this.posX - 15, this.posY + 15);
+    	glTexCoord2f(1.0F, 0.0F);
+    	glVertex2i(this.posX + 15, this.posY + 15);
+    	glTexCoord2f(1.0F, 1.0F);
+    	glVertex2i(this.posX + 15, this.posY - 15);
+    	glTexCoord2f(0.0F, 1.0F);
+    	glVertex2i(this.posX - 15, this.posY - 15);
+    glEnd();
   }
   
   // getter de la position en X
