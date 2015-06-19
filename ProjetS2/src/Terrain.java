@@ -32,7 +32,7 @@ public class Terrain
     
     Texture sol = Jeu.getTexture("sol");
     Texture wall = Jeu.getTexture("wall");
-    Texture pika = Jeu.getTexture("pika");
+    Texture pika = Jeu.getTexture("barriere");
     
     char[][] map = lireTerrain(num);
     this.lesTiles = new Tiles[map.length][map[0].length];
