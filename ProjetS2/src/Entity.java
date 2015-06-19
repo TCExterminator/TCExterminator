@@ -197,6 +197,17 @@ public abstract class Entity
     			  
     		  }
     	  }
+    	  for(Bonus b :played.getlesBonus()){
+    		  int x=b.getX()-this.getX();
+    		  int y=b.getY()-this.getY();
+    		  if(Math.sqrt(x*x+y*y)<taille+b.taille){
+    			  if(Player.invulnerable<0){
+    				  this.sante-=b.getDegat();
+    				  Player.invulnerable=b.getDegat();
+    			  }
+    			  
+    		  }
+    	  }
       }else if (this.getClass() == Zombie.class){
     	  
     	  for (int i=0 ;i<played.getlesProj().size();i++){
