@@ -155,20 +155,17 @@ public class Player
     switch (nbBonus)
     {
     case 1: 
-      this.sante += 50;
-      System.out.println("s");
+      this.sante += 100;
       break;
     case 2: 
-      this.armure += 50;
-      System.out.println("a");
+      this.armure += 10;
       break;
     case 3: 
       this.mana += 20;
-      System.out.println("m");
       break;
     case 4: 
       this.vitesse += 1;
-      System.out.println("v");
+      this.taille+=-1;
       break;
     case 5: 
       ajouterArme(b.getArme());
