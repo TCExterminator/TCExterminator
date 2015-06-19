@@ -128,23 +128,24 @@ public class Jeu
       Display.destroy();
       System.exit(0);
     }
-    
+    double dx=0.0;
+    double dy=0.0;
     if (Keyboard.isKeyDown(Keyboard.KEY_Z)) {
-    	lePerso.move(0.0, lePerso.getVitesse(),getActivTerrain());
+    	dy=lePerso.getVitesse();
     }
     
     if (Keyboard.isKeyDown(Keyboard.KEY_Q)) {
-    	lePerso.move( -lePerso.getVitesse(), 0.0D,getActivTerrain());
+    	dx=-lePerso.getVitesse();
     }
     
     if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
-    	lePerso.move( lePerso.getVitesse(), 0.0D,getActivTerrain());
+    	dx=lePerso.getVitesse();
     }
     
     if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
-    	lePerso.move( 0.0D, -lePerso.getVitesse(),getActivTerrain());
+    	dy=-lePerso.getVitesse();
     }
-    
+    lePerso.move( dx, dy,getActivTerrain());
     if (Keyboard.isKeyDown(Keyboard.KEY_A))
     {
       System.out.println("P " + lePerso.getX() + " " + lePerso.getY());
