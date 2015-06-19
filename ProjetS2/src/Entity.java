@@ -10,6 +10,17 @@ public abstract class Entity
   private Texture texture;
   protected int taille;
   
+  /**
+   * Constructor Entity
+   * 
+   * il s'agit du constructeur parametre de la classe Entity 
+   * @param x la position en int
+   * @param y la position en int
+   * @param speed la vitesse en int 
+   * @param texture la texture en String
+   * @param taille la taille en int 
+   * @param sante la sante en int
+   */
   public Entity(int x, int y, int speed, String texture, int taille, int sante)
   {
     this.posX = x;
@@ -20,52 +31,84 @@ public abstract class Entity
     this.sante = sante;
   }
   
-  public void setPosition(int x, int y)
-  {
-    this.posX = x;
-    this.posY = y;
-  }
-  
+  /**
+   * methode getX
+   * 
+   * il s'agit du getter de la position en X
+   * 
+   * @return le retour de la position int en x
+   */
   public int getX()
   {
     return (int)this.posX;
   }
   
+  /**
+   * methode getY
+   * 
+   * il s'agit du getter de la position en Y
+   * 
+   * @return le retour de la position int en y
+   */
   public int getY()
   {
     return (int)this.posY;
   }
   
+  /**
+   * methode getVitesse
+   * 
+   * il s'agit du getter de la vitesse de l'Entity
+   * 
+   * @return le retour de la vitesse en int
+   */
   public int getVitesse()
   {
     return this.vitesse;
   }
   
+  /**
+   * methode getSante
+   * 
+   * il s'agit du getter de la sante de l'Entity
+   * 
+   * @return le retour de la sante en int
+   */
   public int getSante()
   {
     return this.sante;
   }
   
-  public void setPosX(int x)
-  {
-    this.posX = x;
-  }
-  
-  public void setPosY(int y)
-  {
-    this.posY = y;
-  }
-  
+  /**
+   * methode setVitesse
+   * 
+   * il s'agit du setter de la vitesse de l'Entity
+   * 
+   * @param vit la vitesse en int 
+   */
   public void setVitesse(int vit)
   {
     this.sante = vit;
   }
   
+  /**
+   * methode setSante
+   * 
+   * il s'agit du setter de la sante de l'Entity
+   * 
+   * @param sante la sante en int
+   */
   public void setSante(int sante)
   {
     this.sante = sante;
   }
   
+  /**
+   * methode afficher
+   * 
+   * cette methode permet d'afficher sur la fenetre une Entity avec une texture particuliere.
+   * 
+   */
   public void afficher()
   {
     this.texture.bind();
@@ -81,11 +124,29 @@ public abstract class Entity
     GL11.glEnd();
   }
   
+  /**
+   * methode supprimer
+   * 
+   * cette methode permet de verifier si l'Entity peut etre supprime
+   * 
+   * @return le retour du boolean
+   */
   public boolean supprimer()
   {
     return this.sante <= 0;
   }
   
+  /**
+   * methode allPoint
+   * 
+   * cette methode retourne un tableau de char (char[]) contenant toutes les cases que l'Entity touchera en position newX newY
+   * 
+   * @param played le Terrain actif
+   * @param newY la position y en int
+   * @param newX la position x en int
+   * 
+   * @return le retour du tableau char[]
+   */
   public char[] allPoint(Terrain played,int newY,int newX){
 	  char[] res=new char[8];
 	  res[0]= played.getTypeCase(newX, newY + taille);
@@ -103,6 +164,15 @@ public abstract class Entity
       return res;
   }
   
+  /**
+   * methode move
+   * 
+   * cette methode permet de deplacer l'Entity selon deux coefficients directeurs dx dy dans un terrain actif
+   * 
+   * @param dx le coefficient directeur en double 
+   * @param dy le coefficient directeur en double 
+   * @param played le terrain actif
+   */
   public void move(double dx, double dy,Terrain played)
   {
     int taille = this.taille;
@@ -140,16 +210,8 @@ public abstract class Entity
     		  }
     		  
     	  }
-    	  /*for(Zombie z :played.getlesZomb()){
-    		  int x=z.getX()-this.getX();
-    		  int y=z.getY()-this.getY();
-    		  if(Math.sqrt(x*x+y*y)<this.taille+z.taille){
-    			  colision=true;
-    		  }
-    	  }*/
-      }/*else if (this.getClass() == Projectile.class){
-    	  
-      }*/
+    	
+      }
       
       if ((colision)&&(this.getClass() == Projectile.class)){
           setSante(-1);
