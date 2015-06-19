@@ -41,7 +41,7 @@ public class Player
   }
   public void heatInvulnerable()
   {
-    cooldown -= 1;
+    invulnerable -= 1;
   }
   
   public void tirer(int dx, int dy)
