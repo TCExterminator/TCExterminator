@@ -5,7 +5,7 @@ public class Zombie
   
   public Zombie(int x, int y, int speed)
   {
-    super(x, y, speed, "pumpkin", 15, 20);
+    super(x, y, speed, "TCboy", 15, 20);
     this.degat *= 1;
   }
   
