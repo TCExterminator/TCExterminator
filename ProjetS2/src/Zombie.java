@@ -15,4 +15,8 @@ public class Zombie
     //HI BIATCH
     return res;
   }
+  
+  public int getDegat(){
+	  return this.degat;
+  }
 }
