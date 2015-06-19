@@ -13,7 +13,14 @@ public class Bonus
   private Arme a = null;
   private Texture textureBonus;
   
-  // constructeur parametre de la classe Bonus : la position ( int, int) et l'effet ( int) sont en parametres
+  /*
+   * Bonus Constructor
+   * constructeur parametre de la classe Bonus avec la position et une arme en parametre
+   * @param x  la position en x en int
+   * @param y la position en y en int
+   * @param effet l'effet du bonus en int
+   * 
+   */
   public Bonus(int x, int y, int effet)
   {
     this.textureBonus = Jeu.getTexture("bonus");
@@ -22,7 +29,14 @@ public class Bonus
     this.effet = effet;
   }
   
-  // constructeur parametre de la classe Bonus : la position ( int, int ) est en prametre
+  /*
+   * Bonus Constructor
+   * constructeur parametre de la classe Bonus avec la position et une arme en parametre
+   * @param x  la position en x en int
+   * @param y la position en y en int
+   * @param a l'Arme du bonus en Arme
+   * 
+   */
   public Bonus(int x, int y, Arme a)
   {
     this.textureBonus = Jeu.getTexture("pika");
@@ -31,7 +45,11 @@ public class Bonus
     this.effet = 5;
   }
   
-  // m騁hode servant � afficher un Bonus selon une texture
+  /**
+   * methode afficher
+   * 
+   * permet d'afficher un bonus selon ses coordonnees avec une texture.
+   */
   public void afficher()
   {
     this.textureBonus.bind();
@@ -47,50 +65,96 @@ public class Bonus
     glEnd();
   }
   
-  // getter de la position en X
+  /** 
+   * methode getPosX
+   * getter de la position en X
+   * 
+   * @return le retour de posX
+   */
   public int getPosX()
   {
     return this.posX;
   }
   
-  // getter de la position en Y
+  /** 
+   * methode getPosX
+   * getter de la position en Y
+   * 
+   * @return le retour de posY
+   */
   public int getPosY()
   {
     return this.posY;
   }
   
-  // getter de l'effet
+  /** 
+   * methode getEffet
+   * 
+   * getter de l'effet
+   * 
+   * @return le retour de effet
+   */
   public int getEffet()
   {
     return this.effet;
   }
   
-  // getter de l'Arme
+  /** 
+   * methode getArme
+   * 
+   * getter de l'Arme
+   * 
+   * @return le retour de a
+   */
   public Arme getArme()
   {
     return this.a;
   }
   
   
-  // setter de la position en X
+  /** 
+   * methode setPosX
+   * 
+   * setter de la position en X
+   * 
+   * @param x la position int en x
+   */
   public void setPosX(int x)
   {
     this.posX = x;
   }
   
-  //setter de la position en Y
+  /**
+   * methode setPosY
+   * 
+   * setter de la position en Y
+   * 
+   * @param y la position int en y
+   */
   public void setPosY(int y)
   {
     this.posY = y;
   }
   
-  // setter de l'effet
+  /** 
+   * methode setEffet
+   * 
+   * setter de l'effet
+   * 
+   * @param effet l'effet int du bonus
+   */
   public void setEffet(int effet)
   {
     this.effet = effet;
   }
   
-  // setter de l'Arme
+  /** 
+   * methode setArme
+   * 
+   * setter de l'Arme
+   * 
+   * @param arm l'Arme du bonus
+   */
   public void setArme(Arme arm)
   {
     this.a = new Arme(arm);
