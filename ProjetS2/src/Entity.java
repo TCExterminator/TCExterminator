@@ -112,9 +112,11 @@ public abstract class Entity
     if (played.IsActif())
     {
       boolean colision=false;
-      for (char c:allPoint(played,newY,newX)){
-    	  if(c=='1'||c=='2')colision=true;
-      }
+      char[]cas1=allPoint(played,(int)(this.getY()),(int)(this.getX()+dx));
+      char[]cas2=allPoint(played,(int)(this.getY()+dy),(int)(this.getX()));
+      for(int i=0;i<cas1.length;i++)if(cas1[i]=='1'||cas1[i]=='2'){colision=true;dx=0.0;}
+      for(int i=0;i<cas2.length;i++)if(cas2[i]=='1'||cas2[i]=='2'){colision=true;dy=0.0;}
+      
       if (this.getClass() == Player.class){
     	  for(Zombie z :played.getlesZomb()){
     		  int x=z.getX()-this.getX();
@@ -147,10 +149,8 @@ public abstract class Entity
     	  
       }*/
       
-      if (colision){
-        if (this.getClass() == Projectile.class) {
+      if ((colision)&&(this.getClass() == Projectile.class)){
           setSante(-1);
-        }
       }
       else
       {
