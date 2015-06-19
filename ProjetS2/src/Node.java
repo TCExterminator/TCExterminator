@@ -1,4 +1,3 @@
-import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Node
@@ -6,14 +5,25 @@ public class Node
   private int posX;
   private int posY;
   private int typeCase;
-  private ArrayList<Node> voisins = new ArrayList();
+  private ArrayList<Node> voisins = new ArrayList<Node>();
   
+  /**
+   * 
+   * @param x
+   * @param y
+   */
   public Node(int x, int y)
   {
     setPosX(x / 32);
     setPosY(y / 32);
   }
   
+  /**
+   * 
+   * @param x
+   * @param y
+   * @param type
+   */
   public Node(int x, int y, int type)
   {
     setPosX(x);
@@ -21,41 +31,72 @@ public class Node
     this.typeCase = type;
   }
   
+  /**
+   * 
+   * @return
+   */
   public boolean isPraticable()
   {
     return this.typeCase == 1;
   }
   
+  /**
+   * 
+   * @return
+   */
   public int getPosY()
   {
     return this.posY;
   }
   
+  /**
+   * 
+   * @param posY
+   */
   public void setPosY(int posY)
   {
     this.posY = posY;
   }
   
+  /**
+   * 
+   * @return
+   */
   public int getPosX()
   {
     return this.posX;
   }
   
+  /**
+   * 
+   * @param posX
+   */
   public void setPosX(int posX)
   {
     this.posX = posX;
   }
   
+  /**
+   * 
+   * @return
+   */
   public int getTypeCase()
   {
     return this.typeCase;
   }
   
+  /**
+   * 
+   * @param typeCase
+   */
   public void setTypeCase(int typeCase)
   {
     this.typeCase = typeCase;
   }
   
+  /**
+   * 
+   */
   public boolean equals(Object o)
   {
     boolean b = false;
@@ -73,6 +114,11 @@ public class Node
     return b;
   }
   
+  /**
+   * 
+   * @param n
+   * @return
+   */
   public boolean estVoisin(Node n)
   {
     boolean b = false;
@@ -89,6 +135,10 @@ public class Node
     return b;
   }
   
+  /**
+   * 
+   * @param listeVoisin
+   */
   public void setVoisin(ArrayList<Node> listeVoisin)
   {
     for (Node n : listeVoisin) {
@@ -98,11 +148,19 @@ public class Node
     }
   }
   
+  /**
+   * 
+   * @return
+   */
   public ArrayList<Node> getVoisin()
   {
     return this.voisins;
   }
   
+  /**
+   * 
+   * @return
+   */
   public ArrayList<Node> getVoisinPraticable()
   {
 	ArrayList<Node> vP = new ArrayList<Node>();
@@ -115,17 +173,26 @@ public class Node
 	return vP;
   }
   
+  /**
+   * 
+   */
   public String toString()
   {
     return "Node X " + this.posX + " Y " + this.posY;
   }
   
+  /**
+   * 
+   * @param n
+   * @return
+   */
   public int getDistanceNode(Node n)
   {
     return (int) Math.sqrt(this.posX - n.getPosX() - (this.posY - n.getPosY() ) );/* * (
       this.posX - n.getPosX()) - this.posY - n.getPosY()*/
   }
   
+  /*
   public static void main(String[] args)
   {
     Node nCentre = new Node(5, 5, 1);
@@ -154,6 +221,6 @@ public class Node
     System.out.println("Centre : " + nCentre.isPraticable());
     System.out.println("Inutile : " + inutile.isPraticable());
     System.out.println(zombie.equals(nd11));
-  }
+  }*/
   
 }
