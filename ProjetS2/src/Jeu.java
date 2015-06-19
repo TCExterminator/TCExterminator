@@ -1,4 +1,3 @@
-import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -8,7 +7,6 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.*;
-import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
@@ -23,14 +21,20 @@ public class Jeu
   private static boolean started = false;
   private static final ArrayList<Terrain> lesTerrains = new ArrayList<Terrain>();
   public static Arme[] listeArme;
-  private static IA ia = new IA();
   public static HUD stats;
   
+  /**
+   * désactivle le boolean started qui arretera le jeu.
+   */
   public static void stop()
   {
     started = false;
   }
   
+  /**
+   * retourne le terrain actuellement actif
+   * @return
+   */
   public static Terrain getActivTerrain()
   {
     Terrain played = null;
@@ -42,6 +46,12 @@ public class Jeu
     return played;
   }
   
+  /**
+   * Initialise toutes les variables nécessaires au fonctionnement du jeu:
+   * -la liste d'armes
+   * -le joueur
+   * -son HUD
+   */
   public static void initialiser()
   {
     listeArme = new Arme[] {
@@ -55,19 +65,19 @@ public class Jeu
       new Arme(50, 14, 1, 100, 2, 4), 
       new Arme(10, 1024, 5, 1000, 5, 1) };
    // Arme(int puissance, int munition, int poid, int portee, int dispertion, int cadence)
-    System.out.println(listeArme[0].getPuissance());
     started = true;
     lesTerrains.add(new Terrain(0));
     ((Terrain)lesTerrains.get(0)).setActif(true);
     getActivTerrain().setPerso(new Player(500, 375, 4));
     stats = new HUD();
   }
+
   
-  public static void afficher()
-  {
-    ((Terrain)lesTerrains.get(0)).afficher();
-  }
-  
+  /**
+   * Boucle principale du jeu,
+   * lance les actions liées au terrain actif avec getActivTerrain et run
+   * récupère les évènements via getInputs
+   */
   public static void loop()
   {
     while (started)
@@ -86,6 +96,10 @@ public class Jeu
     System.exit(0);
   }
   
+  /**
+   * Lanceur du jeu. initialise l'affichage, openGL et va lancer la boucle principale.
+   * @param args
+   */
   public static void main(String[] args)
   {
     try
@@ -112,6 +126,9 @@ public class Jeu
     loop();
   }
   
+  /**
+   * Va récupérer tous les Evènements nécessaires et effectuer une action spécifiée en fonction de l'évènement.
+   */
   public static void getInputs()
   {
     Player lePerso = getActivTerrain().getPerso();
@@ -167,6 +184,12 @@ public class Jeu
     
   }
   
+  /**
+   * Permet de créer et retourner une Texture en fonction d'un String passé en paramètre
+   * Seul le nom est demandé, l'extention et le chemin est automatiquement mis.
+   * @param file
+   * @return
+   */
   public static Texture getTexture(String file)
   {
     Texture texture = null;
