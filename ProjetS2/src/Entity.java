@@ -193,7 +193,6 @@ public abstract class Entity
     			  if(Player.invulnerable<0){
     				  this.sante-=z.getDegat();
     				  Player.invulnerable=z.getDegat();
-    				  System.out.println(this.sante);
     			  }
     			  
     		  }
