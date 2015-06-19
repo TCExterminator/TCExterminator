@@ -144,7 +144,7 @@ public class Terrain
    * 
    * il s'agit du setter de lePerso
    * 
-   * @param p
+   * @param p du type Player
    */
   public void setPerso(Player p)
   {
@@ -152,6 +152,9 @@ public class Terrain
   }
   
   /**
+   * methode run
+   * 
+   * cette methode permet de faire fonctionner tout ce qui est contenu dans le Terrain
    * 
    */
   public void run()
@@ -178,7 +181,9 @@ public class Terrain
   }
   
   /**
+   * methode afficher
    * 
+   * cette methode permet d'afficher tout ce qui est contenu dans le Terrain
    */
   public void afficher()
   {
@@ -216,7 +221,9 @@ public class Terrain
   }
   
   /**
+   * methode moveAll
    * 
+   *cette methode permet de faire deplacer toutes les Entity contenues dans le Terrain
    */
   public void moveAll()
   {
@@ -251,6 +258,9 @@ public class Terrain
   }
   
   /**
+   * methode supprimerMorts
+   * 
+   * cette methode permet de ne plus afficher sur le Terrain les Entity qui non plus de sante
    * 
    */
   public void supprimerMorts()
@@ -263,7 +273,7 @@ public class Terrain
         i++;
       }
     }
-    for (int i = 0; i < this.lesProj.size(); i++) {
+    for (int i = 0; i < this.lesProj.size();) {
       if (((Projectile)this.lesProj.get(i)).getSante() <= 0) {
         this.lesProj.remove(i);
       } else {
@@ -273,7 +283,9 @@ public class Terrain
   }
   
   /**
+   * methode spawnZombie
    * 
+   * cette methode permet de faire apparaitre sur le Terrain des Zombie avec une position  aleatoire sur des cases libres
    */
   private void spawnZombie()
   {
@@ -302,6 +314,9 @@ public class Terrain
   }
   
   /**
+   * methode spawnBonus
+   * 
+   * cette methode permet de faire apparaitre sur le Terrain des Bonus avec une position aleatoire sur des cases libres
    * 
    */
   private void spawnBonus()
@@ -336,9 +351,13 @@ public class Terrain
   }
   
   /**
+   * methode lireTerrain
    * 
-   * @param numTerrain
-   * @return
+   * cette methode permet de lire un fichier texte et retourne un tableau 2D de char (char[][]) etant l'agencement du Terrain
+   * 
+   * @param numTerrain le numero du Terrain en int
+   * 
+   * @return le retour du tableu 2D de char
    */
   public static char[][] lireTerrain(int numTerrain)
   {
