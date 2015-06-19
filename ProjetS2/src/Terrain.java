@@ -22,7 +22,7 @@ public class Terrain
   private Player lePerso;
   private ArrayList<Projectile> lesProj = new ArrayList<Projectile>();
   private Tiles[][] lesTiles;
-  private ArrayList<Bonus> lesBonus;
+  private ArrayList<Bonus> lesBonus = new ArrayList<Bonus>();
   private boolean actif = false;
   private IA iaZomb=new IA();
   
@@ -220,6 +220,14 @@ public class Terrain
         i++;
       }
     }
+  }
+  
+  
+  private void spawnBonus()
+  {
+	  Random r = new Random();
+	  int taille = 15;  
+	  
   }
   
   public static char[][] lireTerrain(int numTerrain)
