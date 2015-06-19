@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class Player
   extends Entity
 {
-  private int armure=20;
+  @SuppressWarnings("unused")
+private int armure=20;
   private int mana;
   private int caseActiveInventaire = 0;
   private ArrayList<Arme> inventaire = new ArrayList<Arme>();
@@ -13,7 +14,7 @@ public class Player
   public static int invulnerable;  
 
  /**
-  * Constructeur parametré de Player
+  * Constructeur parametre de Player
   * @param posx
   * @param posy
   * @param speed
@@ -50,15 +51,15 @@ public class Player
   }
   
   /**
-   * Méthode de réduction de la variable cooldown
+   * Methode de reduction de la variable cooldown
    */
-  public static void heatCooldown()
+  public void heatCooldown()
   {
     cooldown -= 1;
   }
   
   /**
-   * Méthode de réduction de la variable invulnerable
+   * Methode de reduction de la variable invulnerable
    */
   public void heatInvulnerable()
   {
@@ -66,8 +67,8 @@ public class Player
   }
   
   /**
-   * Méthode qui va Instancier un Projectile dans le Terrain actuellement actif sous certaines conditions.
-   * Elle retirera des munitions à l'arme actuelle du joueur
+   * Methode qui va Instancier un Projectile dans le Terrain actuellement actif sous certaines conditions.
+   * Elle retirera des munitions a l'arme actuelle du joueur
    * @param dx vecteur de mouvement x
    * @param dy vecteur de mouvement y
    */
@@ -87,8 +88,8 @@ public class Player
   }  
   
   /**
-   * Méthode qui va Instancier un Projectile de type couteau dans le Terrain actuellement actif.
-   * Pas de munition contrairement à tirer
+   * Methode qui va Instancier un Projectile de type couteau dans le Terrain actuellement actif.
+   * Pas de munition contrairement a tirer
    * @param dx vecteur de mouvement x
    * @param dy vecteur de mouvement y
    */
@@ -100,12 +101,12 @@ public class Player
   
   
   /**
-   * Méthode sensée lâcher l'armeActive du joueur
+   * Methode sensee lacher l'armeActive du joueur
    */
   public void lacherArme() {}
   
   /**
-   * Méthode qui modifie la variable armure du joueur
+   * Methode qui modifie la variable armure du joueur
    * @param ar
    */
   public void setArmure(int ar)
@@ -114,7 +115,7 @@ public class Player
   }
   
   /**
-   * Méthode qui modifie la variable mana du joueur
+   * Methode qui modifie la variable mana du joueur
    * @param ma
    */
   public void setMana(int ma)
@@ -124,7 +125,7 @@ public class Player
   
   
   /**
-   * Méthode qui ajoute une Arme à l'inventaire du joueur
+   * Methode qui ajoute une Arme a l'inventaire du joueur
    * @param arme
    * @return
    */
@@ -145,7 +146,7 @@ public class Player
   
   
   /**
-   * Méthode qui modifiera les variables du joueur en fonction du Bonus passé en paramètre.
+   * Methode qui modifiera les variables du joueur en fonction du Bonus passe en parametre.
    * @param b
    */
   public void affecterBonus(Bonus b)

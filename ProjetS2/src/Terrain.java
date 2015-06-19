@@ -14,13 +14,13 @@ public class Terrain
 {
   private static final String[] listMap = { "map0.txt", "map1.txt", "map2.txt", "map3.txt", "map4.txt", "map5.txt", "map6.txt" };
   private ArrayList<Zombie> lesZomb = new ArrayList<Zombie>();
-  private int idTerrain;
+  //private int idTerrain;
   private Player lePerso;
   private ArrayList<Projectile> lesProj = new ArrayList<Projectile>();
   private Tiles[][] lesTiles;
   private ArrayList<Bonus> lesBonus = new ArrayList<Bonus>();
   private boolean actif = false;
-  private IA iaZomb=new IA();
+  //private IA iaZomb=new IA();
   
   /**
    * constructor Terrain
@@ -31,7 +31,7 @@ public class Terrain
    */
   public Terrain(int num)
   {
-    this.idTerrain = num;
+    //this.idTerrain = num;
     
     Texture sol = Jeu.getTexture("sol");
     Texture wall = Jeu.getTexture("wall");
@@ -275,7 +275,6 @@ public class Terrain
    */
   public void supprimerMorts()
   {
-    boolean res = false;
     for (int i = 0; i < this.lesZomb.size();) {
       if (((Zombie)this.lesZomb.get(i)).getSante() <= 0) {
         this.lesZomb.remove(i);
@@ -301,7 +300,7 @@ public class Terrain
   {
     Random r = new Random();
     int taille = 15;
-    for (int i = 0; this.lesZomb.size() < 20;)
+    while(this.lesZomb.size() < 20)
     {
       int a = r.nextInt(Jeu.winWidth - taille - 10);
       int b = r.nextInt(Jeu.winHeight - taille - 10);
@@ -313,7 +312,6 @@ public class Terrain
     	  
       if (goodCase) {
         this.lesZomb.add(new Zombie(a, b, r.nextInt(3)+1));
-        i++;
       }
     }
   }
@@ -342,7 +340,7 @@ public class Terrain
   {
 	  Random r = new Random();
 	  int taille = 15;  
-	  for (int i = 0; this.lesBonus.size() < 2;)
+	  while(this.lesBonus.size() < 2)
 	    {
 	  int a = r.nextInt(Jeu.winWidth - taille - 10);
       int b = r.nextInt(Jeu.winHeight - taille - 10);
@@ -354,10 +352,10 @@ public class Terrain
       }
       if(goodCase){
     	if(typeSpawn<5){
-    	  this.lesBonus.add(new Bonus(a,b,typeSpawn));i++;
+    	  this.lesBonus.add(new Bonus(a,b,typeSpawn));
       	}
       	else if(typeSpawn == 5){
-    	 	this.lesBonus.add(new Bonus(a,b,new Arme(Jeu.listeArme[(r.nextInt(7)+1)])));    i++;	 
+    	 	this.lesBonus.add(new Bonus(a,b,new Arme(Jeu.listeArme[(r.nextInt(7)+1)])));	 
      	}
       }
 	    }
