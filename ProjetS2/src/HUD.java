@@ -13,8 +13,6 @@ public class HUD {
     private TrueTypeFont font;
     private boolean antiAlias = true;
 	public boolean running = false;
-	private Texture hp = Jeu.getTexture("red");
-	private Texture mana = Jeu.getTexture("red");
 	public HUD(){        
 
 		try {
@@ -33,29 +31,19 @@ public class HUD {
 			//création d'un rectangle ou on initialise les 4 coins
 			int x = 10 -Jeu.mxr;
 			int y = Jeu.winHeight - 30 - Jeu.myr;
-			hp.bind();
-			glBegin(GL_QUADS);
-	        	glTexCoord2f(0.0F, 0.0F);
-				glVertex2f(x,y);
-		        glTexCoord2f(1F, 0.0F);
-				glVertex2f(x + player.sante ,y);
-		        glTexCoord2f(1F, 1F);
-				glVertex2f(x + player.sante ,y - 40);
-		        glTexCoord2f(0.0F, 1F);
-				glVertex2f(x,y - 40);
-			glEnd();
+			String vie ="";
+			for(int i = 0 ;i<player.getSante(); i+=5){
+				vie+= "I";
+			}
+	        font.drawString(x, y - 10, vie , Color.red);
 			
-		/*	this.mana.bind();
-			glBegin(GL_QUADS);
-	        	glTexCoord2f(1F, 0.0F);
-					glVertex2f(x,y - 50);
-		        glTexCoord2f(1F, 1F);
-					glVertex2f(x + (player.getMana()/100) * 400,y - 50 );
-		        glTexCoord2f(0F, 1F);
-					glVertex2f(x + (player.getMana()/100) * 400 ,y - 70);
-		        glTexCoord2f(0.0F, 0F);
-					glVertex2f(x,y - 70);
-			glEnd();    */    
+
+			String mana ="";
+			for(int i = 0 ;i<player.getMana(); i+=5){
+				vie+= "I";
+			}
+	        font.drawString(x, y - 30, mana , Color.blue);
+	        
 			String ammos ="";
 			if(player.getArmeActive().getMunition()<100){
 			for(int i = 0 ;i<player.getArmeActive().getMunition(); i++){
@@ -64,7 +52,8 @@ public class HUD {
 			}else{
 				ammos = "IXX";
 			}
-	        font.drawString(x, y - 100, ammos , Color.white);
+	        font.drawString(x, y - 50, ammos , Color.white);
+	        
 			
 		}
 }
