@@ -122,9 +122,9 @@ public abstract class Entity
     		  int x=z.getX()-this.getX();
     		  int y=z.getY()-this.getY();
     		  if(Math.sqrt(x*x+y*y)<taille+z.taille){
-    			  if(Player.invulnerable>0){
+    			  if(Player.invulnerable<0){
     				  this.sante-=1;
-    				  Player.invulnerable=10;
+    				  Player.invulnerable=2;
     				  System.out.println(this.sante);
     			  }
     			  
