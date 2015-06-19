@@ -111,6 +111,11 @@ public class Terrain
 		}
 		  Jeu.stop();
 	  }
+	if(lesZomb.size()==0){
+		Texture sol = Jeu.getTexture("sol");
+		for(Tiles tiles[]: this.lesTiles)
+			for(Tiles t:tiles)if(t.getTypeTiles()=='2'){t.setTexture(sol);t.setTypeTiles('0');}
+	}
   }
   
   public void afficher()
