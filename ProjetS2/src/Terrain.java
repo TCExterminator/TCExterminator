@@ -237,6 +237,8 @@ public class Terrain
   {
 	  Random r = new Random();
 	  int taille = 15;  
+	  for (int i = 0; this.lesBonus.size() < 2;)
+	    {
 	  int a = r.nextInt(Jeu.winWidth - taille - 10);
       int b = r.nextInt(Jeu.winHeight - taille - 10);
       char point1 = getTypeCase(a, b + taille);
@@ -253,13 +255,13 @@ public class Terrain
       int typeSpawn = r.nextInt(3)+1;
       if((point1 != '1') && (point2 != '1') && (point3 != '1') &&( point4 != '1') && (point12 != '1') && (point23 != '1') && (point34 != '1') && (point41 != '1')){
     	if(typeSpawn<5){
-    	  this.lesBonus.add(new Bonus(a,b,typeSpawn));
+    	  this.lesBonus.add(new Bonus(a,b,typeSpawn));i++;
       	}
       	else if(typeSpawn == 5){
-    	 	this.lesBonus.add(new Bonus(a,b,new Arme(Jeu.listeArme[(r.nextInt(7)+1)])));    	 
+    	 	this.lesBonus.add(new Bonus(a,b,new Arme(Jeu.listeArme[(r.nextInt(7)+1)])));    i++;	 
      	}
       }
-	  
+	    }
   }
   
   public static char[][] lireTerrain(int numTerrain)
