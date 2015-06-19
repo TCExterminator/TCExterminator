@@ -100,6 +100,7 @@ public class Jeu
 	    glEnable (GL_COLOR_MATERIAL);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glLoadIdentity();
+		
     }
     catch (LWJGLException e)
     {
