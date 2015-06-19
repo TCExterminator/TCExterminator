@@ -61,7 +61,6 @@ public class Jeu
     ((Terrain)lesTerrains.get(0)).setActif(true);
     getActivTerrain().setPerso(new Player(500, 375, 4));
     stats = new HUD();
-    Son.init();
   }
   
   public static void afficher()
