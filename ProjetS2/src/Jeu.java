@@ -24,7 +24,7 @@ public class Jeu
   public static HUD stats;
   
   /**
-   * désactivle le boolean started qui arretera le jeu.
+   * désactivle le boolean started qui arretera le jeu
    */
   public static void stop()
   {
