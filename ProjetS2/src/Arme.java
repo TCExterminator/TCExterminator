@@ -73,7 +73,7 @@ public class Arme
   }
   
   /**
-   * Getter de portee
+   * Getter de portee 
    * @return
    */
   public int getPortee()

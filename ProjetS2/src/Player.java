@@ -10,9 +10,7 @@ public class Player
   private Arme couteau = new Arme(Jeu.listeArme[0]);
   public static int poidMax = 10;
   public static int cooldown;
-  public static int invulnerable;
-  //private static Sound armeSon = new Sound("Gun.wav");
-  
+  public static int invulnerable;  
 
  /**
   * Constructeur parametré de Player
@@ -81,8 +79,6 @@ public class Player
     if ((balles > 0) || (armeActive.getPoid() == 0))
     {
       Jeu.getActivTerrain().getlesProj().add(new Projectile(dx, dy, getX(), getY(), 10, armeActive.getPuissance(),armeActive.getPortee()));
-     // InputStream stream = new ByteArrayInputStream(armeSon.getSamples());
-      //armeSon.play(stream);
       if (balles != -42) {
         armeActive.redMunition();
       }
