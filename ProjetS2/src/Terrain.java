@@ -295,24 +295,33 @@ public class Terrain
     {
       int a = r.nextInt(Jeu.winWidth - taille - 10);
       int b = r.nextInt(Jeu.winHeight - taille - 10);
-      char point1 = getTypeCase(a, b + taille);
-      char point12 = getTypeCase((int)(a + Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
-      
-      char point2 = getTypeCase(a + taille, b);
-      char point23 = getTypeCase(a + (int)Math.cos(0.0D) * taille, b - (int)Math.cos(0.0D) * taille);
-      
-      char point3 = getTypeCase(a, b - taille);
-      char point34 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b - Math.cos(0.0D) * taille));
-      
-      char point4 = getTypeCase(a - taille, b);
-      char point41 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
-      if ((point1 != '1') && (point2 != '1') && (point3 != '1') &&( point4 != '1') && (point12 != '1') && (point23 != '1') && (point34 != '1') && (point41 != '1')) {
+      char[] point= calculePoint(a,b,taille);
+      boolean goodCase=true;
+      for (char c:point){
+    	  if(c=='1'||c=='2')goodCase=false;
+      }
+    	  
+      if (goodCase) {
         this.lesZomb.add(new Zombie(a, b, r.nextInt(3)+1));
         i++;
       }
     }
   }
-  
+  private char[] calculePoint(int a,int b,int taille){
+	  char [] res=new char[8];
+	  res[0]= getTypeCase(a, b + taille);
+	  res[1]= getTypeCase((int)(a + Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
+      
+	  res[2] = getTypeCase(a + taille, b);
+	  res[3] = getTypeCase(a + (int)Math.cos(0.0D) * taille, b - (int)Math.cos(0.0D) * taille);
+      
+	  res[4] = getTypeCase(a, b - taille);
+	  res[5] = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b - Math.cos(0.0D) * taille));
+      
+	  res[6] = getTypeCase(a - taille, b);
+	  res[7] = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
+      return res;
+ }
   /**
    * methode spawnBonus
    * 
@@ -327,19 +336,13 @@ public class Terrain
 	    {
 	  int a = r.nextInt(Jeu.winWidth - taille - 10);
       int b = r.nextInt(Jeu.winHeight - taille - 10);
-      char point1 = getTypeCase(a, b + taille);
-      char point12 = getTypeCase((int)(a + Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
-      
-      char point2 = getTypeCase(a + taille, b);
-      char point23 = getTypeCase(a + (int)Math.cos(0.0D) * taille, b - (int)Math.cos(0.0D) * taille);
-      
-      char point3 = getTypeCase(a, b - taille);
-      char point34 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b - Math.cos(0.0D) * taille));
-      
-      char point4 = getTypeCase(a - taille, b);
-      char point41 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
-      int typeSpawn = r.nextInt(3)+1;
-      if((point1 != '1') && (point2 != '1') && (point3 != '1') &&( point4 != '1') && (point12 != '1') && (point23 != '1') && (point34 != '1') && (point41 != '1')){
+      char[] point= calculePoint(a,b,taille);
+      int typeSpawn=r.nextInt(4)+1;
+      boolean goodCase=true;
+      for (char c:point){
+    	  if(c=='1'||c=='2')goodCase=false;
+      }
+      if(goodCase){
     	if(typeSpawn<5){
     	  this.lesBonus.add(new Bonus(a,b,typeSpawn));i++;
       	}
