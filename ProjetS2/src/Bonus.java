@@ -16,7 +16,7 @@ public class Bonus
    * constructeur parametre de la classe Bonus avec la position et une arme en parametre
    * @param x  la position en x en int
    * @param y la position en y en int
-   * @param effet l'effet du bonus en int
+   * @param effet l'effet du bonus en int 
    * 
    */
   public Bonus(int x, int y, int effet)
