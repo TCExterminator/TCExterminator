@@ -14,27 +14,36 @@ public class Player
   public static int cooldown;
   public static int invulnerable;
   
+  
+  //constructeur parametre de la classe Player : la position ( int, int) et la vitesse (int) sont en parametres
   public Player(int posx, int posy, int speed)
   {
-    super(posx, posy, speed, "ninja", 15, 500);
+    super(posx, posy, speed, "ninja", 15, 300);
     this.inventaire.add(Jeu.listeArme[1]);
   }
   
+  // getter du cooldown
   public int getCooldown()
   {
     return cooldown;
   }
   
+  //getter du mana
   public int getMana(){
 	return this.mana;
   }
   
+  //getter de l'Arme active du personnage
   public Arme getArmeActive(){
 	  return this.inventaire.get(this.caseActiveInventaire);
   }
+  
+  //setter de l'invulnerabilite du personnage
   public static void setInvulnerable(){
 	  invulnerable-=1;
   }
+  
+  //
   public static void heatCooldown()
   {
     cooldown -= 1;
