@@ -5,13 +5,14 @@ import org.newdawn.slick.openal.SoundStore;
 public class Player
   extends Entity
 {
-  private int armure;
+  private int armure=20;
   private int mana;
   private int caseActiveInventaire = 0;
   private ArrayList<Arme> inventaire = new ArrayList<Arme>();
   private Arme couteau = new Arme(Jeu.listeArme[0]);
-  private static int poidMax = 10;
-  private static int cooldown;
+  public static int poidMax = 10;
+  public static int cooldown;
+  public static int invulnerable;
   
   public Player(int posx, int posy, int speed)
   {
@@ -31,7 +32,14 @@ public class Player
   public Arme getArmeActive(){
 	  return this.inventaire.get(this.caseActiveInventaire);
   }
-  public void heatCooldown()
+  public static void setInvulnerable(){
+	  invulnerable-=1;
+  }
+  public static void heatCooldown()
+  {
+    cooldown -= 1;
+  }
+  public void heatInvulnerable()
   {
     cooldown -= 1;
   }
