@@ -122,8 +122,12 @@ public abstract class Entity
     		  int x=z.getX()-this.getX();
     		  int y=z.getY()-this.getY();
     		  if(Math.sqrt(x*x+y*y)<taille+z.taille){
-    			  this.sante-=1;
-    			  System.out.println(this.sante);
+    			  if(Player.invulnerable>0){
+    				  this.sante-=1;
+    				  Player.invulnerable=10;
+    				  System.out.println(this.sante);
+    			  }
+    			  
     		  }
     	  }
       }else if (this.getClass() == Zombie.class){

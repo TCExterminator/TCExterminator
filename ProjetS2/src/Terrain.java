@@ -101,6 +101,7 @@ public class Terrain
     moveAll();
     supprimerMorts();
     lePerso.heatCooldown();
+    lePerso.heatInvulnerable();
 	  if(lePerso.sante<0){
 		  try {
 			Thread.sleep(1000);
