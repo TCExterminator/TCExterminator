@@ -84,7 +84,7 @@ public class Player
      // InputStream stream = new ByteArrayInputStream(armeSon.getSamples());
       //armeSon.play(stream);
       if (balles != -42) {
-        armeActive.setMunition(balles - 1);
+        armeActive.redMunition();
       }
       cooldown = armeActive.getCadence();
     }

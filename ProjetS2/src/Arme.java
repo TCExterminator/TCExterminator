@@ -7,6 +7,15 @@ public class Arme
   private int dispertion;
   private int cadence;
   
+  /**
+   * Constructeur parametré de la classe Arme
+   * @param puissance
+   * @param munition
+   * @param poid
+   * @param portee
+   * @param dispertion
+   * @param cadence
+   */
   public Arme(int puissance, int munition, int poid, int portee, int dispertion, int cadence)
   {
     this.puissance = puissance;
@@ -17,6 +26,10 @@ public class Arme
     this.cadence = cadence;
   }
   
+  /**
+   * Constructeur par copie de la classe Arme
+   * @param ar
+   */
   public Arme(Arme ar)
   {
     this.puissance = ar.puissance;
@@ -27,66 +40,80 @@ public class Arme
     this.cadence = ar.cadence;
   }
   
+  /**
+   * Méthode qui est sensée affucher l'Arme
+   */
   public void afficher() {}
   
+  /**
+   * Getter de puissance
+   * @return
+   */
   public int getPuissance()
   {
     return this.puissance;
   }
   
+  /**
+   * Getter de munition
+   * @return
+   */
   public int getMunition()
   {
     return this.munition;
   }
   
+  /**
+   * getter de poid
+   * @return
+   */
   public int getPoid()
   {
     return this.poid;
   }
   
+  /**
+   * Getter de portee
+   * @return
+   */
   public int getPortee()
   {
     return this.portee;
   }
   
+  /**
+   * getter de dispertion
+   * @return
+   */
   public int getDispertion()
   {
     return this.dispertion;
   }
   
+  /**
+   * Getter de cadence
+   * @return
+   */
   public int getCadence()
   {
     return this.cadence;
   }
   
+  /**
+   * setter de puissance
+   * @param puissance
+   */
   public void setPuissance(int puissance)
   {
     this.puissance = puissance;
   }
   
-  public void setMunition(int munition)
+  /**
+   * Permet de décrémenter la variable munition
+   * @param munition
+   */
+  public void redMunition()
   {
-    this.munition = munition;
+    this.munition--;
   }
-  
-  public void setPoid(int poid)
-  {
-    this.poid = poid;
-  }
-  
-  public void setPortee(int portee)
-  {
-    this.portee = portee;
-  }
-  
-  public void setDispertion(int dispertion)
-  {
-    this.dispertion = dispertion;
-  }
-  
-  public void setCadence(int cadence)
-  {
-    this.cadence = cadence;
-  }
-  
 }
