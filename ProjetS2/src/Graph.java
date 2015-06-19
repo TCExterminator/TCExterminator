@@ -1,9 +1,11 @@
-import java.io.PrintStream;
-
 public class Graph
 {
   private int[][] poids = new int[32][32];
   
+  /**
+   * 
+   * @param numeroTerrain
+   */
   public void setPoids(int numeroTerrain)
   {
     char[][] mapChar = Terrain.lireTerrain(numeroTerrain);
@@ -18,11 +20,19 @@ public class Graph
     }
   }
   
+  /**
+   * 
+   * @return
+   */
   public int[][] getPoids()
   {
     return this.poids;
   }
   
+  /**
+   * 
+   * @param args
+   */
   public static void main(String[] args)
   {
     Graph g = new Graph();
