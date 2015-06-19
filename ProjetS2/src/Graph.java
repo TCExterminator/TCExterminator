@@ -29,10 +29,7 @@ public class Graph
     return this.poids;
   }
   
-  /**
-   * 
-   * @param args
-   */
+/*
   public static void main(String[] args)
   {
     Graph g = new Graph();
@@ -45,6 +42,6 @@ public class Graph
       }
       System.out.print("\n");
     }
-  }
+  }*/
   
 }
