@@ -2,15 +2,11 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
 import static org.lwjgl.opengl.GL11.*;
-
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.*;
 import org.newdawn.slick.opengl.Texture;
 
 public class Terrain
@@ -26,6 +22,13 @@ public class Terrain
   private boolean actif = false;
   private IA iaZomb=new IA();
   
+  /**
+   * constructor Terrain
+   * 
+   * il s'agit du constructeur parametre de la classe Terrain avec un id en int en parametre
+   * 
+   * @param num l'id en int du Terrain
+   */
   public Terrain(int num)
   {
     this.idTerrain = num;
@@ -60,42 +63,97 @@ public class Terrain
     spawnBonus();
   }
   
+  /**
+   * methode IsActif
+   * 
+   * cette methode retourne un boolean permettant de savoir si le terrain est actif ou non
+   * 
+   * @return le retour du boolean
+   */
   public boolean IsActif()
   {
     return this.actif;
   }
   
+  /**
+   * methode setActif
+   * 
+   * il s'agit du setter permettant de determiner si un Terrain est actif ou non a l'aide d'un boolean en parametre
+   * 
+   * @param b un boolean
+   */
   public void setActif(boolean b)
   {
     this.actif = b;
   }
   
+  /**
+   * methode getTypeCase
+   * 
+   * cette methode permet de retourner le type d'une case selon une position passe en parametre
+   * 
+   * @param posX la position int en x
+   * @param posY la position int en y
+   * @return
+   */
   public char getTypeCase(int posX, int posY)
   {
     char res = this.lesTiles[(posX / 32)][(posY / 32)].getTypeTiles();
     return res;
   }
   
+  
+  /**
+   * methode getLesZomb
+   * 
+   * il s'agit du getter de lesZomb retourner une ArrayList de Zombie
+   * 
+   * @return le retour de l'ArrayList
+   */
   public ArrayList<Zombie> getlesZomb()
   {
     return this.lesZomb;
   }
   
+  /**
+   * methode getlesProj
+   * 
+   * il s'agit du getter de lesProj retournant un ArrayList de Projectile
+   * 
+   * @return le retour de l'ArrayList
+   */
   public ArrayList<Projectile> getlesProj()
   {
     return this.lesProj;
   }
   
+  /**
+   * methode getPerso
+   * 
+   * il s'agit du getter de lePerso retournant le Player
+   * 
+   * @return le retour du Player
+   */
   public Player getPerso()
   {
     return this.lePerso;
   }
   
+  /**
+   * methode setPerso
+   * 
+   * il s'agit du setter de lePerso
+   * 
+   * @param p
+   */
   public void setPerso(Player p)
   {
     this.lePerso = p;
   }
   
+  /**
+   * 
+   */
   public void run()
   {
     afficher();
@@ -119,6 +177,9 @@ public class Terrain
 	}
   }
   
+  /**
+   * 
+   */
   public void afficher()
   {
     this.actif = true;
@@ -154,12 +215,14 @@ public class Terrain
     }
   }
   
+  /**
+   * 
+   */
   public void moveAll()
   {
 	  Terrain played = Jeu.getActivTerrain();
     for (Zombie e : this.lesZomb)
     {
-    //System.out.println(e.getX()+" : "+ e.getY());
     	
     	/*
       Node one =iaZomb.IAZombie(e.getX(), e.getY(), this.idTerrain).get(0);
@@ -187,6 +250,9 @@ public class Terrain
     }
   }
   
+  /**
+   * 
+   */
   public void supprimerMorts()
   {
     boolean res = false;
@@ -206,6 +272,9 @@ public class Terrain
     }
   }
   
+  /**
+   * 
+   */
   private void spawnZombie()
   {
     Random r = new Random();
@@ -232,7 +301,9 @@ public class Terrain
     }
   }
   
-  
+  /**
+   * 
+   */
   private void spawnBonus()
   {
 	  Random r = new Random();
@@ -264,6 +335,11 @@ public class Terrain
 	    }
   }
   
+  /**
+   * 
+   * @param numTerrain
+   * @return
+   */
   public static char[][] lireTerrain(int numTerrain)
   {
     LinkedList<char[]> res = new LinkedList<char[]>();
