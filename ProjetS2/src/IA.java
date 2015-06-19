@@ -1,4 +1,3 @@
-import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class IA
@@ -6,6 +5,10 @@ public class IA
   private static ArrayList<Node> lesNodes = new ArrayList<Node>();
   private static ArrayList<Node> listeOuverte = new ArrayList<Node>();
   
+  /**
+   * 
+   * @param terrainActuel
+   */
   public static void setLesNodes(int terrainActuel)
   {
     Graph g = new Graph();
@@ -18,6 +21,10 @@ public class IA
     }
   }
   
+  
+  /**
+   * 
+   */
   public static void setlisteOuverte()
   {
     for (int i = 0; i < lesNodes.size(); i++) {
@@ -30,6 +37,13 @@ public class IA
     }
   }
   
+  /**
+   * 
+   * @param x
+   * @param y
+   * @param terrainActuelle
+   * @return
+   */
   public ArrayList<Node> IAZombie(int x, int y, int terrainActuelle)
   {
     ArrayList<Node> listeOuverteCopie = new ArrayList<Node>(listeOuverte);
@@ -70,6 +84,7 @@ public class IA
   
   
   //TEST NODE VOISIN
+  /*
   public static void main(String[] args)
   {
     Graph g = new Graph();
@@ -95,6 +110,6 @@ public class IA
       }
       System.out.println();
     }
-  }
+  }*/
   
 }
