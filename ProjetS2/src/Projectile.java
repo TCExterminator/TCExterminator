@@ -39,4 +39,8 @@ public class Projectile
 	  this.sante-=d;
   }
   
+  public int getDegat(){
+	  return this.puissanceProjectile;
+  }
+  
 }
