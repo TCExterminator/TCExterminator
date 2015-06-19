@@ -105,8 +105,6 @@ public abstract class Entity
   
   public void move(double dx, double dy,Terrain played)
   {
-    int newX = (int)(this.getX() + dx);
-    int newY = (int)(this.getY() + dy);
     int taille = this.taille;
     
     if (played.IsActif())
