@@ -16,7 +16,7 @@ public class Bonus
   // constructeur parametre de la classe Bonus : la position ( int, int) et l'effet ( int) sont en parametres
   public Bonus(int x, int y, int effet)
   {
-    this.textureBonus = Jeu.getTexture("pika");
+    this.textureBonus = Jeu.getTexture("bonus");
     this.posX = x;
     this.posY = y;
     this.effet = effet;

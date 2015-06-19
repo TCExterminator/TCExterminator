@@ -19,7 +19,7 @@ public class Jeu
   public static int mxr = 0;
   public static int myr = 0;
   private static String title = "Shinkuest";
-  private static String version = "alpha 1.0";
+  private static String version = "2.0";
   private static boolean started = false;
   private static final ArrayList<Terrain> lesTerrains = new ArrayList<Terrain>();
   public static Arme[] listeArme;
