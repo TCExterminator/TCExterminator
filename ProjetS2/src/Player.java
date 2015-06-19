@@ -165,8 +165,8 @@ private int armure=20;
       this.mana += 20;
       break;
     case 4: 
-      this.vitesse += 1;
-      this.taille+=-1;
+      this.vitesse += 2;
+      this.taille -= 2;
       break;
     case 5: 
       ajouterArme(b.getArme());
