@@ -251,12 +251,14 @@ public class Terrain
       char point4 = getTypeCase(a - taille, b);
       char point41 = getTypeCase((int)(a - Math.cos(0.0D) * taille), (int)(b + Math.cos(0.0D) * taille));
       int typeSpawn = r.nextInt(3)+1;
-      if(typeSpawn<5){
-    	 this.lesBonus.add(new Bonus(a,b,typeSpawn));
-     }
-     else if(typeSpawn == 5){
-    	 this.lesBonus.add(new Bonus(a,b,new Arme(Jeu.listeArme[(r.nextInt(7)+1)])));    	 
-     }
+      if((point1 != '1') && (point2 != '1') && (point3 != '1') &&( point4 != '1') && (point12 != '1') && (point23 != '1') && (point34 != '1') && (point41 != '1')){
+    	if(typeSpawn<5){
+    	  this.lesBonus.add(new Bonus(a,b,typeSpawn));
+      	}
+      	else if(typeSpawn == 5){
+    	 	this.lesBonus.add(new Bonus(a,b,new Arme(Jeu.listeArme[(r.nextInt(7)+1)])));    	 
+     	}
+      }
 	  
   }
   
