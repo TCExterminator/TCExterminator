@@ -123,11 +123,11 @@ public class Terrain
         this.lesTiles[i][j].getTexture().bind();
         glBegin(GL_QUADS);
 	        glTexCoord2f(0.0F, 0.0F);
-	        glVertex2i((i + 1) * 32, j * 32);
+	        glVertex2i(i * 32, (j + 1) * 32);
 	        glTexCoord2f(1.0F, 0.0F);
 	        glVertex2i((i + 1) * 32, (j + 1) * 32);
 	        glTexCoord2f(1.0F, 1.0F);
-	        glVertex2i(i * 32, (j + 1) * 32);
+	        glVertex2i((i + 1) * 32, j * 32);
 	        glTexCoord2f(0.0F, 1.0F);
 	        glVertex2i(i * 32, j * 32);
         glEnd();
