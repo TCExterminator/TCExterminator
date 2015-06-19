@@ -114,7 +114,17 @@ public class Terrain
   {
     return this.lesZomb;
   }
-  
+  /**
+   * methode getLesBonus
+   * 
+   * il s'agit du getter de lesBonus retourner une ArrayList de Bonus
+   * 
+   * @return le retour de l'ArrayList
+   */
+  public ArrayList<Bonus> getlesBonus()
+  {
+    return this.lesBonus;
+  }
   /**
    * methode getlesProj
    * 

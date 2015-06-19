@@ -151,19 +151,24 @@ public class Player
   public void affecterBonus(Bonus b)
   {
     int nbBonus = b.getEffet();
+    
     switch (nbBonus)
     {
     case 1: 
-      setSante(getSante() + 50);
+      this.sante += 50;
+      System.out.println("s");
       break;
     case 2: 
-      setArmure(this.armure + 50);
+      this.armure += 50;
+      System.out.println("a");
       break;
     case 3: 
-      setMana(this.mana + 20);
+      this.mana += 20;
+      System.out.println("m");
       break;
     case 4: 
-      setVitesse(this.vitesse + 1);
+      this.vitesse += 1;
+      System.out.println("v");
       break;
     case 5: 
       ajouterArme(b.getArme());

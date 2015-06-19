@@ -1,12 +1,9 @@
 import static org.lwjgl.opengl.GL11.*;
 
-
 import org.newdawn.slick.opengl.Texture;
 
-public class Bonus
+public class Bonus extends Entity
 {
-  private int posX;
-  private int posY;
   private int effet;
   private Arme a = null;
   private Texture textureBonus;
@@ -21,9 +18,8 @@ public class Bonus
    */
   public Bonus(int x, int y, int effet)
   {
+	  super(x, y, 0, "bonus", 15, 1);
     this.textureBonus = Jeu.getTexture("bonus");
-    this.posX = x;
-    this.posY = y;
     this.effet = effet;
   }
   
@@ -37,9 +33,8 @@ public class Bonus
    */
   public Bonus(int x, int y, Arme a)
   {
-    this.textureBonus = Jeu.getTexture("pika");
-    this.posX = x;
-    this.posY = y;
+	  super(x, y, 0, "bonus", 15, 1);
+    this.textureBonus = Jeu.getTexture("bonus");
     this.effet = 5;
   }
   
@@ -53,13 +48,13 @@ public class Bonus
     this.textureBonus.bind();
     glBegin(GL_QUADS);
     	glTexCoord2f(0.0F, 0.0F);
-    	glVertex2i(this.posX - 15, this.posY + 15);
+    	glVertex2i((int)this.posX - 15, (int)this.posY + 15);
     	glTexCoord2f(1.0F, 0.0F);
-    	glVertex2i(this.posX + 15, this.posY + 15);
+    	glVertex2i((int)this.posX + 15, (int)this.posY + 15);
     	glTexCoord2f(1.0F, 1.0F);
-    	glVertex2i(this.posX + 15, this.posY - 15);
+    	glVertex2i((int)this.posX + 15, (int)this.posY - 15);
     	glTexCoord2f(0.0F, 1.0F);
-    	glVertex2i(this.posX - 15, this.posY - 15);
+    	glVertex2i((int)this.posX - 15, (int)this.posY - 15);
     glEnd();
   }
   
@@ -71,7 +66,7 @@ public class Bonus
    */
   public int getPosX()
   {
-    return this.posX;
+    return (int)this.posX;
   }
   
   /** 
@@ -82,7 +77,7 @@ public class Bonus
    */
   public int getPosY()
   {
-    return this.posY;
+    return (int)this.posY;
   }
   
   /** 
