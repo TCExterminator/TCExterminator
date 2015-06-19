@@ -13,16 +13,10 @@ public class HUD {
     private TrueTypeFont font;
     private boolean antiAlias = true;
 	public boolean running = false;
-	
 	private Texture hp = Jeu.getTexture("red");
 	private Texture mana = Jeu.getTexture("red");
-
-	//private static final int BOLD = 0;
-	//public static Font myFont = new Font("fontHUD", BOLD, 15);
-	
-	//DisplayMode mode = new DisplayMode(width * scale,height * scale);
-	
 	public HUD(){        
+
 		try {
             InputStream inputStream = ResourceLoader.getResourceAsStream("PopulationZeroBB.otf");
             Font awtFont2 = Font.createFont(Font.TRUETYPE_FONT, inputStream);
